@@ -1,0 +1,1668 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viaggio in Cina — Ott/Nov 2026</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <style>
+      :root {
+        --train: #e63946;
+        --boat: #2a9d8f;
+        --road: #f4a261;
+        --flight: #6a4c93;
+        --ink: #22223b;
+        --paper: #ffffff;
+        --muted: #6b7280;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        font-family:
+          -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+        color: var(--ink);
+      }
+      #map {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* ---------- header ---------- */
+      .topbar {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: var(--paper);
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+        padding: 10px 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: calc(100% - 24px);
+      }
+      .topbar h1 {
+        font-size: 16px;
+        margin: 0;
+        white-space: nowrap;
+      }
+      .topbar .sub {
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .topbar button {
+        border: 1px solid #d1d5db;
+        background: #f9fafb;
+        border-radius: 8px;
+        padding: 6px 10px;
+        font-size: 12.5px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .topbar button:hover {
+        background: #eef2f7;
+      }
+
+      /* ---------- legend ---------- */
+      .legend {
+        position: absolute;
+        bottom: 22px;
+        left: 12px;
+        z-index: 1000;
+        background: var(--paper);
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        padding: 10px 14px;
+        font-size: 12px;
+        line-height: 1.9;
+      }
+      .legend .swatch {
+        display: inline-block;
+        width: 26px;
+        height: 0;
+        border-top: 3px solid;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+      .legend .swatch.dashed {
+        border-top-style: dashed;
+      }
+      .legend .dot {
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+
+      /* ---------- markers ---------- */
+      .stop-pin {
+        background: var(--train);
+        color: #fff;
+        border: 2.5px solid #fff;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 13px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+      }
+      .side-pin {
+        background: #b08968;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+        cursor: pointer;
+      }
+      .change-pin {
+        background: #fff;
+        border: 2.5px solid var(--train);
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ---------- side panel ---------- */
+      .panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 430px;
+        max-width: 100%;
+        z-index: 1100;
+        background: var(--paper);
+        box-shadow: -4px 0 18px rgba(0, 0, 0, 0.22);
+        transform: translateX(105%);
+        transition: transform 0.25s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .panel.open {
+        transform: translateX(0);
+      }
+      .panel-head {
+        padding: 16px 20px 12px;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .panel-head h2 {
+        margin: 0;
+        font-size: 19px;
+      }
+      .panel-head .dates {
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .panel-close {
+        border: none;
+        background: #f3f4f6;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        flex: none;
+      }
+      .panel-body {
+        overflow-y: auto;
+        padding: 14px 20px 30px;
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+
+      .panel-body h3 {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        margin: 20px 0 8px;
+      }
+      .panel-body h3:first-child {
+        margin-top: 4px;
+      }
+      .panel-body p {
+        margin: 6px 0;
+      }
+      .panel-body ul {
+        margin: 6px 0;
+        padding-left: 20px;
+      }
+      .panel-body li {
+        margin: 4px 0;
+      }
+      .note {
+        background: #fef9ec;
+        border-left: 3px solid #f0c34e;
+        padding: 8px 12px;
+        border-radius: 0 8px 8px 0;
+        margin: 10px 0;
+      }
+      .warn {
+        background: #fdeeee;
+        border-left: 3px solid var(--train);
+        padding: 8px 12px;
+        border-radius: 0 8px 8px 0;
+        margin: 10px 0;
+      }
+
+      .day-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 10px 12px;
+        margin: 10px 0;
+      }
+      .day-card .day-card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .day-card .day-date {
+        font-weight: 700;
+        font-size: 12.5px;
+        color: var(--train);
+      }
+      .day-card .day-activities {
+        margin: 2px 0 2px;
+      }
+      .day-card .day-activity {
+        display: flex;
+        gap: 6px;
+        align-items: baseline;
+      }
+      .day-card .day-activity .bullet {
+        color: var(--train);
+        flex: none;
+      }
+      .day-card .day-detail {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .day-card .day-sep {
+        color: #c7cbd1;
+        font-size: 11px;
+        line-height: 1;
+        margin: 1px 0 1px 10px;
+      }
+      .day-card .day-food {
+        margin-top: 6px;
+        color: #4b5563;
+        font-size: 12.5px;
+      }
+      .day-card .day-food::before {
+        content: "🍜 ";
+      }
+
+      .day-imgs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+        margin-top: 9px;
+      }
+      .day-imgs figure {
+        margin: 0;
+      }
+      .day-imgs img {
+        width: 100%;
+        height: 95px;
+        object-fit: cover;
+        border-radius: 7px;
+        display: block;
+        background: #f3f4f6;
+      }
+      .day-imgs figcaption {
+        font-size: 10.5px;
+        color: var(--muted);
+        margin-top: 2px;
+        line-height: 1.3;
+      }
+      .day-imgs figure:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+      }
+      .day-imgs figure:last-child:nth-child(odd) img {
+        height: 130px;
+      }
+      .hero-img {
+        width: 100%;
+        max-height: 190px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin: 10px 0 4px;
+        display: block;
+        background: #f3f4f6;
+      }
+      .side-img {
+        width: 230px;
+        max-width: 100%;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 6px;
+        display: block;
+        margin-bottom: 6px;
+        background: #f3f4f6;
+      }
+
+      .hotel-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 10px 12px;
+        margin: 10px 0;
+      }
+      .hotel-card .hotel-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .hotel-card .hotel-name {
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--ink);
+      }
+      .hotel-card .hotel-name::before {
+        content: "🏨 ";
+      }
+      .hotel-card .hotel-sub {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 1px;
+      }
+      .hotel-card .hotel-address {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 11px;
+        color: var(--muted);
+        margin: 0 0 4px;
+      }
+      .hotel-card .hotel-address span {
+        flex: 1;
+      }
+      .hotel-card .copy-btn {
+        border: 1px solid #d1d5db;
+        background: #f9fafb;
+        color: var(--ink);
+        border-radius: 6px;
+        padding: 2px 8px;
+        font-size: 10.5px;
+        cursor: pointer;
+        flex: none;
+      }
+      .hotel-card .copy-btn:hover {
+        background: #eef2f7;
+      }
+      .hotel-card .copy-btn.copied {
+        background: #e6f4ea;
+        border-color: #b7e0c4;
+        color: #1a7f37;
+      }
+      .hotel-card .hotel-website {
+        font-size: 11px;
+        margin: 0 0 4px;
+      }
+      .hotel-card .hotel-website a {
+        color: var(--train);
+      }
+      .hotel-card .hotel-dates {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        font-size: 12.5px;
+        margin: 6px 0;
+        padding: 6px 0;
+        border-top: 1px dashed #666667;
+        border-bottom: 1px dashed #666667;
+      }
+      .hotel-card .hotel-date-label {
+        font-weight: 700;
+        color: var(--ink);
+        margin-right: 3px;
+      }
+      .hotel-card .hotel-date-sep {
+        color: var(--muted);
+      }
+      .hotel-card p {
+        margin: 4px 0;
+      }
+      .hotel-card .hotel-link {
+        margin-top: 6px;
+        display: inline-block;
+        font-size: 12.5px;
+      }
+      .badge {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        padding: 2px 8px;
+        border-radius: 999px;
+        white-space: nowrap;
+        flex: none;
+      }
+      .badge.booked {
+        background: #e6f4ea;
+        color: #1a7f37;
+      }
+      .badge.pending {
+        background: #fef3e0;
+        color: #9a6700;
+      }
+
+      .checklist label {
+        display: flex;
+        gap: 9px;
+        align-items: flex-start;
+        margin: 7px 0;
+        cursor: pointer;
+      }
+      .checklist input {
+        margin-top: 2.5px;
+        flex: none;
+        accent-color: var(--train);
+      }
+      .checklist input:checked + span {
+        text-decoration: line-through;
+        color: var(--muted);
+      }
+
+      table.flights {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12.5px;
+        margin: 8px 0;
+      }
+      table.flights th,
+      table.flights td {
+        border: 1px solid #e5e7eb;
+        padding: 5px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.flights th {
+        background: #f9fafb;
+      }
+
+      @media (max-width: 560px) {
+        .panel {
+          width: 100%;
+        }
+        .legend {
+          font-size: 11px;
+          padding: 8px 10px;
+          bottom: 12px;
+        }
+        .topbar {
+          top: 8px;
+          padding: 8px 12px;
+          gap: 8px;
+        }
+        .topbar h1 {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div class="topbar">
+      <div>
+        <h1>Viaggio in Cina — Ott/Nov 2026</h1>
+        <div class="sub">
+          22 ott – 8 nov · Milano → Pechino ⋯ Shanghai → Milano · Nicolo &amp;
+          Cristina
+        </div>
+      </div>
+      <button onclick="openPanel('flights')">✈️ Voli internazionali</button>
+      <button onclick="openPanel('checklist')">✅ Checklist di viaggio</button>
+    </div>
+
+    <div class="legend">
+      <div>
+        <span class="swatch" style="border-color: var(--train)"></span>Treno
+        (alta velocità)
+      </div>
+      <div>
+        <span class="swatch" style="border-color: var(--boat)"></span>Battello —
+        crociera fiume Li
+      </div>
+      <div>
+        <span class="swatch" style="border-color: var(--road)"></span>Strada
+        (Didi/taxi)
+      </div>
+      <div>
+        <span class="swatch dashed" style="border-color: var(--flight)"></span
+        >Volo (interno)
+      </div>
+      <div>
+        <span class="dot" style="background: var(--train)"></span>Tappa con
+        pernottamento (clic per il programma)
+      </div>
+      <div>
+        <span class="dot" style="background: #b08968"></span>Gita/escursione
+      </div>
+      <div style="font-size: 10px; color: var(--muted); margin-top: 2px">
+        Foto: Wikimedia Commons
+      </div>
+    </div>
+
+    <div class="panel" id="panel">
+      <div class="panel-head">
+        <div>
+          <h2 id="panel-title"></h2>
+          <div class="dates" id="panel-dates"></div>
+        </div>
+        <button class="panel-close" onclick="closePanel()">✕</button>
+      </div>
+      <div class="panel-body" id="panel-body"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      /* =========================================================
+   CONTENUTI — rispecchia README.md
+   ========================================================= */
+
+      /* Foto delle attività — immagini principali da Wikipedia/Wikimedia Commons (licenza libera) */
+      const IMG = {
+        wangfujing:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Beijing_Wangfujing_20170806.jpg/960px-Beijing_Wangfujing_20170806.jpg",
+        tiananmen:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Tiananmen_Square_%2854137047250%29.jpg/960px-Tiananmen_Square_%2854137047250%29.jpg",
+        forbidden_city:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Forbidden_City_-_View_from_Coal_Hill.jpg/960px-The_Forbidden_City_-_View_from_Coal_Hill.jpg",
+        temple_heaven:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Temple_of_Heaven_20160323_01.jpg/960px-Temple_of_Heaven_20160323_01.jpg",
+        mutianyu:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Great_Wall_of_China_July_2006.JPG/960px-Great_Wall_of_China_July_2006.JPG",
+        pingyao:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pingyao_Shilou_2013.08.25_07-01-33.jpg/960px-Pingyao_Shilou_2013.08.25_07-01-33.jpg",
+        rishengchang:
+          "https://upload.wikimedia.org/wikipedia/commons/c/c8/Rishengzhang_Piaohao_%28%E6%97%A5%E5%8D%87%E6%98%8C%E7%A5%A8%E8%99%9F%29_-_Qing_Dynasty.jpg",
+        xian_bell:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Xi%27an_Bell_Tower_2024.10.jpg/960px-Xi%27an_Bell_Tower_2024.10.jpg",
+        terracotta:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/51714-Terracota-Army.jpg/960px-51714-Terracota-Army.jpg",
+        xian_wall:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg/960px-City_wall_of_Xi%27an_51550-Xian_%2827959363326%29.jpg",
+        goose_pagoda:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Giant_Wild_Goose_Pagoda.jpg/960px-Giant_Wild_Goose_Pagoda.jpg",
+        muslim_quarter:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Xi%27an_Muslim_Quarter.jpg/960px-Xi%27an_Muslim_Quarter.jpg",
+        kuanzhai:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Shops_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05305.jpg/960px-Shops_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05305.jpg",
+        peoples_park:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Monument_to_the_Martyrs_of_the_Railway_Protection_Movement_-_Chengdu%2C_China_-_DSC05329.jpg/960px-Monument_to_the_Martyrs_of_the_Railway_Protection_Movement_-_Chengdu%2C_China_-_DSC05329.jpg",
+        panda_base:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Chengdu_Research_Base_Eingang.jpg/960px-Chengdu_Research_Base_Eingang.jpg",
+        jinli:
+          "https://upload.wikimedia.org/wikipedia/commons/d/de/Jingli.jpeg",
+        liziba:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/%E6%9D%8E%E5%AD%90%E5%9D%9D%E7%AB%99%E8%BD%BB%E8%BD%A8%E7%A9%BF%E6%A5%BC_0023.png/960px-%E6%9D%8E%E5%AD%90%E5%9D%9D%E7%AB%99%E8%BD%BB%E8%BD%A8%E7%A9%BF%E6%A5%BC_0023.png",
+        ciqikou:
+          "https://upload.wikimedia.org/wikipedia/commons/e/e3/%E4%BA%BA%E5%A4%B4%E6%94%92%E5%8A%A8%E7%9A%84%E7%A3%81%E5%99%A8%E5%8F%A3.jpg",
+        hongyadong:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/202308_Hongya_Cave_at_night_from_Qiansimen_Bridge.jpg/960px-202308_Hongya_Cave_at_night_from_Qiansimen_Bridge.jpg",
+        glass_bridge:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/ZhangjiajieGlassByHighestBridges.jpg/960px-ZhangjiajieGlassByHighestBridges.jpg",
+        zjj_park:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg/960px-1_tianzishan_wulingyuan_zhangjiajie_2012.jpg",
+        tianzi:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/China_Tianzi_Gebirge.JPG/960px-China_Tianzi_Gebirge.JPG",
+        furong_zhen:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Veduta_di_Furong_02.jpg/960px-Veduta_di_Furong_02.jpg",
+        tianmen:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg/960px-Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg",
+        sun_moon_pagodas:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Sun_and_Moon_Pagodas_Guilin_November_2017_HDR_panorama.jpg/960px-Sun_and_Moon_Pagodas_Guilin_November_2017_HDR_panorama.jpg",
+        li_river:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/87318-Li-River.jpg/960px-87318-Li-River.jpg",
+        yulong_river:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Yulong.JPG/960px-Yulong.JPG",
+        xianggong:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Xianggong_%2849937294373%29.jpg/960px-Xianggong_%2849937294373%29.jpg",
+        longsheng:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/LongshengRiceTerrace.jpg/960px-LongshengRiceTerrace.jpg",
+        xingping:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Li_River_at_Xingping_1.jpg/960px-Li_River_at_Xingping_1.jpg",
+        bund: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Bund_2.jpg/960px-The_Bund_2.jpg",
+      };
+
+      function figs(imgs) {
+        return (
+          `<div class="day-imgs">` +
+          imgs
+            .map(
+              ([k, c]) =>
+                `<figure><img src="${IMG[k]}" loading="lazy" alt="${c}"><figcaption>${c}</figcaption></figure>`,
+            )
+            .join("") +
+          `</div>`
+        );
+      }
+
+      function activitiesList(items) {
+        return (
+          `<div class="day-activities">` +
+          items
+            .map((a, i) => {
+              const row = `<div class="day-activity"><span class="bullet">•</span> <b>${a.label}</b>${a.detail ? ` <span class="day-detail">(${a.detail})</span>` : ""}</div>`;
+              const note = a.note ? `<div class="note">${a.note}</div>` : "";
+              return (i === 0 ? row : `<div class="day-sep">|</div>${row}`) + note;
+            })
+            .join("") +
+          `</div>`
+        );
+      }
+
+      function days(items) {
+        return items
+          .map((d) => {
+            const badge = d.booked
+              ? `<span class="badge booked">${d.badgeLabel || "Prenotato"}</span>`
+              : `<span class="badge pending">${d.badgeLabel || "Da prenotare"}</span>`;
+            return `
+    <div class="day-card">
+      <div class="day-card-head">
+        <div class="day-date">${d.date}</div>
+        ${badge}
+      </div>
+      ${activitiesList(d.activities)}
+      ${d.food ? `<div class="day-food">${d.food}</div>` : ""}
+      ${d.imgs ? figs(d.imgs) : ""}
+      ${d.note ? `<div class="note">${d.note}</div>` : ""}
+    </div>`;
+          })
+          .join("");
+      }
+
+      function checklist(key, items) {
+        return (
+          `<div class="checklist">` +
+          items
+            .map((t, i) => {
+              const id = key + "-" + i;
+              return `<label><input type="checkbox" data-ck="${id}"><span>${t}</span></label>`;
+            })
+            .join("") +
+          `</div>`
+        );
+      }
+
+      function escapeAttr(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function hotelCard(h) {
+        const badge = h.booked
+          ? `<span class="badge booked">Prenotato</span>`
+          : `<span class="badge pending">Da prenotare</span>`;
+        const address = h.address
+          ? `
+    <div class="hotel-address">
+      <span>${h.address}</span>
+      <button class="copy-btn" data-copy="${escapeAttr(h.address)}">📋 Copia</button>
+    </div>`
+          : "";
+        const website = h.website
+          ? `<div class="hotel-website">🌐 <a href="${h.website}" target="_blank">Sito web</a></div>`
+          : "";
+        const dates =
+          h.checkIn || h.checkOut
+            ? `
+    <div class="hotel-dates">
+      ${h.checkIn ? `<div><span class="hotel-date-label">Check-in:</span>${h.checkIn}</div>` : ""}
+      ${h.checkIn && h.checkOut ? `<span class="hotel-date-sep">·</span>` : ""}
+      ${h.checkOut ? `<div><span class="hotel-date-label">Check-out:</span>${h.checkOut}</div>` : ""}
+    </div>`
+            : "";
+        return `<div class="hotel-card">
+    <div class="hotel-head">
+      <div>
+        <div class="hotel-name">${h.name}</div>
+        ${h.sub ? `<div class="hotel-sub">${h.sub}</div>` : ""}
+      </div>
+      ${badge}
+    </div>
+    ${address}
+    ${website}
+    ${dates}
+    ${(h.paras || []).map((p) => `<p>${p}</p>`).join("")}
+    ${h.link ? `<a class="hotel-link" href="${h.link}" target="_blank">📄 Voucher PDF</a>` : ""}
+  </div>`;
+      }
+
+      const CONTENT = {
+        beijing: {
+          title: "Pechino",
+          dates: "23–25 ott · 3 notti · il giorno di arrivo è una mezza giornata",
+          body: `
+      <h3>Programma</h3>
+      ${days([
+        {
+          date: "23 ott (ven)",
+          activities: [
+            { label: "Arrivo", detail: "~12:10, aeroporto di Pechino Daxing (PKX)" },
+            { label: "Wangfujing / via Qianmen, piazza Tienanmen", detail: "esterno" },
+          ],
+          booked: true,
+          badgeLabel: "No prenotazioni",
+          food: "Wangfujing Snack Street — spiedini, tanghulu; informale, senza prenotazione, perfetta per una serata d'arrivo a basso sforzo",
+          imgs: [
+            ["wangfujing", "Wangfujing"],
+            ["tiananmen", "Piazza Tienanmen"],
+          ],
+        },
+        {
+          date: "24 ott (sab)",
+          activities: [
+            { label: "Città Proibita", detail: "mattina" },
+            { label: "Tempio del Cielo", detail: "pomeriggio" },
+          ],
+          booked: false,
+          food: "Anatra alla pechinese — Da Dong (moderno, meno unto) o Siji Minfu (locale, più economico, aspettarsi coda); il piatto essenziale di Pechino, vicino a Dongcheng",
+          imgs: [
+            ["forbidden_city", "Città Proibita"],
+            ["temple_heaven", "Tempio del Cielo"],
+          ],
+        },
+        {
+          date: "25 ott (dom)",
+          activities: [
+            { label: "Grande Muraglia — Mutianyu", detail: "partenza dall'hotel ~6:30" },
+          ],
+          booked: false,
+          food: "Hot pot di montone alla pechinese — Donglaishun; premio sostanzioso dopo la camminata, lo stile con salsa di sesamo è diverso dall'hot pot piccante del Sichuan che arriverà a Chengdu/Chongqing",
+          imgs: [["mutianyu", "Grande Muraglia a Mutianyu"]],
+          note: "<b>Tempistica Grande Muraglia:</b> arrivare all'apertura (~8:00) per battere i gruppi organizzati (picco di folla 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.",
+        },
+        {
+          date: "26 ott (lun)",
+          activities: [
+            { label: "Check-out" },
+            { label: "Giro negli hutong", detail: "se c'è tempo" },
+            {
+              label: "Treno per Pingyao",
+              detail: "partenza ~10:30, ~4h, arrivo ~14:00–14:30",
+              note: "<b>Treno Pechino–Pingyao:</b> 3 treni G al giorno da Pechino Ovest (~08:00, ~10:30, ~14:30, ~4h ciascuno) — scelto quello delle ~10:30, perché preserva un'ultima mattina rilassata a Pechino (subito dopo la partenza già all'alba per la Muraglia due giorni prima) e combacia col piano del giorno 1 a Pingyao, costruito attorno a un arrivo alle 14:00. Riconfermare numero/orario esatto del treno quando China Rail apre le vendite (15–30 giorni prima del viaggio).",
+            },
+          ],
+          booked: false,
+          food: "Colazione veloce prima del check-out — il pranzo vero si fa in treno o all'arrivo a Pingyao",
+        },
+      ])}
+      <h3>Hotel</h3>
+      ${hotelCard({
+        booked: true,
+        name: "JianGuo Hidden Hotel",
+        sub: "Beijing Tian An Men Wangfujing store",
+        address: "No. 19 Jinyu Hutong, Dongcheng District, Beijing, China",
+        website:
+          "https://us.trip.com/hotels/beijing-hotel-detail-80943188/jianguo-hidden-hotel-beijing-wangfujing-store/",
+        checkIn: "23 ott, dopo le 14:00",
+        checkOut: "26 ott, entro le 12:00 (3 notti)",
+        link: "hotels/Beijing.pdf",
+        paras: [
+          "<i>Costo:</i> €241,41 prepagati.",
+          "<span class=\"hotel-sub\">Cancellazione gratuita fino alle 18:00 del 23 ott, poi non rimborsabile.</span>",
+          "In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibita e piazza Tienanmen, buoni collegamenti metro per il Tempio del Cielo e la stazione, Wangfujing Snack Street sotto casa.",
+        ],
+      })}
+      <h3>Guida</h3>
+      <p>Prenotata per entrambe le giornate piene.</p>
+      <ul>
+        <li><b>Giorno Grande Muraglia</b> — il valore vero è il transfer privato (Mutianyu è scomoda coi mezzi pubblici), che permette di partire alle 6:30 per battere la folla; ~150–200$ per due, include funivia/slittino.</li>
+        <li><b>Giorno Città Proibita + Tempio del Cielo</b> — aggiunge profondità storica/racconto su entrambi i siti; visto che la guida per la Muraglia c'è già, vale la pena estenderla anche a questo giorno invece di mischiare guidato e fai-da-te.</li>
+      </ul>
+      <h3>Attività particolari (promemoria)</h3>
+      <ul>
+        <li><b>Spettacolo:</b> teatro Deyunshe (德云社) di crosstalk (xiangsheng) — forma d'arte genuinamente locale, pubblico quasi tutto del posto, solo in mandarino (conta l'atmosfera/energia più delle battute)</li>
+        <li><b>Qualcosa di strano:</b> Lu Zhu Huo Shao (卤煮火烧) — stufato di frattaglie e intestino di maiale con pane, vero piatto popolare pechinese, per es. da 门框胡同卤煮 vicino a Dashilar/Qianmen</li>
+        <li><b>Fuori dai giri turistici:</b> parco Ritan all'alba — gente del posto che fa tai chi, porta a spasso uccellini in gabbia, gioca a xiangqi, si esercita con spada/ventaglio</li>
+        <li><b>Dolce curioso:</b> Daoxiangcun (稻香村), pasticceria centenaria — wandouhuang (dolce di farina di piselli), aiwowo (dolce di riso glutinoso), lüdagun ("l'asino che rotola")</li>
+      </ul>
+      <h3>Saltati, di proposito</h3>
+      <p>Palazzo d'Estate (ridondante con la Città Proibita, richiede una mezza giornata a sé), Tempio dei Lama, distretto artistico 798 — non c'è spazio in 2,5 giorni senza sacrificare quanto sopra.</p>
+      <p><b>Tratto di Muraglia:</b> scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).</p>
+      <p><b>Possibile esperienza guidata alternativa (non ancora prenotata):</b> <a href="https://www.getyourguide.com/pechino-l186/tour-privato-della-grande-muraglia-di-mutianyu-con-autista-inglese-t875282?ranking_uuid=8626a31c-46a3-4506-a9dc-09d94e9227df&amp;referral_redirect=1&amp;q=Mutianyu&amp;date_from=2026-10-25" target="_blank">Tour privato Grande Muraglia di Mutianyu con autista in inglese</a> su GetYourGuide — pickup in hotel, biglietti d'ingresso e navetta inclusi, ~90 min (75 km) fino al parcheggio di Mutianyu, ritrovo con l'autista alle 7:30 in hotel. È un autista in inglese, non una guida con narrazione lungo il percorso — da valutare come alternativa più economica alla guida privata già in programma.</p>
+      <h3>Checklist</h3>
+      ${checklist("beijing", [
+        "Prenotare la guida privata — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo",
+        "Prenotare in anticipo i biglietti della Città Proibita — quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida",
+        "Prenotare la cena di anatra alla pechinese (Da Dong o Siji Minfu) — sabato sera, meglio in anticipo",
+      ])}`,
+        },
+
+        pingyao: {
+          title: "Pingyao",
+          dates:
+            "26–27 ott · 1 notte · piccola città antica, una notte basta",
+          body: `
+      <h3>Programma</h3>
+      ${days([
+        {
+          date: "26 ott (lun)",
+          activities: [
+            { label: "Arrivo", detail: "~14:00–14:30, stazione di Pingyao Gucheng" },
+            { label: "Trasferimento in centro", detail: "stazione a 8,5 km; taxi ~20min/30 CNY o bus 108 ~30min/¥1" },
+            { label: "Check-in" },
+            { label: "Via Ming-Qing e Tempio del Dio della Città", detail: "Chenghuangmiao" },
+          ],
+          booked: false,
+          food: "Manzo di Pingyao e noodles tirati a mano per cena su via Ming-Qing; le lanterne si accendono dopo il tramonto",
+          imgs: [["pingyao", "Centro storico di Pingyao — via Ming-Qing"]],
+        },
+        {
+          date: "27 ott (mar)",
+          activities: [
+            { label: "Mura + Yamen", detail: "inizio ~8:30 per battere i gruppi" },
+            { label: "Banca Rishengchang", detail: "la prima banca cinese" },
+            { label: "Torre della Città" },
+            { label: "Tempio di Confucio o shopping", detail: "opzionale, se c'è tempo" },
+            { label: "Treno per Xi'an", detail: "partenza ~17:00, arrivo ~19:55–20:40" },
+          ],
+          booked: false,
+          food: "Pranzo rilassato prima di andare in stazione",
+          imgs: [
+            ["rishengchang", "Banca Rishengchang — la prima banca cinese"],
+          ],
+        },
+      ])}
+      <div class="note">La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.</div>
+      <h3>Hotel</h3>
+      ${hotelCard({
+        booked: false,
+        name: "Dentro le mura della città vecchia",
+        paras: [
+          "Un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina.",
+        ],
+      })}
+      <h3>Guida</h3>
+      <p>Non serve — fai-da-te; un biglietto cumulativo di 3 giorni (~125 CNY / 16€) copre le Mura, lo Yamen, la banca Rishengchang, il Tempio del Dio della Città e gli altri siti principali dentro le mura.</p>
+      <h3>Checklist</h3>
+      ${checklist("pingyao", [
+        "Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico",
+        "Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)",
+        "Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)",
+        "Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano",
+      ])}`,
+        },
+
+        xian: {
+          title: "Xi'an",
+          dates: "27–28 ott · 2 notti · l'Esercito di Terracotta richiede una giornata intera",
+          body: `
+      <h3>Programma</h3>
+      ${days([
+        {
+          date: "27 ott (mar)",
+          activities: [
+            { label: "Arrivo", detail: "~19:55–20:40, stazione di Xi'an Nord" },
+            { label: "Metro Linea 2", detail: "verso Torre della Campana/South Gate, ~25–28min, 4 CNY" },
+            { label: "Check-in" },
+          ],
+          booked: false,
+          food: "Cena veloce vicino all'hotel dopo una lunga giornata di viaggio",
+          imgs: [["xian_bell", "Torre della Campana di Xi'an"]],
+        },
+        {
+          date: "28 ott (mer)",
+          activities: [
+            { label: "Esercito di Terracotta", detail: "Didi dall'hotel ~7:30, il sito apre alle 8:30" },
+            { label: "Pranzo nel Quartiere Musulmano" },
+            { label: "Giro in bici sulle Mura", detail: "dal South Gate" },
+            { label: "Torri della Campana e del Tamburo", detail: "esterni, sul percorso" },
+            { label: "Grande Pagoda dell'Oca Selvatica + spettacolo di fontane", detail: "se restano tempo ed energie" },
+          ],
+          booked: false,
+          food: "Yangrou Paomo (zuppa di montone e pane) o noodles Biangbiang nel Quartiere Musulmano a pranzo",
+          imgs: [
+            ["terracotta", "Esercito di Terracotta"],
+            ["muslim_quarter", "Quartiere Musulmano"],
+            ["xian_wall", "Giro in bici sulle Mura"],
+            ["goose_pagoda", "Grande Pagoda dell'Oca Selvatica"],
+          ],
+        },
+      ])}
+      <div class="note">La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per battere i grandi gruppi che arrivano a metà mattina. È la giornata più carica del viaggio, quindi le attività sono in ordine di priorità — niente è stato tolto, ma la coda è esplicitamente sacrificabile: Esercito di Terracotta e Quartiere Musulmano sono non negoziabili, il giro in bici sulle Mura è la terza scelta, le Torri sono esterni che si incontrano naturalmente tra il Quartiere e le mura (costo extra quasi zero), e la Grande Pagoda + spettacolo delle fontane è la prima cosa da tagliare se la giornata si allunga — è una corsa di metro verso sud e la mattina dopo c'è un treno alle 8:07.</div>
+      <h3>Hotel</h3>
+      ${hotelCard({
+        booked: false,
+        name: "Vicino a Torre della Campana / South Gate",
+        paras: [
+          "Entrambe direttamente sulla Linea 2, corsa senza cambi dalla stazione di Xi'an Nord dove arriva il treno da Pingyao, e a pochi passi dal Quartiere Musulmano, dalle Torri della Campana/del Tamburo e dall'ingresso Sud delle Mura.",
+        ],
+      })}
+      <h3>Guida</h3>
+      <p>Non serve — fai-da-te con Didi/metro; il sito dell'Esercito di Terracotta ha abbastanza pannelli informativi da rendere non essenziale una guida privata.</p>
+      <h3>Attività particolari (promemoria)</h3>
+      <ul>
+        <li><b>Tappa alternativa:</b> Grande Moschea (Huajue Xiang) — architettura sino-islamica, più tranquilla delle vie del cibo del Quartiere Musulmano che la circondano</li>
+        <li><b>Serata alternativa:</b> cena con spettacolo di danze della dinastia Tang — alternativa teatrale al solo spettacolo delle fontane</li>
+      </ul>
+      <h3>Checklist</h3>
+      ${checklist("xian", [
+        "Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi",
+        "Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi",
+        "Mettere a budget il Didi per Lintong (Esercito di Terracotta) — circa 75–110 CNY a tratta",
+      ])}`,
+        },
+
+        chengdu: {
+          title: "Chengdu",
+          dates: "29–30 ott · 2 notti · panda + città vecchia",
+          body: `
+      <h3>Programma</h3>
+      ${days([
+        {
+          date: "29 ott (gio)",
+          activities: [
+            { label: "Arrivo", detail: "~11:40 stimato, stazione di Chengdu Est (alta velocità da Xi'an, partenza 8:07, ~3,5h)" },
+            { label: "Linea 2 fino all'hotel" },
+            { label: "Vicoli antichi di Kuanzhai Xiangzi", detail: "pomeriggio" },
+            { label: "Cultura del tè al Parco del Popolo", detail: "casa da tè Heming" },
+          ],
+          booked: false,
+          food: "Noodles Dan Dan / ravioli Zhong a pranzo a Kuanzhai Xiangzi; cena con hotpot del Sichuan (Shu Daoxia o Haidilao) vicino a Chunxi Road — chiedere la pentola metà piccante/metà delicata se non si vuole tutto infuocato",
+          imgs: [
+            ["kuanzhai", "Vicoli antichi di Kuanzhai Xiangzi"],
+            ["peoples_park", "Parco del Popolo"],
+          ],
+        },
+        {
+          date: "30 ott (ven)",
+          activities: [
+            { label: "Base dei Panda Giganti", detail: "partenza ~7:00, ora del pasto" },
+            { label: "Tempio Wuhou + via antica Jinli", detail: "opzionali, da saltare se stanchi" },
+            { label: "Scultura del panda arrampicato", detail: "Chunxi Road/IFS" },
+            { label: "SKP + spettacolo di luci delle torri di bambù", detail: "sera" },
+          ],
+          booked: false,
+          food: "Pranzo veloce vicino all'hotel; cena moderna dentro SKP",
+          imgs: [
+            ["panda_base", "Base dei Panda Giganti"],
+            ["jinli", "Via antica Jinli"],
+          ],
+        },
+      ])}
+      <div class="note">La Base dei Panda è la prima cosa in programma perché i panda sono più attivi nella finestra del pasto mattutino, e la fascia d'ingresso del mattino è anche la prima a esaurirsi.</div>
+      <h3>Hotel</h3>
+      ${hotelCard({
+        booked: false,
+        name: "Vicino a piazza Tianfu / Chunxi Road",
+        paras: [
+          "All'incrocio delle linee metro 1 e 2, e la stazione di Chengdu Est (dove arriva il treno da Xi'an) è collegata direttamente con la Linea 2 in ~15 minuti senza cambi.",
+        ],
+      })}
+      <h3>Guida</h3>
+      <p>Non serve — fai-da-te con metro/Didi; l'ingresso alla Base dei Panda si prenota online in anticipo.</p>
+      <h3>Attività particolari (promemoria)</h3>
+      <ul>
+        <li><b>Serata alternativa:</b> spettacolo di cambio maschere dell'Opera del Sichuan (Bian Lian) al teatro Shufeng Yayun — le maschere cambiano colore in una frazione di secondo con un colpo di ventaglio</li>
+      </ul>
+      <h3>Saltati, di proposito</h3>
+      <p>Tempio Wuhou — segnalato come opzionale/bassa priorità; prima cosa da tagliare se il giorno 2 si allunga o il gruppo è stanco, dato che la via Jinli lì fuori copre un terreno simile.</p>
+      <h3>Checklist</h3>
+      ${checklist("chengdu", [
+        "Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)",
+      ])}`,
+        },
+
+        chongqing: {
+          title: "Chongqing",
+          dates: "31 ott · 1 notte · tappa veloce",
+          body: `
+      <h3>Programma</h3>
+      ${days([
+        {
+          date: "31 ott (sab)",
+          activities: [
+            { label: "Arrivo", detail: "~10:10–10:40 stimato, alta velocità da Chengdu, partenza ~8:37, ~1,5–2h" },
+            { label: "Bagagli in hotel" },
+            { label: "Stazione di Liziba", detail: "il treno che attraversa il palazzo, con la Linea 2" },
+            { label: "Città vecchia di Ciqikou" },
+            { label: "Passerella di vetro The Crystal", detail: "Raffles City" },
+            { label: "Cena hotpot", detail: "Jiefangbei" },
+            { label: "Spettacolo di droni", detail: "terrazza Nanbin Rd/Changjiahui, Linea 6, ~20:30 il sabato" },
+            { label: "Hongyadong illuminata", detail: "per chiudere la serata" },
+          ],
+          booked: false,
+          food: "Suanla Fen (noodles agropiccanti) / Bingfen (dolce gelatinoso) a Ciqikou a pranzo; hotpot di Chongqing (pentola divisa Yuanyang) a Jiefangbei a cena",
+          imgs: [
+            ["liziba", "Liziba — il treno che attraversa il palazzo"],
+            ["ciqikou", "Città vecchia di Ciqikou"],
+            ["hongyadong", "Hongyadong di notte"],
+          ],
+        },
+      ])}
+      <div class="note">L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.</div>
+      <h3>Hotel</h3>
+      ${hotelCard({
+        booked: false,
+        name: "Vicino a Jiefangbei / Xiaoshizi",
+        paras: [
+          "Sulle linee metro 1/2; essendo una tappa di una sola notte, stare a 5 minuti dalla metro permette di mollare i bagagli e ripartire subito senza perdere ritmo.",
+        ],
+      })}
+      <h3>Guida</h3>
+      <p>Non serve — completamente fai-da-te con metro/Didi.</p>
+      <h3>Attività particolari (promemoria)</h3>
+      <ul>
+        <li><b>Alternativa:</b> crociera sul fiume Liangjiang (~20€/150 CNY) — guardare lo spettacolo di droni dall'acqua invece che dalla piattaforma affollata</li>
+      </ul>
+      <div class="warn"><b>Avviso fatica:</b> questo tratto accumula tre sveglie all'alba di fila — Base dei Panda ~7:00 (30 ott), il treno delle ~8:37 da Chengdu (31 ott) e il treno delle 08:50 per Zhangjiajie (1 nov) — e la serata di Chongqing arriva alle ~22:30 a Hongyadong. La stazione di Chongqing Est è a 30–40 min da Jiefangbei, quindi l'1 nov significa uscire dall'hotel alle ~7:15 dopo poco sonno. Dosare la serata di Chongqing di conseguenza (Hongyadong è la cosa naturale da accorciare).</div>
+      <h3>Checklist</h3>
+      ${checklist("chongqing", [
+        "Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva",
+      ])}`,
+        },
+
+        zhangjiajie: {
+          title: "Zhangjiajie",
+          dates: "1–2 nov · 2 notti · partenza la mattina del 3 nov",
+          body: `
+      <h3>Programma</h3>
+      ${days([
+        {
+          date: "1 nov (dom)",
+          activities: [
+            { label: "Arrivo", detail: "~11:20 stimato, Zhangjiajie Ovest (alta velocità da Chongqing, partenza 08:50, ~2,5h)" },
+            { label: "Didi per Wulingyuan e check-in" },
+            { label: "Ponte di Vetro del Grand Canyon di Zhangjiajie", detail: "pomeriggio" },
+          ],
+          booked: false,
+          food: "Cucina Tujia a pranzo (stufato in coccio San Guo Zhi, pancetta affumicata La Rou); cena e passeggiata serale su via antica Xibu",
+          imgs: [["glass_bridge", "Ponte di Vetro del Grand Canyon"]],
+        },
+        {
+          date: "2 nov (lun)",
+          activities: [
+            { label: "Parco nazionale, giornata intera", detail: "al cancello presto per battere le code" },
+            { label: "Ascensore Bailong", detail: "fino a Yuanjiajie — pilastri di Avatar + Primo Ponte Sotto il Cielo" },
+            { label: "Tianzi Mountain + Galleria delle Dieci Miglia", detail: "pomeriggio" },
+            { label: "Furong Zhen", detail: "puntata serale in alta velocità, 20–25min, città-cascata illuminata" },
+          ],
+          booked: false,
+          food: "Pranzo veloce dentro il parco; cena a base di tofu di riso a Furong Zhen, rientro con uno degli ultimi treni",
+          imgs: [
+            ["zjj_park", "Yuanjiajie — i pilastri di Avatar"],
+            ["tianzi", "Tianzi Mountain"],
+            ["furong_zhen", "Furong Zhen, la città-cascata"],
+          ],
+        },
+        {
+          date: "3 nov (mar)",
+          activities: [
+            { label: "Check-out", detail: "~6:45, bagagli nel deposito della funivia" },
+            { label: "Funivia Tianmen Mountain", detail: "in coda entro le ~7:30, apertura" },
+            { label: "Glass Skywalk + passerelle a strapiombo" },
+            { label: "Grotta di Tianmen", detail: "scale mobili + 999 gradini" },
+            { label: "Stop tassativo giù dalla montagna", detail: "entro le 11:30" },
+            { label: "Didi per Zhangjiajie Ovest", detail: "~30min" },
+            { label: "Alta velocità per Guilin", detail: "13:07, ~6h, cambio a Changsha Sud" },
+          ],
+          booked: false,
+          food: "Si mangia in treno — viaggio lungo, poche fermate",
+          imgs: [["tianmen", "Tianmen Mountain"]],
+        },
+      ])}
+      <div class="note">Il giorno del parco (2 nov) inizia al cancello per battere la coda dell'ascensore Bailong. Furong Zhen è aggiunta come extra serale leggero con un breve salto in alta velocità, dato che è a soli 20–25 minuti ed è illuminata di notte — i bagagli restano all'hotel di Wulingyuan quindi è un'andata e ritorno veloce.</div>
+      <div class="warn"><b>Tempistica Tianmen (3 nov):</b> il giro completo ci sta nella finestra 7:30–11:30 — ma per un pelo, e solo partendo all'apertura. Inizio novembre in un giorno feriale è bassa stagione, quindi le code dovrebbero essere gestibili; comunque questo si incastra direttamente col treno collo-di-bottiglia del viaggio, quindi trattare le 11:30 come non negoziabili. Se la mattina va lunga (coda in funivia, ritardo per meteo), l'ordine dei sacrifici è: saltare la discesa dei 999 gradini (usare scale mobili + navetta), poi accorciare le passerelle a strapiombo — il Glass Skywalk e la Grotta di Tianmen sono i due da tenere.</div>
+      <h3>Hotel</h3>
+      ${hotelCard({
+        booked: false,
+        name: "Wulingyuan",
+        paras: [
+          "La cittadina base proprio ai piedi del parco, evita il pendolarismo quotidiano verso l'area panoramica.",
+        ],
+      })}
+      <h3>Guida</h3>
+      <p>Non serve — fai-da-te con le navette interne del parco + Didi per i trasferimenti.</p>
+      <h3>Checklist</h3>
+      ${checklist("zhangjiajie", [
+        "Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong",
+        "Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie",
+        "Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta",
+        "Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud",
+      ])}`,
+        },
+
+        guilin: {
+          title: "Guilin e Yangshuo",
+          dates:
+            "3–6 nov · soggiorno spezzato: Guilin (3 nov) → Yangshuo (4 nov) → Guilin (5 nov)",
+          body: `
+      <h3>Programma</h3>
+      ${days([
+        {
+          date: "3 nov (mar)",
+          activities: [
+            { label: "Arrivo a Guilin", detail: "~19:00–19:30 stimato, treno da Zhangjiajie, partenza 13:07, ~6h" },
+            { label: "Check-in" },
+          ],
+          booked: false,
+          food: "Noodles di riso di Guilin (Mifen) per una cena tardi — informale, aperto fino a tardi",
+          imgs: [["sun_moon_pagodas", "Pagode del Sole e della Luna"]],
+        },
+        {
+          date: "4 nov (mer)",
+          activities: [
+            { label: "Crociera sul fiume Li", detail: "Guilin → Yangshuo, ~4h, pranzo a buffet a bordo, vista sulla banconota da 20 yuan" },
+            { label: "Campagna di Yangshuo / fiume Yulong", detail: "in bici o su zattera di bambù" },
+          ],
+          booked: false,
+          food: "Pranzo a buffet in crociera; cena con Beer Fish su West Street la sera",
+          imgs: [
+            ["li_river", "Crociera sul fiume Li"],
+            ["yulong_river", "Fiume Yulong"],
+          ],
+        },
+        {
+          date: "5 nov (gio)",
+          activities: [
+            { label: "Xianggong Mountain all'alba", detail: "pickup a Yangshuo ~5:45, alba ~6:55 sull'ansa del fiume Li" },
+            { label: "Risaie di Longsheng", detail: "~3–3,5h di strada, pranzo nel villaggio, camminata fino alle ~15:00" },
+            { label: "Rientro a Guilin", detail: "~17:00–17:30, check-in" },
+            { label: "Pagode del Sole e della Luna", detail: "illuminate la sera" },
+          ],
+          booked: false,
+          food: "Colazione per strada; pranzo nel villaggio a Longsheng; cena Guangxi vicino alle pagode",
+          imgs: [
+            [
+              "xianggong",
+              "Alba sull'ansa del fiume Li — Xianggong Mountain",
+            ],
+            ["longsheng", "Risaie di Longsheng"],
+          ],
+        },
+        {
+          date: "6 nov (ven)",
+          activities: [
+            { label: "Ultima mattina rilassata", detail: "sveglia con calma" },
+            { label: "Parco delle Sette Stelle", detail: "opzionale" },
+            { label: "Pranzo tardi e shopping di souvenir", detail: "salsa di peperoncino, caramelle di giuggiola" },
+            { label: "Aeroporto", detail: "entro le ~16:30" },
+            { label: "Volo per Shanghai", detail: "serale, ~18:30" },
+          ],
+          booked: false,
+          food: "Ultimo pranzo a Guilin — nessuna fretta prima dell'aeroporto",
+        },
+      ])}
+      <div class="note">Il 5 nov è un unico grande arco con un solo autista per tutta la giornata: Xianggong (~45min da Yangshuo) e Longsheng (~2–2,5h a nord-ovest di Guilin) stanno su lati opposti di Guilin, quindi il percorso è Yangshuo → Xianggong → oltre Guilin → Longsheng → Guilin — circa 5,5–6h di guida totali. L'alba è <i>il</i> momento per Xianggong: il sole sorge alle ~6:55 a inizio novembre e lo scatto classico è la nebbia mattutina sull'ansa del fiume Li — anche se la nebbia fitta è un rischio reale senza piano B a quell'ora (se è tutto coperto, si prosegue dritti per Longsheng). A inizio novembre il riso di Longji è già raccolto, quindi aspettarsi terrazze a strati marroni/a specchio d'acqua più che dorate. Il vantaggio: il giorno del volo non ha nessun trasferimento lungo — la mattina del 6 nov diventa un vero cuscinetto. Nota: è un'altra sveglia alle ~5:30, incorniciata dalla giornata rilassata di crociera prima e dalla mattina libera dopo.</div>
+      <div class="note"><b>Volo Guilin → Shanghai (6 nov):</b> verificato — KWL→PVG ha ~6 partenze dirette al giorno (China Eastern, Juneyao, Spring, Air China, Shanghai Airlines) distribuite dalle ~07:00 alle ~22:35, ~2h15m di volo. <b>Puntare a una partenza serale attorno alle 18:30–19:30 su PVG</b> (arrivo ~21:00–21:45, hotel entro le ~23:00): abbastanza presto per andare a dormire a un'ora decente a Shanghai, e con Longsheng spostato al 5 nov il giorno della partenza è del tutto senza fretta — nessun rischio di lunghi trasferimenti tra la sveglia e il gate. Gli orari di nov 2026 non sono ancora caricati — prenotare appena disponibili.</div>
+      <div class="note"><b>Piano B crociera fiume Li:</b> ott/nov è la stagione secca del Guangxi; l'acqua bassa può accorciare la crociera o sostituirne una parte con un bus. In quel caso, il piano B per il 4 nov è: Didi/bus per Xingping (~1h da Guilin), zattera di bambù sul tratto Xingping → Murale dei Nove Cavalli — che include il vero punto panoramico della banconota da 20 yuan — poi si prosegue su strada fino a Yangshuo. Stessi paesaggi chiave, barche adatte all'acqua bassa.</div>
+      <h3>Hotel</h3>
+      ${hotelCard({
+        booked: false,
+        name: "Guilin centrale + Yangshuo (soggiorno spezzato)",
+        paras: [
+          "Guilin centrale per entrambe le notti a Guilin (vicino a Due Fiumi e Quattro Laghi/Pagode del Sole e della Luna va bene sia per l'arrivo che per il ritorno); centro di Yangshuo o campagna lungo il fiume per la notte lì.",
+        ],
+      })}
+      <h3>Guida</h3>
+      <p>Non serve — fai-da-te con Didi/taxi e il biglietto della crociera sul fiume Li; l'unica cosa da prenotare è un autista privato per l'intera giornata del 5 nov (pickup a Yangshuo prima dell'alba → alba a Xianggong → Longsheng → rientro a Guilin).</p>
+      <h3>Saltati, di proposito</h3>
+      <p>Collina della Proboscide d'Elefante e Grotta del Flauto di Canna — le due tappe più da pullman turistico di Guilin, tolte per fare spazio all'arco Xianggong-all'alba + Longsheng del 5 nov; il Parco delle Sette Stelle resta come riempitivo opzionale della mattina libera del 6 nov.</p>
+      <div class="note"><b>Bagagli:</b> le valigie grandi non hanno posto sulla barca della crociera (realisticamente solo bagaglio a mano). Visto che comunque torniamo a Guilin il 5 nov, lasciare le valigie grandi all'hotel di Guilin e portare una borsa da una notte a testa a Yangshuo — chiedere all'hotel di custodirle già in fase di prenotazione (richiesta standard, soprattutto se riprenotiamo lo stesso hotel per entrambe le notti di Guilin).</div>
+      <h3>Checklist</h3>
+      ${checklist("guilin", [
+        "Prenotare lo stesso hotel di Guilin per entrambe le notti (3 e 5 nov) se possibile, e confermare che custodiscano le valigie grandi durante la notte a Yangshuo",
+        "Prenotare in anticipo il biglietto della crociera sul fiume Li — ricontrollare i livelli dell'acqua sotto data; la zattera da Xingping è il piano B",
+        "Prenotare l'autista privato per l'intera giornata del 5 nov (pickup a Yangshuo ~5:45 → Xianggong → Longsheng → Guilin) — concordare in anticipo tutto il percorso e il prezzo",
+        "Verificare che il punto panoramico di Xianggong Mountain apra per l'alba (di norma sì — piccolo biglietto d'ingresso, ~60 CNY)",
+        "Prenotare il volo serale Guilin → Shanghai (~18:30–19:30 su PVG) appena aprono gli orari di nov 2026",
+      ])}`,
+        },
+
+        shanghai: {
+          title: "Shanghai",
+          dates: "6–8 nov · 2 notti · giornata libera il 7 nov prima del volo notturno",
+          body: `
+      <div class="warn"><b>DA FARE — non ancora studiata.</b> La guida di Cristina ha solo un titolo segnaposto per Shanghai ("24 ore a Shanghai") senza contenuto. Mancano ancora: cosa visitare/saltare e perché, zona hotel, cibo, checklist.</div>
+      <p>Arrivo la sera del 6 nov col volo da Guilin (~21:00–21:45 su PVG, hotel entro le ~23:00); il 7 nov è una giornata libera prima di andare a PVG per il volo notturno delle 01:45 dell'8 nov.</p>
+      <img class="hero-img" src="${IMG.bund}" loading="lazy" alt="Il Bund, Shanghai">
+      <p style="font-size:10.5px;color:var(--muted);margin-top:2px">Il Bund — il candidato ovvio per la giornata libera, una volta studiata</p>`,
+        },
+
+        flights: {
+          title: "Voli internazionali",
+          dates: "Air China · prenotazione DP6QBH · conferma PF4TYP",
+          body: `
+      <p>Prenotati con Air China. PDF completo: <code>flights/AirChina-DP6QBH.pdf</code></p>
+      <table class="flights">
+        <tr><th></th><th>Andata</th><th>Ritorno</th></tr>
+        <tr><th>Volo</th><td>CA750</td><td>CA967</td></tr>
+        <tr><th>Tratta</th><td>Milano MXP (T1) → Pechino PKX (Daxing)</td><td>Shanghai PVG (T2) → Milano MXP (T1)</td></tr>
+        <tr><th>Data</th><td>gio 22 ott 2026</td><td>dom 8 nov 2026</td></tr>
+        <tr><th>Partenza</th><td>20:00</td><td>01:45</td></tr>
+        <tr><th>Arrivo</th><td>12:10 (+1 giorno)</td><td>07:15</td></tr>
+        <tr><th>Durata</th><td>10h10m</td><td>12h30m</td></tr>
+        <tr><th>Classe</th><td>Economy (L)</td><td>Economy (L)</td></tr>
+        <tr><th>Aereo</th><td>—</td><td>Airbus A350-900</td></tr>
+        <tr><th>Bagaglio</th><td>1 bagaglio in stiva/pax (gratis)</td><td>1 bagaglio in stiva/pax (gratis)</td></tr>
+      </table>
+      <h3>Note</h3>
+      <ul>
+        <li>L'andata atterra a <b>Daxing (PKX)</b>, non al vecchio aeroporto Capital (PEK) — verificare quale aeroporto presuppongono trasferimenti/hotel.</li>
+        <li>Il ritorno parte da <b>Pudong (PVG)</b> — dato che arriviamo a Pechino, dovremo raggiungere Shanghai entro fine viaggio.</li>
+        <li>Il ritorno parte all'01:45 — in pratica significa essere a PVG la sera del 7 novembre.</li>
+        <li>Il biglietto è tariffa Economy (L): riemissione consentita con penale (€0–150), <b>non rimborsabile</b>.</li>
+      </ul>`,
+        },
+
+        checklist: {
+          title: "Checklist di viaggio",
+          dates: "nulla di prenotato tranne i voli internazionali e l'hotel di Pechino",
+          body: `
+      <div class="warn"><b>⚠️ Finestre di apertura vendite:</b> per ora non si può prenotare nulla sui treni — China Railway apre le vendite solo <b>15–30 giorni prima di ogni partenza</b>. Impostare promemoria sul calendario per ogni tratta, e prendere Zhangjiajie → Guilin appena apre. Anche le quote delle attrazioni hanno i loro tempi: Città Proibita ~7 giorni prima, Base dei Panda pochi giorni prima (la fascia mattutina si esaurisce per prima), funivia del Tianmen Mountain pochi giorni prima.</div>
+      <div class="warn"><b>Punto critico:</b> Zhangjiajie → Guilin è il singolo punto di rottura del percorso (~6h, richiede un cambio treno a Changsha Sud, nessun volo stagionale a novembre). Prenotare questa tratta per prima.</div>
+      <h3>Checklist</h3>
+      ${checklist("trip", [
+        "Visto per la Cina — i passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni), ma la misura ha una scadenza: confermare che copra ancora ott–nov 2026 prima di dare per scontato che il visto non serva",
+        "Trasporti interni Pechino → Shanghai (volo o treno, più le tappe intermedie)",
+        "Alloggi — Pechino prenotata (vedi cartella hotels/), tutte le altre città ancora aperte",
+        "Controllo scadenza passaporti (Nicolo: 08/08/27, Cristina: 29/08/34 — entrambi ok)",
+        "Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì",
+        "Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti",
+        "Procurarsi una eSIM cinese o confermare il roaming dati — serve per mappe/traduzione/app taxi fin dall'atterraggio",
+        "Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato",
+        "Prenotare tutti i biglietti dei treni ad alta velocità — China Railway apre le vendite 15 giorni prima (30 per alcune tratte); non ridursi all'ultimo per la tratta Zhangjiajie → Guilin",
+      ])}`,
+        },
+      };
+
+      /* =========================================================
+   MAPPA
+   ========================================================= */
+
+      const map = L.map("map", { zoomControl: true }).setView([31.0, 111.5], 5);
+      map.zoomControl.setPosition("bottomright");
+
+      L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+        {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+          subdomains: "abcd",
+          maxZoom: 19,
+        },
+      ).addTo(map);
+
+      const STOPS = [
+        {
+          key: "beijing",
+          n: 1,
+          name: "Pechino",
+          ll: [39.9042, 116.4074],
+          dates: "23–25 ott",
+        },
+        {
+          key: "pingyao",
+          n: 2,
+          name: "Pingyao",
+          ll: [37.2009, 112.1747],
+          dates: "26 ott",
+        },
+        {
+          key: "xian",
+          n: 3,
+          name: "Xi'an",
+          ll: [34.3416, 108.9398],
+          dates: "27–28 ott",
+        },
+        {
+          key: "chengdu",
+          n: 4,
+          name: "Chengdu",
+          ll: [30.5728, 104.0668],
+          dates: "29–30 ott",
+        },
+        {
+          key: "chongqing",
+          n: 5,
+          name: "Chongqing",
+          ll: [29.563, 106.5516],
+          dates: "31 ott",
+        },
+        {
+          key: "zhangjiajie",
+          n: 6,
+          name: "Zhangjiajie (Wulingyuan)",
+          ll: [29.3455, 110.543],
+          dates: "1–2 nov",
+        },
+        {
+          key: "guilin",
+          n: 7,
+          name: "Guilin",
+          ll: [25.2744, 110.29],
+          dates: "3 e 5 nov (soggiorno spezzato)",
+        },
+        {
+          key: "guilin",
+          n: 8,
+          name: "Yangshuo",
+          ll: [24.7786, 110.4966],
+          dates: "4 nov",
+        },
+        {
+          key: "shanghai",
+          n: 9,
+          name: "Shanghai",
+          ll: [31.2304, 121.4737],
+          dates: "6–7 nov",
+        },
+      ];
+
+      const SIDE_TRIPS = [
+        {
+          name: "Grande Muraglia a Mutianyu",
+          ll: [40.4319, 116.5704],
+          img: "mutianyu",
+          txt: "Gita da Pechino — 25 ott, partenza 6:30 con guida/transfer privato; funivia in salita, slittino in discesa.",
+        },
+        {
+          name: "Esercito di Terracotta (Lintong)",
+          ll: [34.3841, 109.2785],
+          img: "terracotta",
+          txt: "Gita da Xi'an — 28 ott, Didi alle ~7:30 per battere i pullman turistici; il sito apre alle 8:30.",
+        },
+        {
+          name: "Ponte di Vetro del Grand Canyon",
+          ll: [29.4079, 110.7573],
+          img: "glass_bridge",
+          txt: "Zhangjiajie — pomeriggio dell'1 nov, subito dopo l'arrivo e il check-in a Wulingyuan.",
+        },
+        {
+          name: "Furong Zhen",
+          ll: [28.9855, 109.8266],
+          img: "furong_zhen",
+          txt: "Puntata serale da Zhangjiajie — 2 nov, 20–25min in alta velocità; città-cascata illuminata, cena a base di tofu di riso, rientro con uno degli ultimi treni.",
+        },
+        {
+          name: "Tianmen Mountain",
+          ll: [29.05, 110.479],
+          img: "tianmen",
+          txt: "Mattina del 3 nov prima del treno per Guilin — funivia all'apertura delle 7:30, stop tassativo giù dalla montagna entro le 11:30.",
+        },
+        {
+          name: "Xianggong Mountain",
+          ll: [24.8385, 110.4116],
+          img: "xianggong",
+          txt: "Alba del 5 nov — l'autista passa a Yangshuo ~5:45, in cima per l'alba delle ~6:55 sull'ansa del fiume Li; poi dritti verso Longsheng.",
+        },
+        {
+          name: "Xingping (piano B crociera)",
+          ll: [24.881, 110.494],
+          img: "xingping",
+          txt: "Piano B per il 4 nov se l'acqua del fiume Li è bassa: zattera di bambù sul tratto Xingping → Murale dei Nove Cavalli (include il punto panoramico della banconota da 20 yuan).",
+        },
+        {
+          name: "Risaie di Longsheng",
+          ll: [25.7515, 110.0914],
+          img: "longsheng",
+          txt: "Mezzogiorno del 5 nov — ~3–3,5h di strada da Xianggong, pranzo nel villaggio e camminata tra le terrazze fino alle ~15:00, rientro a Guilin ~17:00–17:30. A inizio nov il riso è già raccolto: terrazze a strati marroni/a specchio d'acqua più che dorate.",
+        },
+      ];
+
+      // numbered stop pins
+      STOPS.forEach((s) => {
+        const icon = L.divIcon({
+          className: "",
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          html: `<div class="stop-pin">${s.n}</div>`,
+        });
+        L.marker(s.ll, { icon, zIndexOffset: 500 })
+          .addTo(map)
+          .bindTooltip(`<b>${s.name}</b><br>${s.dates}`, {
+            direction: "top",
+            offset: [0, -12],
+          })
+          .on("click", () => openPanel(s.key));
+      });
+
+      // side-trip pins
+      SIDE_TRIPS.forEach((s) => {
+        const icon = L.divIcon({
+          className: "",
+          iconSize: [16, 16],
+          iconAnchor: [8, 8],
+          html: `<div class="side-pin"></div>`,
+        });
+        L.marker(s.ll, { icon })
+          .addTo(map)
+          .bindTooltip(`<b>${s.name}</b>`, {
+            direction: "top",
+            offset: [0, -8],
+          })
+          .bindPopup(
+            `<img class="side-img" src="${IMG[s.img]}" loading="lazy" alt="${s.name}"><b>${s.name}</b><br>${s.txt}`,
+            { maxWidth: 250 },
+          );
+      });
+
+      // Changsha South train-change marker
+      L.marker([28.1478, 113.0596], {
+        icon: L.divIcon({
+          className: "",
+          iconSize: [13, 13],
+          iconAnchor: [6.5, 6.5],
+          html: `<div class="change-pin"></div>`,
+        }),
+      })
+        .addTo(map)
+        .bindTooltip(
+          "<b>Changsha Sud</b><br>cambio treno sulla tratta Zhangjiajie → Guilin (~6h totali) — il collo di bottiglia del viaggio, prenotare per primi",
+          { direction: "top", offset: [0, -8] },
+        );
+
+      /* ---------- routes ---------- */
+
+      function arc(from, to, bend = 0.18) {
+        // simple quadratic-bezier arc between two lat/lngs
+        const pts = [];
+        const mx = (from[0] + to[0]) / 2,
+          my = (from[1] + to[1]) / 2;
+        const dx = to[0] - from[0],
+          dy = to[1] - from[1];
+        const cx = mx - dy * bend,
+          cy = my + dx * bend;
+        for (let t = 0; t <= 1.001; t += 0.05) {
+          const a = (1 - t) * (1 - t),
+            b = 2 * (1 - t) * t,
+            c = t * t;
+          pts.push([
+            a * from[0] + b * cx + c * to[0],
+            a * from[1] + b * cy + c * to[1],
+          ]);
+        }
+        return pts;
+      }
+
+      const P = {
+        beijing: [39.9042, 116.4074],
+        pingyao: [37.2009, 112.1747],
+        xian: [34.3416, 108.9398],
+        chengdu: [30.5728, 104.0668],
+        chongqing: [29.563, 106.5516],
+        zjj: [29.3455, 110.543],
+        changsha: [28.1478, 113.0596],
+        guilin: [25.2744, 110.29],
+        xingping: [24.881, 110.494],
+        yangshuo: [24.7786, 110.4966],
+        xianggong: [24.8385, 110.4116],
+        longsheng: [25.7515, 110.0914],
+        shanghai: [31.2304, 121.4737],
+      };
+
+      const LEGS = [
+        {
+          pts: [P.beijing, P.pingyao],
+          mode: "train",
+          label:
+            "<b>26 ott · Treno</b><br>Pechino Ovest → Pingyao, partenza ~10:30, ~4h",
+        },
+        {
+          pts: [P.pingyao, P.xian],
+          mode: "train",
+          label:
+            "<b>27 ott · Treno</b><br>Pingyao → Xi'an Nord, partenza ~17:00, ~3h",
+        },
+        {
+          pts: [P.xian, P.chengdu],
+          mode: "train",
+          label:
+            "<b>29 ott · Treno (alta velocità)</b><br>Xi'an (8:07) → Chengdu Est, ~3,5h",
+        },
+        {
+          pts: [P.chengdu, P.chongqing],
+          mode: "train",
+          label:
+            "<b>31 ott · Treno (alta velocità)</b><br>Chengdu (~8:37) → Chongqing, ~1,5–2h",
+        },
+        {
+          pts: [P.chongqing, P.zjj],
+          mode: "train",
+          label:
+            "<b>1 nov · Treno (alta velocità)</b><br>Chongqing Est (08:50) → Zhangjiajie Ovest, ~2,5h",
+        },
+        {
+          pts: [P.zjj, P.changsha, P.guilin],
+          mode: "train",
+          label:
+            "<b>3 nov · Treno (alta velocità) — tratta critica</b><br>Zhangjiajie Ovest 13:07 → Guilin, ~6h, cambio a Changsha Sud.<br>Singolo punto di rottura del percorso — prenotare appena aprono le vendite.",
+        },
+        {
+          pts: [P.guilin, P.xingping, P.yangshuo],
+          mode: "boat",
+          label:
+            "<b>4 nov · Crociera sul fiume Li</b><br>Guilin → Yangshuo, ~4h, pranzo a buffet a bordo, passa il paesaggio della banconota da 20 yuan.<br>Piano B stagione secca: zattera di bambù da Xingping.",
+        },
+        {
+          pts: [
+            P.yangshuo,
+            P.xianggong,
+            [25.05, 110.18],
+            P.longsheng,
+            P.guilin,
+          ],
+          mode: "road",
+          label:
+            "<b>5 nov · Strada (autista privato tutto il giorno)</b><br>Yangshuo 5:45 → alba a Xianggong → risaie di Longsheng → Guilin ~17:30<br>~5,5–6h di guida totali, un solo autista, percorso concordato in anticipo",
+        },
+        {
+          pts: arc(P.guilin, P.shanghai, 0.15),
+          mode: "flight",
+          label:
+            "<b>6 nov · Volo</b><br>Guilin KWL → Shanghai PVG, ~2h15m.<br>Puntare a una partenza serale ~18:30–19:30 (prenotare appena aprono gli orari di nov 2026).",
+        },
+      ];
+
+      const STYLE = {
+        train: { color: "#e63946", weight: 3.5, opacity: 0.85 },
+        boat: { color: "#2a9d8f", weight: 3.5, opacity: 0.9 },
+        road: { color: "#f4a261", weight: 3.5, opacity: 0.9 },
+        flight: {
+          color: "#6a4c93",
+          weight: 3,
+          opacity: 0.85,
+          dashArray: "8 8",
+        },
+      };
+
+      LEGS.forEach((leg) => {
+        L.polyline(leg.pts, STYLE[leg.mode])
+          .addTo(map)
+          .bindTooltip(leg.label, { sticky: true });
+      });
+
+      // fit everything comfortably
+      map.fitBounds(L.latLngBounds(STOPS.map((s) => s.ll)).pad(0.18));
+
+      /* =========================================================
+   PANNELLO + checklist persistenti
+   ========================================================= */
+
+      const panel = document.getElementById("panel");
+      const CK_KEY = "chinaTrip2026.checklist";
+
+      function fallbackCopy(text) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand("copy");
+        } catch (e) {}
+        document.body.removeChild(ta);
+      }
+
+      document.getElementById("panel-body").addEventListener("click", (e) => {
+        const btn = e.target.closest(".copy-btn");
+        if (!btn) return;
+        const text = btn.dataset.copy || "";
+        const flash = () => {
+          if (!btn.dataset.label) btn.dataset.label = btn.textContent;
+          btn.textContent = "✓ Copiato";
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.textContent = btn.dataset.label;
+            btn.classList.remove("copied");
+          }, 1400);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(text)
+            .then(flash)
+            .catch(() => {
+              fallbackCopy(text);
+              flash();
+            });
+        } else {
+          fallbackCopy(text);
+          flash();
+        }
+      });
+
+      function loadCk() {
+        try {
+          return JSON.parse(localStorage.getItem(CK_KEY)) || {};
+        } catch {
+          return {};
+        }
+      }
+      function saveCk(state) {
+        localStorage.setItem(CK_KEY, JSON.stringify(state));
+      }
+
+      function openPanel(key) {
+        const c = CONTENT[key];
+        if (!c) return;
+        document.getElementById("panel-title").textContent = c.title;
+        document.getElementById("panel-dates").textContent = c.dates;
+        const body = document.getElementById("panel-body");
+        body.innerHTML = c.body;
+        body.scrollTop = 0;
+        const state = loadCk();
+        body.querySelectorAll("input[data-ck]").forEach((cb) => {
+          cb.checked = !!state[cb.dataset.ck];
+          cb.addEventListener("change", () => {
+            const s = loadCk();
+            s[cb.dataset.ck] = cb.checked;
+            saveCk(s);
+          });
+        });
+        panel.classList.add("open");
+      }
+
+      function closePanel() {
+        panel.classList.remove("open");
+      }
+
+      map.on("click", closePanel);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closePanel();
+      });
+    </script>
+  </body>
+</html>
