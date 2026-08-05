@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Viaggio in Cina — Ott/Nov 2026</title>
+    <title>Cina 2026</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>"
+    />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -51,16 +55,23 @@
         flex-wrap: wrap;
         justify-content: center;
         max-width: calc(100% - 24px);
+        box-sizing: border-box;
+      }
+      .topbar-title {
+        min-width: 0;
+        text-align: center;
+        margin: 5px;
+      }
+      .topbar-title h3 {
+        margin: 0;
       }
       .topbar h1 {
         font-size: 16px;
         margin: 0;
-        white-space: nowrap;
       }
       .topbar .sub {
         font-size: 12px;
         color: var(--muted);
-        white-space: nowrap;
       }
       .topbar button {
         border: 1px solid #d1d5db;
@@ -176,10 +187,10 @@
       }
       .panel-head h2 {
         margin: 0;
-        font-size: 19px;
+        font-size: 16px;
       }
       .panel-head .dates {
-        font-size: 12.5px;
+        font-size: 11px;
         color: var(--muted);
         margin-top: 3px;
       }
@@ -187,7 +198,7 @@
         border: none;
         background: #f3f4f6;
         border-radius: 8px;
-        font-size: 16px;
+        font-size: 14px;
         width: 32px;
         height: 32px;
         cursor: pointer;
@@ -196,12 +207,12 @@
       .panel-body {
         overflow-y: auto;
         padding: 14px 20px 30px;
-        font-size: 13.5px;
+        font-size: 12px;
         line-height: 1.55;
       }
 
       .panel-body h3 {
-        font-size: 13px;
+        font-size: 11.5px;
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: var(--muted);
@@ -261,6 +272,9 @@
         gap: 6px;
         align-items: baseline;
       }
+      .day-card .day-activity {
+        flex-wrap: wrap;
+      }
       .day-card .day-activity .bullet {
         color: var(--train);
         flex: none;
@@ -268,6 +282,12 @@
       .day-card .day-detail {
         font-size: 11px;
         color: var(--muted);
+      }
+      .day-card .day-book-by {
+        flex-basis: 100%;
+        font-size: 10.5px;
+        color: var(--train);
+        margin: 1px 0 0 15px;
       }
       .day-card .day-sep {
         color: #c7cbd1;
@@ -442,6 +462,33 @@
         color: #9a6700;
       }
 
+      .food-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 10px 12px;
+        margin: 10px 0;
+      }
+      .food-card .food-head {
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--ink);
+        margin-bottom: 6px;
+      }
+      .food-card .food-head::before {
+        content: "🥟 ";
+      }
+      .food-card ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .food-card li {
+        font-size: 12.5px;
+        margin: 3px 0;
+      }
+      .food-card li.no-bullet {
+        list-style: none;
+      }
+
       .checklist label {
         display: flex;
         gap: 9px;
@@ -459,11 +506,17 @@
         color: var(--muted);
       }
 
+      .table-scroll {
+        overflow-x: auto;
+        margin: 8px 0;
+        -webkit-overflow-scrolling: touch;
+      }
       table.flights {
         border-collapse: collapse;
         width: 100%;
+        min-width: 420px;
         font-size: 12.5px;
-        margin: 8px 0;
+        margin: 0;
       }
       table.flights th,
       table.flights td {
@@ -471,6 +524,7 @@
         padding: 5px 8px;
         text-align: left;
         vertical-align: top;
+        white-space: nowrap;
       }
       table.flights th {
         background: #f9fafb;
@@ -500,15 +554,12 @@
     <div id="map"></div>
 
     <div class="topbar">
-      <div>
-        <h1>Viaggio in Cina — Ott/Nov 2026</h1>
-        <div class="sub">
-          22 ott – 8 nov · Milano → Pechino ⋯ Shanghai → Milano · Nicolo &amp;
-          Cristina
-        </div>
+      <div class="topbar-title">
+        <h3>Cina</h3>
+        <div class="sub">22 ott – 8 nov</div>
       </div>
-      <button onclick="openPanel('flights')">✈️ Voli internazionali</button>
-      <button onclick="openPanel('checklist')">✅ Checklist di viaggio</button>
+      <button onclick="openPanel('flights')">✈️</button>
+      <button onclick="openPanel('checklist')">✅</button>
     </div>
 
     <div class="legend">
@@ -635,33 +686,46 @@
         );
       }
 
-      function activitiesList(items) {
+      function slugDate(date) {
+        const m = date.match(/^(\d+)\s+(\w+)/);
+        return m
+          ? `${m[1]}-${m[2].toLowerCase()}`
+          : date.toLowerCase().replace(/\W+/g, "-");
+      }
+
+      function activitiesList(items, idPrefix) {
         return (
           `<div class="day-activities">` +
           items
             .map((a, i) => {
-              const row = `<div class="day-activity"><span class="bullet">•</span> <b>${a.label}</b>${a.detail ? ` <span class="day-detail">(${a.detail})</span>` : ""}</div>`;
+              const id = idPrefix ? ` id="${idPrefix}-${i}"` : "";
+              const row = `<div class="day-activity"${id}><span class="bullet">•</span> <b>${a.label}</b>${a.detail ? ` <span class="day-detail">(${a.detail})</span>` : ""}${a.bookBy ? `<div class="day-book-by">🎫 ${a.bookBy}</div>` : ""}</div>`;
               const note = a.note ? `<div class="note">${a.note}</div>` : "";
-              return (i === 0 ? row : `<div class="day-sep">|</div>${row}`) + note;
+              return (
+                (i === 0 ? row : `<div class="day-sep">|</div>${row}`) + note
+              );
             })
             .join("") +
           `</div>`
         );
       }
 
-      function days(items) {
+      function days(items, cityKey) {
         return items
-          .map((d) => {
+          .map((d, di) => {
             const badge = d.booked
               ? `<span class="badge booked">${d.badgeLabel || "Prenotato"}</span>`
               : `<span class="badge pending">${d.badgeLabel || "Da prenotare"}</span>`;
+            const idPrefix = cityKey
+              ? `day-activity-${cityKey}-${slugDate(d.date)}`
+              : null;
             return `
     <div class="day-card">
       <div class="day-card-head">
         <div class="day-date">${d.date}</div>
         ${badge}
       </div>
-      ${activitiesList(d.activities)}
+      ${activitiesList(d.activities, idPrefix)}
       ${d.food ? `<div class="day-food">${d.food}</div>` : ""}
       ${d.imgs ? figs(d.imgs) : ""}
       ${d.note ? `<div class="note">${d.note}</div>` : ""}
@@ -675,8 +739,9 @@
           `<div class="checklist">` +
           items
             .map((t, i) => {
+              const item = typeof t === "string" ? { text: t, done: false } : t;
               const id = key + "-" + i;
-              return `<label><input type="checkbox" data-ck="${id}"><span>${t}</span></label>`;
+              return `<label><input type="checkbox" data-ck="${id}"${item.done ? " checked" : ""}><span>${item.text}</span></label>`;
             })
             .join("") +
           `</div>`
@@ -729,65 +794,85 @@
   </div>`;
       }
 
+      function foodCard(dishes) {
+        return `<div class="food-card">
+    <div class="food-head">Piatti da provare</div>
+    <ul>
+      ${dishes.map((d) => `<li${d.noBullet ? ` class="no-bullet"` : ""}><b>${d.name}</b>${d.detail ? ` — ${d.detail}` : ""}</li>`).join("")}
+    </ul>
+  </div>`;
+      }
+
       const CONTENT = {
         beijing: {
           title: "Pechino",
-          dates: "23–25 ott · 3 notti · il giorno di arrivo è una mezza giornata",
+          dates:
+            "23–25 ott · 3 notti · il giorno di arrivo è una mezza giornata",
           body: `
       <h3>Programma</h3>
-      ${days([
-        {
-          date: "23 ott (ven)",
-          activities: [
-            { label: "Arrivo", detail: "~12:10, aeroporto di Pechino Daxing (PKX)" },
-            { label: "Wangfujing / via Qianmen, piazza Tienanmen", detail: "esterno" },
-          ],
-          booked: true,
-          badgeLabel: "No prenotazioni",
-          food: "Wangfujing Snack Street — spiedini, tanghulu; informale, senza prenotazione, perfetta per una serata d'arrivo a basso sforzo",
-          imgs: [
-            ["wangfujing", "Wangfujing"],
-            ["tiananmen", "Piazza Tienanmen"],
-          ],
-        },
-        {
-          date: "24 ott (sab)",
-          activities: [
-            { label: "Città Proibita", detail: "mattina" },
-            { label: "Tempio del Cielo", detail: "pomeriggio" },
-          ],
-          booked: false,
-          food: "Anatra alla pechinese — Da Dong (moderno, meno unto) o Siji Minfu (locale, più economico, aspettarsi coda); il piatto essenziale di Pechino, vicino a Dongcheng",
-          imgs: [
-            ["forbidden_city", "Città Proibita"],
-            ["temple_heaven", "Tempio del Cielo"],
-          ],
-        },
-        {
-          date: "25 ott (dom)",
-          activities: [
-            { label: "Grande Muraglia — Mutianyu", detail: "partenza dall'hotel ~6:30" },
-          ],
-          booked: false,
-          food: "Hot pot di montone alla pechinese — Donglaishun; premio sostanzioso dopo la camminata, lo stile con salsa di sesamo è diverso dall'hot pot piccante del Sichuan che arriverà a Chengdu/Chongqing",
-          imgs: [["mutianyu", "Grande Muraglia a Mutianyu"]],
-          note: "<b>Tempistica Grande Muraglia:</b> arrivare all'apertura (~8:00) per battere i gruppi organizzati (picco di folla 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.",
-        },
-        {
-          date: "26 ott (lun)",
-          activities: [
-            { label: "Check-out" },
-            { label: "Giro negli hutong", detail: "se c'è tempo" },
-            {
-              label: "Treno per Pingyao",
-              detail: "partenza ~10:30, ~4h, arrivo ~14:00–14:30",
-              note: "<b>Treno Pechino–Pingyao:</b> 3 treni G al giorno da Pechino Ovest (~08:00, ~10:30, ~14:30, ~4h ciascuno) — scelto quello delle ~10:30, perché preserva un'ultima mattina rilassata a Pechino (subito dopo la partenza già all'alba per la Muraglia due giorni prima) e combacia col piano del giorno 1 a Pingyao, costruito attorno a un arrivo alle 14:00. Riconfermare numero/orario esatto del treno quando China Rail apre le vendite (15–30 giorni prima del viaggio).",
-            },
-          ],
-          booked: false,
-          food: "Colazione veloce prima del check-out — il pranzo vero si fa in treno o all'arrivo a Pingyao",
-        },
-      ])}
+      ${days(
+        [
+          {
+            date: "23 ott (ven)",
+            activities: [
+              {
+                label: "Arrivo",
+                detail: "~12:10, aeroporto di Pechino Daxing (PKX)",
+              },
+              {
+                label: "Wangfujing / via Qianmen, piazza Tienanmen",
+                detail: "esterno",
+              },
+            ],
+            booked: true,
+            badgeLabel: "No prenotazioni",
+            imgs: [
+              ["wangfujing", "Wangfujing"],
+              ["tiananmen", "Piazza Tienanmen"],
+            ],
+          },
+          {
+            date: "24 ott (sab)",
+            activities: [
+              { label: "Città Proibita", detail: "mattina" },
+              { label: "Tempio del Cielo", detail: "pomeriggio" },
+            ],
+            booked: false,
+            imgs: [
+              ["forbidden_city", "Città Proibita"],
+              ["temple_heaven", "Tempio del Cielo"],
+            ],
+          },
+          {
+            date: "25 ott (dom)",
+            activities: [
+              {
+                label: "Grande Muraglia — Mutianyu",
+                detail: "partenza dall'hotel ~6:30",
+              },
+            ],
+            booked: false,
+            imgs: [["mutianyu", "Grande Muraglia a Mutianyu"]],
+            note: "<b>Tempistica Grande Muraglia:</b> arrivare all'apertura (~8:00) per battere i gruppi organizzati (picco di folla 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.",
+          },
+          {
+            date: "26 ott (lun)",
+            activities: [
+              { label: "Check-out" },
+              { label: "Giro negli hutong", detail: "se c'è tempo" },
+              {
+                label: "Treno per Pingyao",
+                detail: "partenza ~10:30, ~4h, arrivo ~14:00–14:30",
+                bookBy:
+                  "Prenotare tra il 26 set e l'11 ott 2026 (finestra 15–30 gg prima della partenza)",
+                note: "<b>Treno Pechino–Pingyao:</b> 3 treni G al giorno da Pechino Ovest (~08:00, ~10:30, ~14:30, ~4h ciascuno) — scelto quello delle ~10:30, perché preserva un'ultima mattina rilassata a Pechino (subito dopo la partenza già all'alba per la Muraglia due giorni prima) e combacia col piano del giorno 1 a Pingyao, costruito attorno a un arrivo alle 14:00. Riconfermare numero/orario esatto del treno quando China Rail apre le vendite (15–30 giorni prima del viaggio).",
+              },
+            ],
+            booked: false,
+          },
+        ],
+        "beijing",
+      )}
       <h3>Hotel</h3>
       ${hotelCard({
         booked: true,
@@ -798,13 +883,83 @@
           "https://us.trip.com/hotels/beijing-hotel-detail-80943188/jianguo-hidden-hotel-beijing-wangfujing-store/",
         checkIn: "23 ott, dopo le 14:00",
         checkOut: "26 ott, entro le 12:00 (3 notti)",
-        link: "hotels/Beijing.pdf",
         paras: [
           "<i>Costo:</i> €241,41 prepagati.",
-          "<span class=\"hotel-sub\">Cancellazione gratuita fino alle 18:00 del 23 ott, poi non rimborsabile.</span>",
+          '<span class="hotel-sub">Cancellazione gratuita fino alle 18:00 del 23 ott, poi non rimborsabile.</span>',
           "In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibita e piazza Tienanmen, buoni collegamenti metro per il Tempio del Cielo e la stazione, Wangfujing Snack Street sotto casa.",
         ],
       })}
+      <h3>Cibo</h3>
+      ${foodCard([
+        {
+          name: "Anatra alla pechinese",
+          detail: "il piatto essenziale di Pechino",
+        },
+        {
+          name: "Da Dong",
+          detail:
+            "catena upscale che ha reinventato l'anatra alla pechinese in chiave moderna: pelle sottilissima e croccante, molto meno grassa del classico, presentazione curata; prenotazione consigliata",
+          noBullet: true,
+        },
+        {
+          name: "Siji Minfu",
+          detail:
+            "istituzione locale senza fronzoli, prezzo onesto rispetto ai big; la coda è la norma nelle ore di punta ma scorre veloce; vicino a Dongcheng",
+          noBullet: true,
+        },
+        {
+          name: "Quanjude (全聚德)",
+          detail:
+            "il nome più famoso e storico, dal 1864; forno \"a sospensione\" (挂炉) per pelle particolarmente croccante; sede principale su Qianmen Street",
+          noBullet: true,
+        },
+        {
+          name: "Bianyifang (便宜坊)",
+          detail:
+            "ancora più antico di Quanjude, dal 1416; maestro del forno \"chiuso\" (焖炉), che dà una carne più tenera",
+          noBullet: true,
+        },
+        {
+          name: "Hua Jiayi Yuan (花家怡园)",
+          detail:
+            "ambiente immersivo in un siheyuan (cortile tradizionale), ottimo taglio al tavolo in sala; l'anatra in sé è più standard rispetto agli specialisti",
+          noBullet: true,
+        },
+        {
+          name: "Hot pot di montone alla pechinese",
+          detail:
+            "Donglaishun; premio sostanzioso dopo una camminata, lo stile con salsa di sesamo è diverso dall'hot pot piccante del Sichuan che arriverà a Chengdu/Chongqing",
+        },
+        {
+          name: "Spiedini e tanghulu",
+          detail:
+            "Wangfujing Snack Street; informale, senza prenotazione, perfetto per una serata d'arrivo a basso sforzo",
+        },
+        {
+          name: "Haidilao",
+          detail:
+            "catena di hotpot nota non tanto per il piatto quanto per il servizio esagerato: manicure gratis mentre si aspetta il tavolo, spettacolo di tirata dei noodles al tavolo, snack e bevande a volontà, sconti a sorpresa per chi festeggia il compleanno; consigliato prenotare, soprattutto nel weekend",
+        },
+        {
+          name: "中8楼 (Middle 8)",
+          detail:
+            "cucina yunnanese, tra le poche di questa regione a Pechino: sapori diversi dal resto della Cina (erbe di montagna, funghi selvatici, note agrodolci e piccanti non da peperoncino secco ma da spezie fresche), ambiente curato in stile etnico; buona alternativa se ci si stanca dei sapori del nord",
+        },
+        {
+          name: "Yaoji Chaogan (姚记炒肝)",
+          detail:
+            "storica bottega di chao gan (fegato di maiale saltato in salsa densa d'amido) e baozi al vapore, specialità pechinese old-school da mangiare in piedi al bancone; vicino a Houhai/Yandaixie Street, prezzo bassissimo, esperienza più autentica che turistica",
+        },
+        {
+          name: "Lu Zhu Huo Shao (卤煮火烧)",
+          detail:
+            "stufato di frattaglie e intestino di maiale con pane, da 门框胡同卤煮 vicino a Dashilar/Qianmen",
+        },
+        {
+          name: "Dolci Daoxiangcun (稻香村)",
+          detail: 'wandouhuang, aiwowo, lüdagun ("l\'asino che rotola")',
+        },
+      ])}
       <h3>Guida</h3>
       <p>Prenotata per entrambe le giornate piene.</p>
       <ul>
@@ -824,47 +979,68 @@
       <p><b>Possibile esperienza guidata alternativa (non ancora prenotata):</b> <a href="https://www.getyourguide.com/pechino-l186/tour-privato-della-grande-muraglia-di-mutianyu-con-autista-inglese-t875282?ranking_uuid=8626a31c-46a3-4506-a9dc-09d94e9227df&amp;referral_redirect=1&amp;q=Mutianyu&amp;date_from=2026-10-25" target="_blank">Tour privato Grande Muraglia di Mutianyu con autista in inglese</a> su GetYourGuide — pickup in hotel, biglietti d'ingresso e navetta inclusi, ~90 min (75 km) fino al parcheggio di Mutianyu, ritrovo con l'autista alle 7:30 in hotel. È un autista in inglese, non una guida con narrazione lungo il percorso — da valutare come alternativa più economica alla guida privata già in programma.</p>
       <h3>Checklist</h3>
       ${checklist("beijing", [
-        "Prenotare la guida privata — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo",
-        "Prenotare in anticipo i biglietti della Città Proibita — quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida",
-        "Prenotare la cena di anatra alla pechinese (Da Dong o Siji Minfu) — sabato sera, meglio in anticipo",
+        "Piatti che vorremmo mangiare a Pechino — anatra alla pechinese (Da Dong o Siji Minfu, prenotare la cena in anticipo per sabato sera), hot pot di montone alla pechinese (Donglaishun), spiedini/tanghulu a Wangfujing Snack Street",
+        "Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo",
+        "Prenotare città proibita (suggerito da Claude con largo anticipo) — biglietti con quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida",
       ])}`,
         },
 
         pingyao: {
           title: "Pingyao",
-          dates:
-            "26–27 ott · 1 notte · piccola città antica, una notte basta",
+          dates: "26–27 ott · 1 notte · piccola città antica, una notte basta",
           body: `
       <h3>Programma</h3>
-      ${days([
-        {
-          date: "26 ott (lun)",
-          activities: [
-            { label: "Arrivo", detail: "~14:00–14:30, stazione di Pingyao Gucheng" },
-            { label: "Trasferimento in centro", detail: "stazione a 8,5 km; taxi ~20min/30 CNY o bus 108 ~30min/¥1" },
-            { label: "Check-in" },
-            { label: "Via Ming-Qing e Tempio del Dio della Città", detail: "Chenghuangmiao" },
-          ],
-          booked: false,
-          food: "Manzo di Pingyao e noodles tirati a mano per cena su via Ming-Qing; le lanterne si accendono dopo il tramonto",
-          imgs: [["pingyao", "Centro storico di Pingyao — via Ming-Qing"]],
-        },
-        {
-          date: "27 ott (mar)",
-          activities: [
-            { label: "Mura + Yamen", detail: "inizio ~8:30 per battere i gruppi" },
-            { label: "Banca Rishengchang", detail: "la prima banca cinese" },
-            { label: "Torre della Città" },
-            { label: "Tempio di Confucio o shopping", detail: "opzionale, se c'è tempo" },
-            { label: "Treno per Xi'an", detail: "partenza ~17:00, arrivo ~19:55–20:40" },
-          ],
-          booked: false,
-          food: "Pranzo rilassato prima di andare in stazione",
-          imgs: [
-            ["rishengchang", "Banca Rishengchang — la prima banca cinese"],
-          ],
-        },
-      ])}
+      ${days(
+        [
+          {
+            date: "26 ott (lun)",
+            activities: [
+              {
+                label: "Arrivo",
+                detail: "~14:00–14:30, stazione di Pingyao Gucheng",
+              },
+              {
+                label: "Trasferimento in centro",
+                detail:
+                  "stazione a 8,5 km; taxi ~20min/30 CNY o bus 108 ~30min/¥1",
+              },
+              { label: "Check-in" },
+              {
+                label: "Via Ming-Qing e Tempio del Dio della Città",
+                detail: "Chenghuangmiao",
+              },
+            ],
+            booked: false,
+            imgs: [["pingyao", "Centro storico di Pingyao — via Ming-Qing"]],
+          },
+          {
+            date: "27 ott (mar)",
+            activities: [
+              {
+                label: "Mura + Yamen",
+                detail: "inizio ~8:30 per battere i gruppi",
+              },
+              { label: "Banca Rishengchang", detail: "la prima banca cinese" },
+              { label: "Torre della Città" },
+              {
+                label: "Tempio di Confucio o shopping",
+                detail: "opzionale, se c'è tempo",
+              },
+              {
+                label: "Treno per Xi'an",
+                detail: "partenza ~17:00, arrivo ~19:55–20:40",
+                bookBy:
+                  "Prenotare tra il 27 set e il 12 ott 2026 (finestra 15–30 gg prima della partenza)",
+              },
+            ],
+            booked: false,
+            imgs: [
+              ["rishengchang", "Banca Rishengchang — la prima banca cinese"],
+            ],
+          },
+        ],
+        "pingyao",
+      )}
       <div class="note">La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.</div>
       <h3>Hotel</h3>
       ${hotelCard({
@@ -874,6 +1050,14 @@
           "Un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina.",
         ],
       })}
+      <h3>Cibo</h3>
+      ${foodCard([
+        {
+          name: "Manzo di Pingyao",
+          detail: "piatto locale tipico, su via Ming-Qing",
+        },
+        { name: "Noodles tirati a mano", detail: "su via Ming-Qing" },
+      ])}
       <h3>Guida</h3>
       <p>Non serve — fai-da-te; un biglietto cumulativo di 3 giorni (~125 CNY / 16€) copre le Mura, lo Yamen, la banca Rishengchang, il Tempio del Dio della Città e gli altri siti principali dentro le mura.</p>
       <h3>Checklist</h3>
@@ -887,40 +1071,59 @@
 
         xian: {
           title: "Xi'an",
-          dates: "27–28 ott · 2 notti · l'Esercito di Terracotta richiede una giornata intera",
+          dates:
+            "27–28 ott · 2 notti · l'Esercito di Terracotta richiede una giornata intera",
           body: `
       <h3>Programma</h3>
-      ${days([
-        {
-          date: "27 ott (mar)",
-          activities: [
-            { label: "Arrivo", detail: "~19:55–20:40, stazione di Xi'an Nord" },
-            { label: "Metro Linea 2", detail: "verso Torre della Campana/South Gate, ~25–28min, 4 CNY" },
-            { label: "Check-in" },
-          ],
-          booked: false,
-          food: "Cena veloce vicino all'hotel dopo una lunga giornata di viaggio",
-          imgs: [["xian_bell", "Torre della Campana di Xi'an"]],
-        },
-        {
-          date: "28 ott (mer)",
-          activities: [
-            { label: "Esercito di Terracotta", detail: "Didi dall'hotel ~7:30, il sito apre alle 8:30" },
-            { label: "Pranzo nel Quartiere Musulmano" },
-            { label: "Giro in bici sulle Mura", detail: "dal South Gate" },
-            { label: "Torri della Campana e del Tamburo", detail: "esterni, sul percorso" },
-            { label: "Grande Pagoda dell'Oca Selvatica + spettacolo di fontane", detail: "se restano tempo ed energie" },
-          ],
-          booked: false,
-          food: "Yangrou Paomo (zuppa di montone e pane) o noodles Biangbiang nel Quartiere Musulmano a pranzo",
-          imgs: [
-            ["terracotta", "Esercito di Terracotta"],
-            ["muslim_quarter", "Quartiere Musulmano"],
-            ["xian_wall", "Giro in bici sulle Mura"],
-            ["goose_pagoda", "Grande Pagoda dell'Oca Selvatica"],
-          ],
-        },
-      ])}
+      ${days(
+        [
+          {
+            date: "27 ott (mar)",
+            activities: [
+              {
+                label: "Arrivo",
+                detail: "~19:55–20:40, stazione di Xi'an Nord",
+              },
+              {
+                label: "Metro Linea 2",
+                detail:
+                  "verso Torre della Campana/South Gate, ~25–28min, 4 CNY",
+              },
+              { label: "Check-in" },
+            ],
+            booked: false,
+            imgs: [["xian_bell", "Torre della Campana di Xi'an"]],
+          },
+          {
+            date: "28 ott (mer)",
+            activities: [
+              {
+                label: "Esercito di Terracotta",
+                detail: "Didi dall'hotel ~7:30, il sito apre alle 8:30",
+              },
+              { label: "Pranzo nel Quartiere Musulmano" },
+              { label: "Giro in bici sulle Mura", detail: "dal South Gate" },
+              {
+                label: "Torri della Campana e del Tamburo",
+                detail: "esterni, sul percorso",
+              },
+              {
+                label:
+                  "Grande Pagoda dell'Oca Selvatica + spettacolo di fontane",
+                detail: "se restano tempo ed energie",
+              },
+            ],
+            booked: false,
+            imgs: [
+              ["terracotta", "Esercito di Terracotta"],
+              ["muslim_quarter", "Quartiere Musulmano"],
+              ["xian_wall", "Giro in bici sulle Mura"],
+              ["goose_pagoda", "Grande Pagoda dell'Oca Selvatica"],
+            ],
+          },
+        ],
+        "xian",
+      )}
       <div class="note">La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per battere i grandi gruppi che arrivano a metà mattina. È la giornata più carica del viaggio, quindi le attività sono in ordine di priorità — niente è stato tolto, ma la coda è esplicitamente sacrificabile: Esercito di Terracotta e Quartiere Musulmano sono non negoziabili, il giro in bici sulle Mura è la terza scelta, le Torri sono esterni che si incontrano naturalmente tra il Quartiere e le mura (costo extra quasi zero), e la Grande Pagoda + spettacolo delle fontane è la prima cosa da tagliare se la giornata si allunga — è una corsa di metro verso sud e la mattina dopo c'è un treno alle 8:07.</div>
       <h3>Hotel</h3>
       ${hotelCard({
@@ -930,6 +1133,14 @@
           "Entrambe direttamente sulla Linea 2, corsa senza cambi dalla stazione di Xi'an Nord dove arriva il treno da Pingyao, e a pochi passi dal Quartiere Musulmano, dalle Torri della Campana/del Tamburo e dall'ingresso Sud delle Mura.",
         ],
       })}
+      <h3>Cibo</h3>
+      ${foodCard([
+        {
+          name: "Yangrou Paomo",
+          detail: "zuppa di montone e pane, nel Quartiere Musulmano",
+        },
+        { name: "Noodles Biangbiang", detail: "nel Quartiere Musulmano" },
+      ])}
       <h3>Guida</h3>
       <p>Non serve — fai-da-te con Didi/metro; il sito dell'Esercito di Terracotta ha abbastanza pannelli informativi da rendere non essenziale una guida privata.</p>
       <h3>Attività particolari (promemoria)</h3>
@@ -950,38 +1161,63 @@
           dates: "29–30 ott · 2 notti · panda + città vecchia",
           body: `
       <h3>Programma</h3>
-      ${days([
-        {
-          date: "29 ott (gio)",
-          activities: [
-            { label: "Arrivo", detail: "~11:40 stimato, stazione di Chengdu Est (alta velocità da Xi'an, partenza 8:07, ~3,5h)" },
-            { label: "Linea 2 fino all'hotel" },
-            { label: "Vicoli antichi di Kuanzhai Xiangzi", detail: "pomeriggio" },
-            { label: "Cultura del tè al Parco del Popolo", detail: "casa da tè Heming" },
-          ],
-          booked: false,
-          food: "Noodles Dan Dan / ravioli Zhong a pranzo a Kuanzhai Xiangzi; cena con hotpot del Sichuan (Shu Daoxia o Haidilao) vicino a Chunxi Road — chiedere la pentola metà piccante/metà delicata se non si vuole tutto infuocato",
-          imgs: [
-            ["kuanzhai", "Vicoli antichi di Kuanzhai Xiangzi"],
-            ["peoples_park", "Parco del Popolo"],
-          ],
-        },
-        {
-          date: "30 ott (ven)",
-          activities: [
-            { label: "Base dei Panda Giganti", detail: "partenza ~7:00, ora del pasto" },
-            { label: "Tempio Wuhou + via antica Jinli", detail: "opzionali, da saltare se stanchi" },
-            { label: "Scultura del panda arrampicato", detail: "Chunxi Road/IFS" },
-            { label: "SKP + spettacolo di luci delle torri di bambù", detail: "sera" },
-          ],
-          booked: false,
-          food: "Pranzo veloce vicino all'hotel; cena moderna dentro SKP",
-          imgs: [
-            ["panda_base", "Base dei Panda Giganti"],
-            ["jinli", "Via antica Jinli"],
-          ],
-        },
-      ])}
+      ${days(
+        [
+          {
+            date: "29 ott (gio)",
+            activities: [
+              {
+                label: "Arrivo",
+                detail:
+                  "~11:40 stimato, stazione di Chengdu Est (alta velocità da Xi'an, partenza 8:07, ~3,5h)",
+                bookBy:
+                  "Prenotare tra il 29 set e il 14 ott 2026 (finestra 15–30 gg prima della partenza)",
+              },
+              { label: "Linea 2 fino all'hotel" },
+              {
+                label: "Vicoli antichi di Kuanzhai Xiangzi",
+                detail: "pomeriggio",
+              },
+              {
+                label: "Cultura del tè al Parco del Popolo",
+                detail: "casa da tè Heming",
+              },
+            ],
+            booked: false,
+            imgs: [
+              ["kuanzhai", "Vicoli antichi di Kuanzhai Xiangzi"],
+              ["peoples_park", "Parco del Popolo"],
+            ],
+          },
+          {
+            date: "30 ott (ven)",
+            activities: [
+              {
+                label: "Base dei Panda Giganti",
+                detail: "partenza ~7:00, ora del pasto",
+              },
+              {
+                label: "Tempio Wuhou + via antica Jinli",
+                detail: "opzionali, da saltare se stanchi",
+              },
+              {
+                label: "Scultura del panda arrampicato",
+                detail: "Chunxi Road/IFS",
+              },
+              {
+                label: "SKP + spettacolo di luci delle torri di bambù",
+                detail: "sera",
+              },
+            ],
+            booked: false,
+            imgs: [
+              ["panda_base", "Base dei Panda Giganti"],
+              ["jinli", "Via antica Jinli"],
+            ],
+          },
+        ],
+        "chengdu",
+      )}
       <div class="note">La Base dei Panda è la prima cosa in programma perché i panda sono più attivi nella finestra del pasto mattutino, e la fascia d'ingresso del mattino è anche la prima a esaurirsi.</div>
       <h3>Hotel</h3>
       ${hotelCard({
@@ -991,6 +1227,20 @@
           "All'incrocio delle linee metro 1 e 2, e la stazione di Chengdu Est (dove arriva il treno da Xi'an) è collegata direttamente con la Linea 2 in ~15 minuti senza cambi.",
         ],
       })}
+      <h3>Cibo</h3>
+      ${foodCard([
+        { name: "Noodles Dan Dan", detail: "a Kuanzhai Xiangzi" },
+        { name: "Ravioli Zhong", detail: "a Kuanzhai Xiangzi" },
+        {
+          name: "Hotpot del Sichuan",
+          detail:
+            "Shu Daoxia o Haidilao vicino a Chunxi Road; chiedere la pentola metà piccante/metà delicata se non si vuole tutto infuocato",
+        },
+        {
+          name: "Cena moderna",
+          detail: "dentro il centro commerciale SKP, vicino a Chunxi Road",
+        },
+      ])}
       <h3>Guida</h3>
       <p>Non serve — fai-da-te con metro/Didi; l'ingresso alla Base dei Panda si prenota online in anticipo.</p>
       <h3>Attività particolari (promemoria)</h3>
@@ -1010,28 +1260,49 @@
           dates: "31 ott · 1 notte · tappa veloce",
           body: `
       <h3>Programma</h3>
-      ${days([
-        {
-          date: "31 ott (sab)",
-          activities: [
-            { label: "Arrivo", detail: "~10:10–10:40 stimato, alta velocità da Chengdu, partenza ~8:37, ~1,5–2h" },
-            { label: "Bagagli in hotel" },
-            { label: "Stazione di Liziba", detail: "il treno che attraversa il palazzo, con la Linea 2" },
-            { label: "Città vecchia di Ciqikou" },
-            { label: "Passerella di vetro The Crystal", detail: "Raffles City" },
-            { label: "Cena hotpot", detail: "Jiefangbei" },
-            { label: "Spettacolo di droni", detail: "terrazza Nanbin Rd/Changjiahui, Linea 6, ~20:30 il sabato" },
-            { label: "Hongyadong illuminata", detail: "per chiudere la serata" },
-          ],
-          booked: false,
-          food: "Suanla Fen (noodles agropiccanti) / Bingfen (dolce gelatinoso) a Ciqikou a pranzo; hotpot di Chongqing (pentola divisa Yuanyang) a Jiefangbei a cena",
-          imgs: [
-            ["liziba", "Liziba — il treno che attraversa il palazzo"],
-            ["ciqikou", "Città vecchia di Ciqikou"],
-            ["hongyadong", "Hongyadong di notte"],
-          ],
-        },
-      ])}
+      ${days(
+        [
+          {
+            date: "31 ott (sab)",
+            activities: [
+              {
+                label: "Arrivo",
+                detail:
+                  "~10:10–10:40 stimato, alta velocità da Chengdu, partenza ~8:37, ~1,5–2h",
+                bookBy:
+                  "Prenotare tra l'1 e il 16 ott 2026 (finestra 15–30 gg prima della partenza)",
+              },
+              { label: "Bagagli in hotel" },
+              {
+                label: "Stazione di Liziba",
+                detail: "il treno che attraversa il palazzo, con la Linea 2",
+              },
+              { label: "Città vecchia di Ciqikou" },
+              {
+                label: "Passerella di vetro The Crystal",
+                detail: "Raffles City",
+              },
+              { label: "Cena hotpot", detail: "Jiefangbei" },
+              {
+                label: "Spettacolo di droni",
+                detail:
+                  "terrazza Nanbin Rd/Changjiahui, Linea 6, ~20:30 il sabato",
+              },
+              {
+                label: "Hongyadong illuminata",
+                detail: "per chiudere la serata",
+              },
+            ],
+            booked: false,
+            imgs: [
+              ["liziba", "Liziba — il treno che attraversa il palazzo"],
+              ["ciqikou", "Città vecchia di Ciqikou"],
+              ["hongyadong", "Hongyadong di notte"],
+            ],
+          },
+        ],
+        "chongqing",
+      )}
       <div class="note">L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.</div>
       <h3>Hotel</h3>
       ${hotelCard({
@@ -1041,6 +1312,15 @@
           "Sulle linee metro 1/2; essendo una tappa di una sola notte, stare a 5 minuti dalla metro permette di mollare i bagagli e ripartire subito senza perdere ritmo.",
         ],
       })}
+      <h3>Cibo</h3>
+      ${foodCard([
+        { name: "Suanla Fen (noodles agropiccanti)", detail: "a Ciqikou" },
+        { name: "Bingfen (dolce gelatinoso)", detail: "a Ciqikou" },
+        {
+          name: "Hotpot di Chongqing",
+          detail: "pentola divisa Yuanyang, a Jiefangbei",
+        },
+      ])}
       <h3>Guida</h3>
       <p>Non serve — completamente fai-da-te con metro/Didi.</p>
       <h3>Attività particolari (promemoria)</h3>
@@ -1059,50 +1339,92 @@
           dates: "1–2 nov · 2 notti · partenza la mattina del 3 nov",
           body: `
       <h3>Programma</h3>
-      ${days([
-        {
-          date: "1 nov (dom)",
-          activities: [
-            { label: "Arrivo", detail: "~11:20 stimato, Zhangjiajie Ovest (alta velocità da Chongqing, partenza 08:50, ~2,5h)" },
-            { label: "Didi per Wulingyuan e check-in" },
-            { label: "Ponte di Vetro del Grand Canyon di Zhangjiajie", detail: "pomeriggio" },
-          ],
-          booked: false,
-          food: "Cucina Tujia a pranzo (stufato in coccio San Guo Zhi, pancetta affumicata La Rou); cena e passeggiata serale su via antica Xibu",
-          imgs: [["glass_bridge", "Ponte di Vetro del Grand Canyon"]],
-        },
-        {
-          date: "2 nov (lun)",
-          activities: [
-            { label: "Parco nazionale, giornata intera", detail: "al cancello presto per battere le code" },
-            { label: "Ascensore Bailong", detail: "fino a Yuanjiajie — pilastri di Avatar + Primo Ponte Sotto il Cielo" },
-            { label: "Tianzi Mountain + Galleria delle Dieci Miglia", detail: "pomeriggio" },
-            { label: "Furong Zhen", detail: "puntata serale in alta velocità, 20–25min, città-cascata illuminata" },
-          ],
-          booked: false,
-          food: "Pranzo veloce dentro il parco; cena a base di tofu di riso a Furong Zhen, rientro con uno degli ultimi treni",
-          imgs: [
-            ["zjj_park", "Yuanjiajie — i pilastri di Avatar"],
-            ["tianzi", "Tianzi Mountain"],
-            ["furong_zhen", "Furong Zhen, la città-cascata"],
-          ],
-        },
-        {
-          date: "3 nov (mar)",
-          activities: [
-            { label: "Check-out", detail: "~6:45, bagagli nel deposito della funivia" },
-            { label: "Funivia Tianmen Mountain", detail: "in coda entro le ~7:30, apertura" },
-            { label: "Glass Skywalk + passerelle a strapiombo" },
-            { label: "Grotta di Tianmen", detail: "scale mobili + 999 gradini" },
-            { label: "Stop tassativo giù dalla montagna", detail: "entro le 11:30" },
-            { label: "Didi per Zhangjiajie Ovest", detail: "~30min" },
-            { label: "Alta velocità per Guilin", detail: "13:07, ~6h, cambio a Changsha Sud" },
-          ],
-          booked: false,
-          food: "Si mangia in treno — viaggio lungo, poche fermate",
-          imgs: [["tianmen", "Tianmen Mountain"]],
-        },
-      ])}
+      ${days(
+        [
+          {
+            date: "1 nov (dom)",
+            activities: [
+              {
+                label: "Arrivo",
+                detail:
+                  "~11:20 stimato, Zhangjiajie Ovest (alta velocità da Chongqing, partenza 08:50, ~2,5h)",
+                bookBy:
+                  "Prenotare tra il 2 e il 17 ott 2026 (finestra 15–30 gg prima della partenza)",
+              },
+              { label: "Didi per Wulingyuan e check-in" },
+              {
+                label: "Ponte di Vetro del Grand Canyon di Zhangjiajie",
+                detail: "pomeriggio",
+              },
+            ],
+            booked: false,
+            imgs: [["glass_bridge", "Ponte di Vetro del Grand Canyon"]],
+          },
+          {
+            date: "2 nov (lun)",
+            activities: [
+              {
+                label: "Parco nazionale, giornata intera",
+                detail: "al cancello presto per battere le code",
+              },
+              {
+                label: "Ascensore Bailong",
+                detail:
+                  "fino a Yuanjiajie — pilastri di Avatar + Primo Ponte Sotto il Cielo",
+              },
+              {
+                label: "Tianzi Mountain + Galleria delle Dieci Miglia",
+                detail: "pomeriggio",
+              },
+              {
+                label: "Furong Zhen",
+                detail:
+                  "puntata serale in alta velocità, 20–25min, città-cascata illuminata",
+                bookBy:
+                  "Prenotare tra il 3 e il 18 ott 2026 (finestra 15–30 gg prima della partenza)",
+              },
+            ],
+            booked: false,
+            imgs: [
+              ["zjj_park", "Yuanjiajie — i pilastri di Avatar"],
+              ["tianzi", "Tianzi Mountain"],
+              ["furong_zhen", "Furong Zhen, la città-cascata"],
+            ],
+          },
+          {
+            date: "3 nov (mar)",
+            activities: [
+              {
+                label: "Check-out",
+                detail: "~6:45, bagagli nel deposito della funivia",
+              },
+              {
+                label: "Funivia Tianmen Mountain",
+                detail: "in coda entro le ~7:30, apertura",
+              },
+              { label: "Glass Skywalk + passerelle a strapiombo" },
+              {
+                label: "Grotta di Tianmen",
+                detail: "scale mobili + 999 gradini",
+              },
+              {
+                label: "Stop tassativo giù dalla montagna",
+                detail: "entro le 11:30",
+              },
+              { label: "Didi per Zhangjiajie Ovest", detail: "~30min" },
+              {
+                label: "Alta velocità per Guilin",
+                detail: "13:07, ~6h, cambio a Changsha Sud",
+                bookBy:
+                  "Prenotare tra il 4 e il 19 ott 2026 (finestra 15–30 gg prima della partenza) — tratta collo di bottiglia, prenotare appena possibile",
+              },
+            ],
+            booked: false,
+            imgs: [["tianmen", "Tianmen Mountain"]],
+          },
+        ],
+        "zhangjiajie",
+      )}
       <div class="note">Il giorno del parco (2 nov) inizia al cancello per battere la coda dell'ascensore Bailong. Furong Zhen è aggiunta come extra serale leggero con un breve salto in alta velocità, dato che è a soli 20–25 minuti ed è illuminata di notte — i bagagli restano all'hotel di Wulingyuan quindi è un'andata e ritorno veloce.</div>
       <div class="warn"><b>Tempistica Tianmen (3 nov):</b> il giro completo ci sta nella finestra 7:30–11:30 — ma per un pelo, e solo partendo all'apertura. Inizio novembre in un giorno feriale è bassa stagione, quindi le code dovrebbero essere gestibili; comunque questo si incastra direttamente col treno collo-di-bottiglia del viaggio, quindi trattare le 11:30 come non negoziabili. Se la mattina va lunga (coda in funivia, ritardo per meteo), l'ordine dei sacrifici è: saltare la discesa dei 999 gradini (usare scale mobili + navetta), poi accorciare le passerelle a strapiombo — il Glass Skywalk e la Grotta di Tianmen sono i due da tenere.</div>
       <h3>Hotel</h3>
@@ -1113,6 +1435,13 @@
           "La cittadina base proprio ai piedi del parco, evita il pendolarismo quotidiano verso l'area panoramica.",
         ],
       })}
+      <h3>Cibo</h3>
+      ${foodCard([
+        { name: "San Guo Zhi", detail: "stufato in coccio, cucina Tujia" },
+        { name: "La Rou", detail: "pancetta affumicata, cucina Tujia" },
+        { name: "Tofu di riso", detail: "a Furong Zhen" },
+        { name: "Cena", detail: "su via antica Xibu, con passeggiata serale" },
+      ])}
       <h3>Guida</h3>
       <p>Non serve — fai-da-te con le navette interne del parco + Didi per i trasferimenti.</p>
       <h3>Checklist</h3>
@@ -1130,61 +1459,85 @@
             "3–6 nov · soggiorno spezzato: Guilin (3 nov) → Yangshuo (4 nov) → Guilin (5 nov)",
           body: `
       <h3>Programma</h3>
-      ${days([
-        {
-          date: "3 nov (mar)",
-          activities: [
-            { label: "Arrivo a Guilin", detail: "~19:00–19:30 stimato, treno da Zhangjiajie, partenza 13:07, ~6h" },
-            { label: "Check-in" },
-          ],
-          booked: false,
-          food: "Noodles di riso di Guilin (Mifen) per una cena tardi — informale, aperto fino a tardi",
-          imgs: [["sun_moon_pagodas", "Pagode del Sole e della Luna"]],
-        },
-        {
-          date: "4 nov (mer)",
-          activities: [
-            { label: "Crociera sul fiume Li", detail: "Guilin → Yangshuo, ~4h, pranzo a buffet a bordo, vista sulla banconota da 20 yuan" },
-            { label: "Campagna di Yangshuo / fiume Yulong", detail: "in bici o su zattera di bambù" },
-          ],
-          booked: false,
-          food: "Pranzo a buffet in crociera; cena con Beer Fish su West Street la sera",
-          imgs: [
-            ["li_river", "Crociera sul fiume Li"],
-            ["yulong_river", "Fiume Yulong"],
-          ],
-        },
-        {
-          date: "5 nov (gio)",
-          activities: [
-            { label: "Xianggong Mountain all'alba", detail: "pickup a Yangshuo ~5:45, alba ~6:55 sull'ansa del fiume Li" },
-            { label: "Risaie di Longsheng", detail: "~3–3,5h di strada, pranzo nel villaggio, camminata fino alle ~15:00" },
-            { label: "Rientro a Guilin", detail: "~17:00–17:30, check-in" },
-            { label: "Pagode del Sole e della Luna", detail: "illuminate la sera" },
-          ],
-          booked: false,
-          food: "Colazione per strada; pranzo nel villaggio a Longsheng; cena Guangxi vicino alle pagode",
-          imgs: [
-            [
-              "xianggong",
-              "Alba sull'ansa del fiume Li — Xianggong Mountain",
+      ${days(
+        [
+          {
+            date: "3 nov (mar)",
+            activities: [
+              {
+                label: "Arrivo a Guilin",
+                detail:
+                  "~19:00–19:30 stimato, treno da Zhangjiajie, partenza 13:07, ~6h",
+              },
+              { label: "Check-in" },
             ],
-            ["longsheng", "Risaie di Longsheng"],
-          ],
-        },
-        {
-          date: "6 nov (ven)",
-          activities: [
-            { label: "Ultima mattina rilassata", detail: "sveglia con calma" },
-            { label: "Parco delle Sette Stelle", detail: "opzionale" },
-            { label: "Pranzo tardi e shopping di souvenir", detail: "salsa di peperoncino, caramelle di giuggiola" },
-            { label: "Aeroporto", detail: "entro le ~16:30" },
-            { label: "Volo per Shanghai", detail: "serale, ~18:30" },
-          ],
-          booked: false,
-          food: "Ultimo pranzo a Guilin — nessuna fretta prima dell'aeroporto",
-        },
-      ])}
+            booked: false,
+            imgs: [["sun_moon_pagodas", "Pagode del Sole e della Luna"]],
+          },
+          {
+            date: "4 nov (mer)",
+            activities: [
+              {
+                label: "Crociera sul fiume Li",
+                detail:
+                  "Guilin → Yangshuo, ~4h, pranzo a buffet a bordo, vista sulla banconota da 20 yuan",
+              },
+              {
+                label: "Campagna di Yangshuo / fiume Yulong",
+                detail: "in bici o su zattera di bambù",
+              },
+            ],
+            booked: false,
+            imgs: [
+              ["li_river", "Crociera sul fiume Li"],
+              ["yulong_river", "Fiume Yulong"],
+            ],
+          },
+          {
+            date: "5 nov (gio)",
+            activities: [
+              {
+                label: "Xianggong Mountain all'alba",
+                detail:
+                  "pickup a Yangshuo ~5:45, alba ~6:55 sull'ansa del fiume Li",
+              },
+              {
+                label: "Risaie di Longsheng",
+                detail:
+                  "~3–3,5h di strada, pranzo nel villaggio, camminata fino alle ~15:00",
+              },
+              { label: "Rientro a Guilin", detail: "~17:00–17:30, check-in" },
+              {
+                label: "Pagode del Sole e della Luna",
+                detail: "illuminate la sera",
+              },
+            ],
+            booked: false,
+            imgs: [
+              ["xianggong", "Alba sull'ansa del fiume Li — Xianggong Mountain"],
+              ["longsheng", "Risaie di Longsheng"],
+            ],
+          },
+          {
+            date: "6 nov (ven)",
+            activities: [
+              {
+                label: "Ultima mattina rilassata",
+                detail: "sveglia con calma",
+              },
+              { label: "Parco delle Sette Stelle", detail: "opzionale" },
+              {
+                label: "Pranzo tardi e shopping di souvenir",
+                detail: "salsa di peperoncino, caramelle di giuggiola",
+              },
+              { label: "Aeroporto", detail: "entro le ~16:30" },
+              { label: "Volo per Shanghai", detail: "serale, ~18:30" },
+            ],
+            booked: false,
+          },
+        ],
+        "guilin",
+      )}
       <div class="note">Il 5 nov è un unico grande arco con un solo autista per tutta la giornata: Xianggong (~45min da Yangshuo) e Longsheng (~2–2,5h a nord-ovest di Guilin) stanno su lati opposti di Guilin, quindi il percorso è Yangshuo → Xianggong → oltre Guilin → Longsheng → Guilin — circa 5,5–6h di guida totali. L'alba è <i>il</i> momento per Xianggong: il sole sorge alle ~6:55 a inizio novembre e lo scatto classico è la nebbia mattutina sull'ansa del fiume Li — anche se la nebbia fitta è un rischio reale senza piano B a quell'ora (se è tutto coperto, si prosegue dritti per Longsheng). A inizio novembre il riso di Longji è già raccolto, quindi aspettarsi terrazze a strati marroni/a specchio d'acqua più che dorate. Il vantaggio: il giorno del volo non ha nessun trasferimento lungo — la mattina del 6 nov diventa un vero cuscinetto. Nota: è un'altra sveglia alle ~5:30, incorniciata dalla giornata rilassata di crociera prima e dalla mattina libera dopo.</div>
       <div class="note"><b>Volo Guilin → Shanghai (6 nov):</b> verificato — KWL→PVG ha ~6 partenze dirette al giorno (China Eastern, Juneyao, Spring, Air China, Shanghai Airlines) distribuite dalle ~07:00 alle ~22:35, ~2h15m di volo. <b>Puntare a una partenza serale attorno alle 18:30–19:30 su PVG</b> (arrivo ~21:00–21:45, hotel entro le ~23:00): abbastanza presto per andare a dormire a un'ora decente a Shanghai, e con Longsheng spostato al 5 nov il giorno della partenza è del tutto senza fretta — nessun rischio di lunghi trasferimenti tra la sveglia e il gate. Gli orari di nov 2026 non sono ancora caricati — prenotare appena disponibili.</div>
       <div class="note"><b>Piano B crociera fiume Li:</b> ott/nov è la stagione secca del Guangxi; l'acqua bassa può accorciare la crociera o sostituirne una parte con un bus. In quel caso, il piano B per il 4 nov è: Didi/bus per Xingping (~1h da Guilin), zattera di bambù sul tratto Xingping → Murale dei Nove Cavalli — che include il vero punto panoramico della banconota da 20 yuan — poi si prosegue su strada fino a Yangshuo. Stessi paesaggi chiave, barche adatte all'acqua bassa.</div>
@@ -1196,6 +1549,27 @@
           "Guilin centrale per entrambe le notti a Guilin (vicino a Due Fiumi e Quattro Laghi/Pagode del Sole e della Luna va bene sia per l'arrivo che per il ritorno); centro di Yangshuo o campagna lungo il fiume per la notte lì.",
         ],
       })}
+      <h3>Cibo</h3>
+      ${foodCard([
+        {
+          name: "Mifen (noodles di riso di Guilin)",
+          detail: "informale, aperto fino a tardi",
+        },
+        {
+          name: "Pranzo a buffet",
+          detail: "a bordo della crociera sul fiume Li",
+        },
+        { name: "Beer Fish", detail: "su West Street, Yangshuo" },
+        {
+          name: "Pranzo",
+          detail:
+            "nel villaggio di Longsheng, tra una camminata e l'altra tra le terrazze",
+        },
+        {
+          name: "Cucina Guangxi",
+          detail: "vicino alle Pagode del Sole e della Luna, Guilin",
+        },
+      ])}
       <h3>Guida</h3>
       <p>Non serve — fai-da-te con Didi/taxi e il biglietto della crociera sul fiume Li; l'unica cosa da prenotare è un autista privato per l'intera giornata del 5 nov (pickup a Yangshuo prima dell'alba → alba a Xianggong → Longsheng → rientro a Guilin).</p>
       <h3>Saltati, di proposito</h3>
@@ -1213,9 +1587,10 @@
 
         shanghai: {
           title: "Shanghai",
-          dates: "6–8 nov · 2 notti · giornata libera il 7 nov prima del volo notturno",
+          dates:
+            "6–8 nov · 2 notti · giornata libera il 7 nov prima del volo notturno",
           body: `
-      <div class="warn"><b>DA FARE — non ancora studiata.</b> La guida di Cristina ha solo un titolo segnaposto per Shanghai ("24 ore a Shanghai") senza contenuto. Mancano ancora: cosa visitare/saltare e perché, zona hotel, cibo, checklist.</div>
+      <div class="warn"><b>DA FARE — non ancora studiata.</b> La guida ha solo un titolo segnaposto per Shanghai ("24 ore a Shanghai") senza contenuto. Mancano ancora: cosa visitare/saltare e perché, zona hotel, cibo, checklist.</div>
       <p>Arrivo la sera del 6 nov col volo da Guilin (~21:00–21:45 su PVG, hotel entro le ~23:00); il 7 nov è una giornata libera prima di andare a PVG per il volo notturno delle 01:45 dell'8 nov.</p>
       <img class="hero-img" src="${IMG.bund}" loading="lazy" alt="Il Bund, Shanghai">
       <p style="font-size:10.5px;color:var(--muted);margin-top:2px">Il Bund — il candidato ovvio per la giornata libera, una volta studiata</p>`,
@@ -1223,9 +1598,10 @@
 
         flights: {
           title: "Voli internazionali",
-          dates: "Air China · prenotazione DP6QBH · conferma PF4TYP",
+          dates: "Air China",
           body: `
-      <p>Prenotati con Air China. PDF completo: <code>flights/AirChina-DP6QBH.pdf</code></p>
+      <p>Prenotati con Air China.</p>
+      <div class="table-scroll">
       <table class="flights">
         <tr><th></th><th>Andata</th><th>Ritorno</th></tr>
         <tr><th>Volo</th><td>CA750</td><td>CA967</td></tr>
@@ -1238,6 +1614,7 @@
         <tr><th>Aereo</th><td>—</td><td>Airbus A350-900</td></tr>
         <tr><th>Bagaglio</th><td>1 bagaglio in stiva/pax (gratis)</td><td>1 bagaglio in stiva/pax (gratis)</td></tr>
       </table>
+      </div>
       <h3>Note</h3>
       <ul>
         <li>L'andata atterra a <b>Daxing (PKX)</b>, non al vecchio aeroporto Capital (PEK) — verificare quale aeroporto presuppongono trasferimenti/hotel.</li>
@@ -1249,7 +1626,8 @@
 
         checklist: {
           title: "Checklist di viaggio",
-          dates: "nulla di prenotato tranne i voli internazionali e l'hotel di Pechino",
+          dates:
+            "nulla di prenotato tranne i voli internazionali e l'hotel di Pechino",
           body: `
       <div class="warn"><b>⚠️ Finestre di apertura vendite:</b> per ora non si può prenotare nulla sui treni — China Railway apre le vendite solo <b>15–30 giorni prima di ogni partenza</b>. Impostare promemoria sul calendario per ogni tratta, e prendere Zhangjiajie → Guilin appena apre. Anche le quote delle attrazioni hanno i loro tempi: Città Proibita ~7 giorni prima, Base dei Panda pochi giorni prima (la fascia mattutina si esaurisce per prima), funivia del Tianmen Mountain pochi giorni prima.</div>
       <div class="warn"><b>Punto critico:</b> Zhangjiajie → Guilin è il singolo punto di rottura del percorso (~6h, richiede un cambio treno a Changsha Sud, nessun volo stagionale a novembre). Prenotare questa tratta per prima.</div>
@@ -1258,7 +1636,7 @@
         "Visto per la Cina — i passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni), ma la misura ha una scadenza: confermare che copra ancora ott–nov 2026 prima di dare per scontato che il visto non serva",
         "Trasporti interni Pechino → Shanghai (volo o treno, più le tappe intermedie)",
         "Alloggi — Pechino prenotata (vedi cartella hotels/), tutte le altre città ancora aperte",
-        "Controllo scadenza passaporti (Nicolo: 08/08/27, Cristina: 29/08/34 — entrambi ok)",
+        "Controllo scadenza passaporti (entrambi ok)",
         "Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì",
         "Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti",
         "Procurarsi una eSIM cinese o confermare il roaming dati — serve per mappe/traduzione/app taxi fin dall'atterraggio",
@@ -1645,7 +2023,8 @@
         body.scrollTop = 0;
         const state = loadCk();
         body.querySelectorAll("input[data-ck]").forEach((cb) => {
-          cb.checked = !!state[cb.dataset.ck];
+          const id = cb.dataset.ck;
+          if (id in state) cb.checked = !!state[id];
           cb.addEventListener("change", () => {
             const s = loadCk();
             s[cb.dataset.ck] = cb.checked;
