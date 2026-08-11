@@ -157,6 +157,17 @@
         height: 100%;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
       }
+      .stop-label {
+        white-space: nowrap;
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--train);
+        text-shadow:
+          0 0 3px #fff,
+          0 0 3px #fff,
+          0 0 5px #fff;
+        pointer-events: none;
+      }
 
       /* ---------- side panel ---------- */
       .panel {
@@ -910,13 +921,13 @@
         {
           name: "Quanjude (全聚德)",
           detail:
-            "il nome più famoso e storico, dal 1864; forno \"a sospensione\" (挂炉) per pelle particolarmente croccante; sede principale su Qianmen Street",
+            'il nome più famoso e storico, dal 1864; forno "a sospensione" (挂炉) per pelle particolarmente croccante; sede principale su Qianmen Street',
           noBullet: true,
         },
         {
           name: "Bianyifang (便宜坊)",
           detail:
-            "ancora più antico di Quanjude, dal 1416; maestro del forno \"chiuso\" (焖炉), che dà una carne più tenera",
+            'ancora più antico di Quanjude, dal 1416; maestro del forno "chiuso" (焖炉), che dà una carne più tenera',
           noBullet: true,
         },
         {
@@ -1667,7 +1678,7 @@
         {
           key: "beijing",
           n: 1,
-          name: "Pechino",
+          name: "Beijing",
           ll: [39.9042, 116.4074],
           dates: "23–25 ott",
         },
@@ -1702,7 +1713,7 @@
         {
           key: "zhangjiajie",
           n: 6,
-          name: "Zhangjiajie (Wulingyuan)",
+          name: "Zhangjiajie",
           ll: [29.3455, 110.543],
           dates: "1–2 nov",
         },
@@ -1795,6 +1806,18 @@
             offset: [0, -12],
           })
           .on("click", () => openPanel(s.key));
+
+        const labelIcon = L.divIcon({
+          className: "",
+          iconSize: [0, 0],
+          iconAnchor: [-12, -6],
+          html: `<div class="stop-label">${s.name}</div>`,
+        });
+        L.marker(s.ll, {
+          icon: labelIcon,
+          zIndexOffset: 500,
+          interactive: false,
+        }).addTo(map);
       });
 
       // side-trip pins
