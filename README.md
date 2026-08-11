@@ -79,6 +79,8 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
 - [asiaodysseytravel.com](https://www.asiaodysseytravel.com/) — 11 ago 2026
   - [2-Days Beijing World Heritage Tour](https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html) — tour di 2 giorni
   - [1-Day Beijing Tour](https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html) — tour di 1 giorno
+- [chinaculturetour.com](https://www.chinaculturetour.com/) — 11 ago 2026
+- [dgvtravel.com](https://www.dgvtravel.com/) — 11 ago 2026 (via mail)
 
 **Arrivo**
 

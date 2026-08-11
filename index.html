@@ -455,6 +455,60 @@
       .mini-btn:hover {
         background: #eef2f7;
       }
+      .card-quote-wrap {
+        position: relative;
+      }
+      .quote-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+      }
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal-box {
+        background: #fff;
+        border-radius: 10px;
+        padding: 14px;
+        width: 100%;
+        max-width: 480px;
+        max-height: 85vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+      #quote-text {
+        width: 100%;
+        flex: 1;
+        min-height: 320px;
+        font-family: inherit;
+        font-size: 12px;
+        line-height: 1.4;
+        padding: 8px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        resize: vertical;
+      }
+      .modal-actions {
+        margin-top: 8px;
+        display: flex;
+        justify-content: flex-end;
+      }
       .hotel-card .hotel-website {
         font-size: 11px;
         margin: 0 0 4px;
@@ -659,6 +713,19 @@
         <button class="panel-close" onclick="closePanel()">✕</button>
       </div>
       <div class="panel-body" id="panel-body"></div>
+    </div>
+
+    <div class="modal-overlay" id="quote-modal" onclick="if(event.target===this) closeQuoteModal()">
+      <div class="modal-box">
+        <div class="modal-head">
+          <b>Richiesta preventivo</b>
+          <button class="panel-close" onclick="closeQuoteModal()">✕</button>
+        </div>
+        <textarea id="quote-text" readonly></textarea>
+        <div class="modal-actions">
+          <button class="mini-btn" id="quote-copy-btn" onclick="copyQuoteText()">📋 Copia testo</button>
+        </div>
+      </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -1072,7 +1139,8 @@
         },
       ])}
       <h3 id="beijing-guida">Guida</h3>
-      <div class="card">
+      <div class="card card-quote-wrap">
+        <button class="mini-btn quote-btn" onclick="openQuoteModal()" title="Richiedi preventivo" aria-label="Richiedi preventivo">✉️</button>
         <p>Da discutere con il compagno/a di viaggio — trovate via <a href="https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/" target="_blank">Reddit r/travelchina</a></p>
         <p><b>Nota:</b> richieste di preventivo:</p>
         <ul>
@@ -1084,6 +1152,8 @@
               <li><a href="https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html" target="_blank">1-Day Beijing Tour</a> — tour di 1 giorno</li>
             </ul>
           </li>
+          <li><a href="https://www.chinaculturetour.com/" target="_blank">chinaculturetour.com</a> — 11 ago 2026</li>
+          <li><a href="https://www.dgvtravel.com/" target="_blank">dgvtravel.com</a> — 11 ago 2026 (via mail)</li>
         </ul>
       </div>
       <h3>Attività particolari (promemoria)</h3>
@@ -2339,9 +2409,45 @@
           ?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
+      const QUOTE_REQUEST_TEXT = `Hi,
+
+We're planning a trip to Beijing and are interested in 2  Days Beijing Tour (Great Wall + Forbidden City/Temple of Heaven).
+
+Could you send a price quote for 2 travelers, with these dates:
+- Forbidden City + Temple of Heaven day: Saturday, 24 October 2026
+- Great Wall (Mutianyu) day: Sunday, 25 October 2026 — we'd like early access, departing the hotel around 6:30 to arrive at opening (~8:00) and beat the tour groups
+
+On the Sunday, we're also open to any additional activity you'd suggest to round out the day.
+
+Pickup/drop-off point: Hotel (booked by us).
+
+Please include what's covered (entrance tickets, cable car/toboggan at Mutianyu, private transfer, English-speaking guide) and total price for both of us.
+
+Thank you,
+Nicolò`;
+
+      function openQuoteModal() {
+        document.getElementById("quote-text").value = QUOTE_REQUEST_TEXT;
+        document.getElementById("quote-modal").classList.add("open");
+      }
+      function closeQuoteModal() {
+        document.getElementById("quote-modal").classList.remove("open");
+      }
+      function copyQuoteText() {
+        const btn = document.getElementById("quote-copy-btn");
+        navigator.clipboard.writeText(QUOTE_REQUEST_TEXT).then(() => {
+          const original = btn.textContent;
+          btn.textContent = "✅ Copiato";
+          setTimeout(() => (btn.textContent = original), 1500);
+        });
+      }
+
       map.on("click", closePanel);
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closePanel();
+        if (e.key === "Escape") {
+          closePanel();
+          closeQuoteModal();
+        }
       });
     </script>
   </body>
