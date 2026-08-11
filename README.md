@@ -43,9 +43,9 @@ Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiaji
 ### Beijing (23–26 ott)
 
 **Checklist:**
-- [ ] **Guida.** Prenotare la guida turistica ([vedi guida](#beijing-guida))
-- [ ] **Guida.** Verificare che i biglietti per le attrazioni siano inclusi nel tour guidato
-- [ ] **Treno.** Prenotare treno per Pingyao — <span style="color:#e63946">prenotabile tra il 26 set e l'11 ott 2026</span>
+- [ ] **🧭 Guida.** Prenotare la guida turistica ([vedi guida](#beijing-guida))
+- [ ] **🧭 Guida.** Verificare che i biglietti per le attrazioni siano inclusi nel tour guidato
+- [ ] **🚄 Treno.** Prenotare treno per Pingyao — <span style="color:#e63946">prenotabile tra il 26 set e l'11 ott 2026</span>
 
 ---
 
@@ -124,10 +124,10 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 ### Pingyao (26–27 ott)
 
 **Checklist:**
-- [ ] Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
-- [ ] Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)
-- [ ] Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)
-- [ ] Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano
+- [ ] **🏨 Hotel.** Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
+- [ ] **🎫 Biglietto.** Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)
+- [ ] **🚄 Treno.** Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)
+- [ ] **💵 Contanti.** Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano
 
 ---
 
@@ -167,9 +167,9 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 ### Xi'an (27–28 ott)
 
 **Checklist:**
-- [ ] Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi
-- [ ] Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi
-- [ ] Mettere a budget il Didi per Lintong (Esercito di Terracotta) — circa 75–110 CNY a tratta
+- [ ] **🏺 Terracotta.** Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi
+- [ ] **🧱 Mura.** Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi
+- [ ] **💰 Budget.** Mettere a budget il Didi per Lintong (Esercito di Terracotta) — circa 75–110 CNY a tratta
 
 ---
 
@@ -213,7 +213,7 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 ### Chengdu (29–30 ott)
 
 **Checklist:**
-- [ ] Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)
+- [ ] **🐼 Panda.** Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)
 
 ---
 
@@ -260,7 +260,7 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 ### Chongqing (31 ott)
 
 **Checklist:**
-- [ ] Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva
+- [ ] **🚁 Droni.** Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva
 
 ---
 
@@ -305,10 +305,10 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 ### Zhangjiajie (1–2 nov, partenza la mattina del 3 nov)
 
 **Checklist:**
-- [ ] Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong
-- [ ] Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie
-- [ ] Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta
-- [ ] Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud
+- [ ] **🏞️ Parco.** Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong
+- [ ] **🌉 Ponte.** Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie
+- [ ] **🚡 Funivia.** Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta
+- [ ] **🚄 Treno.** Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud
 
 ---
 
@@ -353,11 +353,11 @@ Tempistica Tianmen (3 nov): il giro completo ci sta nella finestra 7:30–11:30 
 ### Guilin e Yangshuo (3–6 nov)
 
 **Checklist:**
-- [ ] Prenotare lo stesso hotel di Guilin per entrambe le notti (3 e 5 nov) se possibile, e confermare che custodiscano le valigie grandi durante la notte a Yangshuo
-- [ ] Prenotare in anticipo il biglietto della crociera sul fiume Li — ricontrollare i livelli dell'acqua sotto data; la zattera da Xingping è il piano B
-- [ ] Prenotare l'autista privato per l'intera giornata del 5 nov (pickup a Yangshuo ~5:45 → Xianggong → Longsheng → Guilin) — concordare in anticipo tutto il percorso e il prezzo
-- [ ] Verificare che il punto panoramico di Xianggong Mountain apra per l'alba (di norma sì — piccolo biglietto d'ingresso, ~60 CNY)
-- [ ] Prenotare il volo serale Guilin → Shanghai (~18:30–19:30 su PVG) appena aprono gli orari di nov 2026
+- [ ] **🏨 Hotel.** Prenotare lo stesso hotel di Guilin per entrambe le notti (3 e 5 nov) se possibile, e confermare che custodiscano le valigie grandi durante la notte a Yangshuo
+- [ ] **🚢 Crociera.** Prenotare in anticipo il biglietto della crociera sul fiume Li — ricontrollare i livelli dell'acqua sotto data; la zattera da Xingping è il piano B
+- [ ] **🚗 Autista.** Prenotare l'autista privato per l'intera giornata del 5 nov (pickup a Yangshuo ~5:45 → Xianggong → Longsheng → Guilin) — concordare in anticipo tutto il percorso e il prezzo
+- [ ] **🌄 Xianggong.** Verificare che il punto panoramico di Xianggong Mountain apra per l'alba (di norma sì — piccolo biglietto d'ingresso, ~60 CNY)
+- [ ] **✈️ Volo.** Prenotare il volo serale Guilin → Shanghai (~18:30–19:30 su PVG) appena aprono gli orari di nov 2026
 
 ---
 
@@ -413,10 +413,10 @@ _DA FARE — non ancora studiata. La guida ha solo un titolo segnaposto per Shan
 
 ## Checklist di viaggio
 
-- [x] **Visto.** I passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni).
-- [x] **Passaporti.** Scadenza passaporti, ok per entrambi
-- [ ] **VPN.** Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì
-- [ ] **APP.** Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti
-- [ ] **APP.** Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato
-- [ ] **eSIM.** Procurare eSIM cinese o confermare il roaming dati
-- [ ] **Assicurazione.** 10% di sconto con Columbus
+- [x] **🛂 Visto.** I passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni).
+- [x] **🪪 Passaporti.** Scadenza passaporti, ok per entrambi
+- [ ] **🔒 VPN.** Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì
+- [ ] **💳 APP.** Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti
+- [ ] **🗺️ APP.** Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato
+- [ ] **📶 eSIM.** Procurare eSIM cinese o confermare il roaming dati
+- [ ] **🛡️ Assicurazione.** 10% di sconto con Columbus
