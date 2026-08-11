@@ -858,6 +858,16 @@
   </div>`;
       }
 
+      function arrivalCard(rows) {
+        return (
+          `<div class="flight-leg">` +
+          rows
+            .map((r) => `<div class="flight-row"><span>${r[0]}</span>${r[1]}</div>`)
+            .join("") +
+          `</div>`
+        );
+      }
+
       const BEIJING_CHECKLIST = [
         "Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo — trovate via <a href=\"https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/\" target=\"_blank\">Reddit r/travelchina</a>:<ul><li><a href=\"https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html\" target=\"_blank\">2-Days Beijing World Heritage Tour</a> — tour di 2 giorni</li><li><a href=\"https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html\" target=\"_blank\">1-Day Beijing Tour</a> — tour di 1 giorno</li></ul>",
         "Prenotare città proibita (suggerito da Claude con largo anticipo) — biglietti con quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida",
@@ -904,6 +914,12 @@
           title: "Beijing",
           dates: "23–25 ott · 3 notti",
           body: `
+      <h3>✈️ Arrivo</h3>
+      ${arrivalCard([
+        ["Mezzo", "Volo internazionale (Air China CA750)"],
+        ["Da", "Milano MXP"],
+        ["Arrivo", "12:10, aeroporto di Pechino Daxing (PKX)"],
+      ])}
       <h3>Programma</h3>
       ${days(
         [
@@ -1090,6 +1106,12 @@
           title: "Pingyao",
           dates: "26–27 ott · 1 notte · piccola città antica, una notte basta",
           body: `
+      <h3>🚄 Arrivo</h3>
+      ${arrivalCard([
+        ["Mezzo", "Treno alta velocità da Pechino Ovest"],
+        ["Durata", "~4h"],
+        ["Arrivo", "~14:00–14:30, stazione di Pingyao Gucheng"],
+      ])}
       <h3>Programma</h3>
       ${days(
         [
@@ -1170,6 +1192,11 @@
           dates:
             "27–28 ott · 2 notti · l'Esercito di Terracotta richiede una giornata intera",
           body: `
+      <h3>🚄 Arrivo</h3>
+      ${arrivalCard([
+        ["Mezzo", "Treno alta velocità da Pingyao"],
+        ["Arrivo", "~19:55–20:40, stazione di Xi'an Nord"],
+      ])}
       <h3>Programma</h3>
       ${days(
         [
@@ -1252,6 +1279,13 @@
           title: "Chengdu",
           dates: "29–30 ott · 2 notti · panda + città vecchia",
           body: `
+      <h3>🚄 Arrivo</h3>
+      ${arrivalCard([
+        ["Mezzo", "Treno alta velocità da Xi'an"],
+        ["Partenza", "8:07"],
+        ["Durata", "~3,5h"],
+        ["Arrivo", "~11:40 stimato, stazione di Chengdu Est"],
+      ])}
       <h3>Programma</h3>
       ${days(
         [
@@ -1349,6 +1383,13 @@
           title: "Chongqing",
           dates: "31 ott · 1 notte · tappa veloce",
           body: `
+      <h3>🚄 Arrivo</h3>
+      ${arrivalCard([
+        ["Mezzo", "Treno alta velocità da Chengdu"],
+        ["Partenza", "~8:37"],
+        ["Durata", "~1,5–2h"],
+        ["Arrivo", "~10:10–10:40 stimato"],
+      ])}
       <h3>Programma</h3>
       ${days(
         [
@@ -1426,6 +1467,13 @@
           title: "Zhangjiajie",
           dates: "1–2 nov · 2 notti · partenza la mattina del 3 nov",
           body: `
+      <h3>🚄 Arrivo</h3>
+      ${arrivalCard([
+        ["Mezzo", "Treno alta velocità da Chongqing"],
+        ["Partenza", "08:50"],
+        ["Durata", "~2,5h"],
+        ["Arrivo", "~11:20 stimato, Zhangjiajie Ovest"],
+      ])}
       <h3>Programma</h3>
       ${days(
         [
@@ -1541,6 +1589,13 @@
           dates:
             "3–6 nov · soggiorno spezzato: Guilin (3 nov) → Yangshuo (4 nov) → Guilin (5 nov)",
           body: `
+      <h3>🚄 Arrivo</h3>
+      ${arrivalCard([
+        ["Mezzo", "Treno alta velocità da Zhangjiajie (cambio a Changsha Sud)"],
+        ["Partenza", "13:07"],
+        ["Durata", "~6h"],
+        ["Arrivo", "~19:00–19:30 stimato"],
+      ])}
       <h3>Programma</h3>
       ${days(
         [

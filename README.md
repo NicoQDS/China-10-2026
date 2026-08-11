@@ -72,6 +72,8 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
   - [2-Days Beijing World Heritage Tour](https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html) — tour di 2 giorni
   - [1-Day Beijing Tour](https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html) — tour di 1 giorno
 
+**✈️ Arrivo:** volo internazionale (Air China CA750) da Milano MXP — arrivo 12:10, aeroporto di Pechino Daxing (PKX)
+
 | Programma | Data |
 |---|---|
 | **Arrivo** — Wangfujing / via Qianmen, piazza Tienanmen (esterno) | 23 ott (ven) |
@@ -111,6 +113,8 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 
 **Guida:** non serve — fai-da-te; un biglietto cumulativo di 3 giorni (~125 CNY / 16€) copre le Mura, lo Yamen, la banca Rishengchang, il Tempio del Dio della Città e gli altri siti principali dentro le mura.
 
+**🚄 Arrivo:** treno alta velocità da Pechino Ovest — ~4h, arrivo ~14:00–14:30 alla stazione di Pingyao Gucheng
+
 | Programma | Data |
 |---|---|
 | **Arrivo** — la stazione di Pingyao Gucheng (città antica) è a 8,5 km dal centro storico; taxi ~20min/30 CNY, oppure bus 108 ~30min/¥1 come alternativa economica. Check-in, prima passeggiata su via Ming-Qing e al Tempio del Dio della Città (Chenghuangmiao); le lanterne si accendono dopo il tramonto | 26 ott (lun) |
@@ -133,6 +137,8 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 - Noodles Biangbiang — nel Quartiere Musulmano
 
 **Guida:** non serve — fai-da-te con Didi/metro; il sito dell'Esercito di Terracotta ha abbastanza pannelli informativi da rendere non essenziale una guida privata.
+
+**🚄 Arrivo:** treno alta velocità da Pingyao — arrivo ~19:55–20:40 alla stazione di Xi'an Nord
 
 | Programma | Data |
 |---|---|
@@ -162,6 +168,8 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 
 **Guida:** non serve — fai-da-te con metro/Didi; l'ingresso alla Base dei Panda si prenota online in anticipo.
 
+**🚄 Arrivo:** treno alta velocità da Xi'an — partenza 8:07, ~3,5h, arrivo ~11:40 stimato alla stazione di Chengdu Est
+
 | Programma | Data |
 |---|---|
 | **Arrivo** — alta velocità da Xi'an (~3,5h) fino a Chengdu Est, Linea 2 fino all'hotel, vicoli antichi di Kuanzhai Xiangzi nel pomeriggio, cultura del tè al Parco del Popolo (casa da tè Heming) | 29 ott (gio) |
@@ -188,6 +196,8 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 
 **Guida:** non serve — completamente fai-da-te con metro/Didi.
 
+**🚄 Arrivo:** treno alta velocità da Chengdu — partenza ~8:37, ~1,5–2h, arrivo ~10:10–10:40 stimato
+
 | Programma | Data |
 |---|---|
 | **Arrivo** — alta velocità da Chengdu (~1,5–2h), bagagli in hotel, stazione di Liziba (il treno che attraversa il palazzo) con la Linea 2, città vecchia di Ciqikou, passerella di vetro The Crystal a Raffles City, cena hotpot a Jiefangbei, spettacolo di droni alla terrazza Nanbin Rd/Changjiahui con la Linea 6 (~20:30, il sabato), Hongyadong illuminata di notte per chiudere la serata | 31 ott (sab) |
@@ -213,6 +223,8 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 - Cena — su via antica Xibu, con passeggiata serale
 
 **Guida:** non serve — fai-da-te con le navette interne del parco + Didi per i trasferimenti.
+
+**🚄 Arrivo:** treno alta velocità da Chongqing — partenza 08:50, ~2,5h, arrivo ~11:20 stimato a Zhangjiajie Ovest
 
 | Programma | Data |
 |---|---|
@@ -242,6 +254,8 @@ Tempistica Tianmen (3 nov): il giro completo ci sta nella finestra 7:30–11:30 
 - Cucina Guangxi — vicino alle Pagode del Sole e della Luna, Guilin
 
 **Guida:** non serve — fai-da-te con Didi/taxi e il biglietto della crociera sul fiume Li; l'unica cosa da prenotare è un autista privato per l'intera giornata del 5 nov (pickup a Yangshuo prima dell'alba → alba a Xianggong → Longsheng → rientro a Guilin).
+
+**🚄 Arrivo:** treno alta velocità da Zhangjiajie (cambio a Changsha Sud) — partenza 13:07, ~6h, arrivo ~19:00–19:30 stimato
 
 | Programma | Data |
 |---|---|
