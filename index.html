@@ -727,6 +727,10 @@
         xingping:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Li_River_at_Xingping_1.jpg/960px-Li_River_at_Xingping_1.jpg",
         bund: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Bund_2.jpg/960px-The_Bund_2.jpg",
+        wuhou:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Gateway_-_Wuhou_Shrine_-_Chengdu,_China_-_DSC05423.jpg",
+        west_street:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/West_Street_-Yangshuo-Guilin_-_China_-_panoramio.jpg",
       };
 
       function figs(imgs) {
@@ -1975,6 +1979,122 @@
             { maxWidth: 250 },
           );
       });
+
+      // in-city attraction pins (same style as side-trips, shown only when zoomed in)
+      const IN_CITY_TRIPS = [
+        {
+          name: "Città Proibita",
+          ll: [39.9163, 116.3972],
+          img: "forbidden_city",
+          txt: "Reggia imperiale Ming-Qing, cuore della città vecchia — a due passi da Tian'anmen.",
+        },
+        {
+          name: "Tempio del Cielo",
+          ll: [39.8822, 116.4066],
+          img: "temple_heaven",
+          txt: "Dove gli imperatori pregavano per il buon raccolto; grande parco intorno.",
+        },
+        {
+          name: "Hutong (Nanluoguxiang)",
+          ll: [39.9368, 116.4034],
+          img: "hutong",
+          txt: "Vicoli storici pechinesi, negozietti e street food.",
+        },
+        {
+          name: "Wangfujing",
+          ll: [39.9139, 116.4177],
+          img: "wangfujing",
+          txt: "Via pedonale dello shopping, snack di strada (anche i più esotici).",
+        },
+        {
+          name: "Torre della Campana",
+          ll: [34.2583, 108.9426],
+          img: "xian_bell",
+          txt: "Simbolo del centro di Xi'an, illuminata di notte.",
+        },
+        {
+          name: "Grande Moschea",
+          ll: [34.2626, 108.937],
+          img: "muslim_quarter",
+          txt: "Moschea in stile cinese nel cuore del Quartiere Musulmano.",
+        },
+        {
+          name: "Kuanzhai Xiangzi",
+          ll: [30.6702, 104.0611],
+          img: "kuanzhai",
+          txt: "Tre vicoli storici ristrutturati, tè e street food.",
+        },
+        {
+          name: "Base dei Panda",
+          ll: [30.7304, 104.1467],
+          img: "panda_base",
+          txt: "Centro di ricerca e allevamento panda giganti — meglio la mattina presto.",
+        },
+        {
+          name: "Jinli",
+          ll: [30.652, 104.0475],
+          img: "jinli",
+          txt: "Via storica dello shopping, accanto al Tempio di Wuhou.",
+        },
+        {
+          name: "Tempio di Wuhou",
+          ll: [30.6459, 104.0454],
+          img: "wuhou",
+          txt: "Santuario dedicato a Zhuge Liang e ai regni dei Tre Regni.",
+        },
+        {
+          name: "Ciqikou",
+          ll: [29.5622, 106.4571],
+          img: "ciqikou",
+          txt: "Antico villaggio fluviale sul fiume Jialing.",
+        },
+        {
+          name: "Hongya Cave",
+          ll: [29.5602, 106.5716],
+          img: "hongyadong",
+          txt: "Complesso a terrazze incastonato nella collina, spettacolare di sera.",
+        },
+        {
+          name: "West Street",
+          ll: [24.777, 110.4956],
+          img: "west_street",
+          txt: "Via pedonale principale di Yangshuo, bar e negozi verso il fiume Li.",
+        },
+        {
+          name: "Il Bund",
+          ll: [31.2397, 121.4906],
+          img: "bund",
+          txt: "Lungofiume storico, skyline di Pudong sull'altra sponda.",
+        },
+      ];
+
+      const IN_CITY_MIN_ZOOM = 9;
+      const inCityLayer = L.layerGroup();
+      IN_CITY_TRIPS.forEach((s) => {
+        const icon = L.divIcon({
+          className: "",
+          iconSize: [16, 16],
+          iconAnchor: [8, 8],
+          html: `<div class="side-pin"></div>`,
+        });
+        L.marker(s.ll, { icon })
+          .bindTooltip(`<b>${s.name}</b>`, {
+            direction: "top",
+            offset: [0, -8],
+          })
+          .bindPopup(
+            `<img class="side-img" src="${IMG[s.img]}" loading="lazy" alt="${s.name}"><b>${s.name}</b><br>${s.txt}`,
+            { maxWidth: 250 },
+          )
+          .addTo(inCityLayer);
+      });
+      function syncInCityLayer() {
+        const show = map.getZoom() >= IN_CITY_MIN_ZOOM;
+        if (show && !map.hasLayer(inCityLayer)) inCityLayer.addTo(map);
+        if (!show && map.hasLayer(inCityLayer)) map.removeLayer(inCityLayer);
+      }
+      map.on("zoomend", syncInCityLayer);
+      syncInCityLayer();
 
       // Changsha South train-change marker
       L.marker([28.1478, 113.0596], {
