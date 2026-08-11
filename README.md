@@ -40,7 +40,7 @@ Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiaji
 
 ## Giorno per giorno
 
-### Pechino (23–26 ott)
+### Beijing (23–26 ott)
 
 **Hotel:** [JianGuo Hidden Hotel](hotels/Beijing.pdf) (Beijing Tian An Men Wangfujing store) — No. 19 Jinyu Hutong, distretto di Dongcheng. [Sito web](https://us.trip.com/hotels/beijing-hotel-detail-80943188/jianguo-hidden-hotel-beijing-wangfujing-store/). Check-in 23 ott dopo le 14:00, check-out 26 ott entro le 12:00 (3 notti).
 
@@ -64,9 +64,13 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
 - Lu Zhu Huo Shao (卤煮火烧) — stufato di frattaglie e intestino di maiale con pane, da 门框胡同卤煮 vicino a Dashilar/Qianmen
 - Dolci Daoxiangcun (稻香村) — wandouhuang (dolce di farina di piselli), aiwowo (dolce di riso glutinoso), lüdagun ("l'asino che rotola")
 
-**Guida:** prenotata per entrambe le giornate piene.
-- **Giorno Grande Muraglia** — il valore vero è il transfer privato (Mutianyu è scomoda coi mezzi pubblici), che permette di partire alle 6:30 per battere la folla; ~150–200$ per due, include funivia/slittino.
-- **Giorno Città Proibita + Tempio del Cielo** — aggiunge profondità storica/racconto su entrambi i siti; visto che la guida per la Muraglia c'è già, vale la pena estenderla anche a questo giorno invece di mischiare guidato e fai-da-te.
+**Guida:** da discutere con il compagno/a di viaggio — trovate via [Reddit r/travelchina](https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/)
+
+**Nota:** richieste di preventivo:
+- [chinadiscovery.com](https://www.chinadiscovery.com/forms/thankyou.html) — 11 ago 2026
+- [asiaodysseytravel.com](https://www.asiaodysseytravel.com/) — 11 ago 2026
+  - [2-Days Beijing World Heritage Tour](https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html) — tour di 2 giorni
+  - [1-Day Beijing Tour](https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html) — tour di 1 giorno
 
 | Programma | Data |
 |---|---|
@@ -92,7 +96,9 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 **Possibile esperienza guidata alternativa (non ancora prenotata):** [Tour privato Grande Muraglia di Mutianyu con autista in inglese](https://www.getyourguide.com/pechino-l186/tour-privato-della-grande-muraglia-di-mutianyu-con-autista-inglese-t875282?ranking_uuid=8626a31c-46a3-4506-a9dc-09d94e9227df&referral_redirect=1&q=Mutianyu&date_from=2026-10-25) su GetYourGuide — pickup in hotel, biglietti d'ingresso e navetta inclusi, ~90 min (75 km) fino al parcheggio di Mutianyu, ritrovo con l'autista alle 7:30 in hotel. È un autista in inglese, non una guida con narrazione lungo il percorso — da valutare come alternativa più economica alla guida privata già in programma.
 
 **Checklist:**
-- [ ] Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo
+- [ ] Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo — trovate via [Reddit r/travelchina](https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/)
+  - [2-Days Beijing World Heritage Tour](https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html) — tour di 2 giorni
+  - [1-Day Beijing Tour](https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html) — tour di 1 giorno
 - [ ] Prenotare città proibita (suggerito da Claude con largo anticipo) — biglietti con quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida
 
 ### Pingyao (26–27 ott)

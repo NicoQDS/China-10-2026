@@ -175,7 +175,7 @@
         top: 0;
         right: 0;
         bottom: 0;
-        width: 430px;
+        width: 580px;
         max-width: 100%;
         z-index: 1100;
         background: var(--paper);
@@ -250,6 +250,13 @@
       .note {
         background: #fef9ec;
         border-left: 3px solid #f0c34e;
+        padding: 8px 12px;
+        border-radius: 0 8px 8px 0;
+        margin: 10px 0;
+      }
+      .note-grey {
+        background: #f4f4f5;
+        border-left: 3px solid #9ca3af;
         padding: 8px 12px;
         border-radius: 0 8px 8px 0;
         margin: 10px 0;
@@ -505,6 +512,12 @@
         list-style: none;
       }
 
+      .card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 10px 12px;
+        margin: 10px 0;
+      }
       .checklist-card {
         border: 1px solid #e5e7eb;
         border-radius: 10px;
@@ -770,7 +783,7 @@
       ${activitiesList(d.activities, idPrefix)}
       ${d.food ? `<div class="day-food">${d.food}</div>` : ""}
       ${d.imgs ? figs(d.imgs) : ""}
-      ${d.note ? `<div class="note">${d.note}</div>` : ""}
+      ${d.note || ""}
     </div>`;
           })
           .join("");
@@ -846,7 +859,7 @@
       }
 
       const BEIJING_CHECKLIST = [
-        "Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo",
+        "Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo — trovate via <a href=\"https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/\" target=\"_blank\">Reddit r/travelchina</a>:<ul><li><a href=\"https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html\" target=\"_blank\">2-Days Beijing World Heritage Tour</a> — tour di 2 giorni</li><li><a href=\"https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html\" target=\"_blank\">1-Day Beijing Tour</a> — tour di 1 giorno</li></ul>",
         "Prenotare città proibita (suggerito da Claude con largo anticipo) — biglietti con quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida",
       ];
 
@@ -888,7 +901,7 @@
 
       const CONTENT = {
         beijing: {
-          title: "Pechino",
+          title: "Beijing",
           dates: "23–25 ott · 3 notti",
           body: `
       <h3>Programma</h3>
@@ -935,7 +948,9 @@
             ],
             booked: false,
             imgs: [["mutianyu", "Grande Muraglia a Mutianyu"]],
-            note: "<b>Tempistica Grande Muraglia:</b> arrivare all'apertura (~8:00) per battere i gruppi organizzati (picco di folla 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.<br><br><b>Tratto di Muraglia:</b> scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).",
+            note:
+              `<div class="note"><b>Tempistica Grande Muraglia:</b> arrivare all'apertura (~8:00) per battere i gruppi organizzati (picco di folla 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.</div>` +
+              `<div class="note-grey"><b>Tratto di Muraglia:</b> scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).</div>`,
           },
           {
             date: "26 ott (lun)",
@@ -1043,11 +1058,20 @@
         },
       ])}
       <h3>Guida</h3>
-      <p>Prenotata per entrambe le giornate piene.</p>
-      <ul>
-        <li><b>Giorno Grande Muraglia</b> — il valore vero è il transfer privato (Mutianyu è scomoda coi mezzi pubblici), che permette di partire alle 6:30 per battere la folla; ~150–200$ per due, include funivia/slittino.</li>
-        <li><b>Giorno Città Proibita + Tempio del Cielo</b> — aggiunge profondità storica/racconto su entrambi i siti; visto che la guida per la Muraglia c'è già, vale la pena estenderla anche a questo giorno invece di mischiare guidato e fai-da-te.</li>
-      </ul>
+      <div class="card">
+        <p>Da discutere con il compagno/a di viaggio — trovate via <a href="https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/" target="_blank">Reddit r/travelchina</a></p>
+        <p><b>Nota:</b> richieste di preventivo:</p>
+        <ul>
+          <li><a href="https://www.chinadiscovery.com/forms/thankyou.html" target="_blank">chinadiscovery.com</a> — 11 ago 2026</li>
+          <li>
+            <a href="https://www.asiaodysseytravel.com/" target="_blank">asiaodysseytravel.com</a> — 11 ago 2026
+            <ul>
+              <li><a href="https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html" target="_blank">2-Days Beijing World Heritage Tour</a> — tour di 2 giorni</li>
+              <li><a href="https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html" target="_blank">1-Day Beijing Tour</a> — tour di 1 giorno</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       <h3>Attività particolari (promemoria)</h3>
       <ul>
         <li><b>Spettacolo:</b> teatro Deyunshe (德云社) di crosstalk (xiangsheng) — forma d'arte genuinamente locale, pubblico quasi tutto del posto, solo in mandarino (conta l'atmosfera/energia più delle battute)</li>
