@@ -200,6 +200,11 @@
         margin: 0;
         font-size: 16px;
       }
+      .panel-title-cn {
+        font-weight: normal;
+        font-size: 13px;
+        color: var(--muted);
+      }
       .panel-head .dates {
         font-size: 11px;
         color: var(--muted);
@@ -910,6 +915,7 @@
       const CONTENT = {
         beijing: {
           title: "Beijing",
+          cn: "北京",
           dates: "23–25 ott · 3 notti",
           body: `
       <h3>Checklist</h3>
@@ -1098,6 +1104,7 @@
 
         pingyao: {
           title: "Pingyao",
+          cn: "平遥",
           dates: "26–27 ott · 1 notte",
           body: `
       <h3>Checklist</h3>
@@ -1181,6 +1188,7 @@
 
         xian: {
           title: "Xi'an",
+          cn: "西安",
           dates: "27–28 ott · 2 notti",
           body: `
       <h3>Checklist</h3>
@@ -1273,6 +1281,7 @@
 
         chengdu: {
           title: "Chengdu",
+          cn: "成都",
           dates: "29–30 ott · 2 notti",
           body: `
       <h3>Checklist</h3>
@@ -1383,6 +1392,7 @@
 
         chongqing: {
           title: "Chongqing",
+          cn: "重庆",
           dates: "31 ott · 1 notte",
           body: `
       <h3>Checklist</h3>
@@ -1473,6 +1483,7 @@
 
         zhangjiajie: {
           title: "Zhangjiajie",
+          cn: "张家界",
           dates: "1–2 nov · 2 notti",
           body: `
       <h3>Checklist</h3>
@@ -1594,6 +1605,7 @@
 
         guilin: {
           title: "Guilin e Yangshuo",
+          cn: "桂林 · 阳朔",
           dates: "3–6 nov · 3 notti",
           body: `
       <h3>Checklist</h3>
@@ -1723,6 +1735,7 @@
 
         shanghai: {
           title: "Shanghai",
+          cn: "上海",
           dates: "6–8 nov · 2 notti",
           body: `
       <div class="warn"><b>DA FARE — non ancora studiata.</b> La guida ha solo un titolo segnaposto per Shanghai ("24 ore a Shanghai") senza contenuto. Mancano ancora: cosa visitare/saltare e perché, zona hotel, cibo, checklist.</div>
@@ -2295,7 +2308,9 @@
       function openPanel(key) {
         const c = CONTENT[key];
         if (!c) return;
-        document.getElementById("panel-title").textContent = c.title;
+        document.getElementById("panel-title").innerHTML = c.cn
+          ? `${c.title} <span class="panel-title-cn">${c.cn}</span>`
+          : c.title;
         document.getElementById("panel-dates").textContent = c.dates;
         const body = document.getElementById("panel-body");
         body.innerHTML = c.body;

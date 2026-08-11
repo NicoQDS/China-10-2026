@@ -40,7 +40,7 @@ Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiaji
 
 ## Giorno per giorno
 
-### Beijing (23–26 ott)
+### Beijing 北京 (23–26 ott)
 
 **Checklist:**
 - [ ] **🧭 Guida.** Prenotare la guida turistica ([vedi guida](#beijing-guida))
@@ -121,7 +121,7 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 
 **Possibile esperienza guidata alternativa (non ancora prenotata):** [Tour privato Grande Muraglia di Mutianyu con autista in inglese](https://www.getyourguide.com/pechino-l186/tour-privato-della-grande-muraglia-di-mutianyu-con-autista-inglese-t875282?ranking_uuid=8626a31c-46a3-4506-a9dc-09d94e9227df&referral_redirect=1&q=Mutianyu&date_from=2026-10-25) su GetYourGuide — pickup in hotel, biglietti d'ingresso e navetta inclusi, ~90 min (75 km) fino al parcheggio di Mutianyu, ritrovo con l'autista alle 7:30 in hotel. È un autista in inglese, non una guida con narrazione lungo il percorso — da valutare come alternativa più economica alla guida privata già in programma.
 
-### Pingyao (26–27 ott)
+### Pingyao 平遥 (26–27 ott)
 
 **Checklist:**
 - [ ] **🏨 Hotel.** Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
@@ -164,7 +164,7 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 
 La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.
 
-### Xi'an (27–28 ott)
+### Xi'an 西安 (27–28 ott)
 
 **Checklist:**
 - [ ] **🏺 Terracotta.** Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi
@@ -210,7 +210,7 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 - **Tappa alternativa:** Grande Moschea (Huajue Xiang) — architettura sino-islamica, più tranquilla delle vie del cibo del Quartiere Musulmano che la circondano
 - **Serata alternativa:** cena con spettacolo di danze della dinastia Tang — alternativa teatrale al solo spettacolo delle fontane
 
-### Chengdu (29–30 ott)
+### Chengdu 成都 (29–30 ott)
 
 **Checklist:**
 - [ ] **🐼 Panda.** Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)
@@ -257,7 +257,7 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 
 **Saltati, di proposito:** Tempio Wuhou — segnalato come opzionale/bassa priorità; prima cosa da tagliare se il giorno 2 si allunga o il gruppo è stanco, dato che la via Jinli lì fuori copre un terreno simile.
 
-### Chongqing (31 ott)
+### Chongqing 重庆 (31 ott)
 
 **Checklist:**
 - [ ] **🚁 Droni.** Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva
@@ -302,7 +302,7 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 
 **Avviso fatica:** questo tratto accumula tre sveglie all'alba di fila — Base dei Panda ~7:00 (30 ott), il treno delle ~8:37 da Chengdu (31 ott) e il treno delle 08:50 per Zhangjiajie (1 nov) — e la serata di Chongqing arriva alle ~22:30 a Hongyadong. La stazione di Chongqing Est è a 30–40 min da Jiefangbei, quindi l'1 nov significa uscire dall'hotel alle ~7:15 dopo poco sonno. Dosare la serata di Chongqing di conseguenza (Hongyadong è la cosa naturale da accorciare).
 
-### Zhangjiajie (1–2 nov, partenza la mattina del 3 nov)
+### Zhangjiajie 张家界 (1–2 nov, partenza la mattina del 3 nov)
 
 **Checklist:**
 - [ ] **🏞️ Parco.** Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong
@@ -350,7 +350,7 @@ Il giorno del parco (2 nov) inizia al cancello per battere la coda dell'ascensor
 
 Tempistica Tianmen (3 nov): il giro completo ci sta nella finestra 7:30–11:30 — ma per un pelo, e solo partendo all'apertura. Inizio novembre in un giorno feriale è bassa stagione, quindi le code dovrebbero essere gestibili; comunque questo si incastra direttamente col treno collo-di-bottiglia del viaggio, quindi trattare le 11:30 come non negoziabili. Se la mattina va lunga (coda in funivia, ritardo per meteo), l'ordine dei sacrifici è: saltare la discesa dei 999 gradini (usare scale mobili + navetta), poi accorciare le passerelle a strapiombo — il Glass Skywalk e la Grotta di Tianmen sono i due da tenere.
 
-### Guilin e Yangshuo (3–6 nov)
+### Guilin e Yangshuo 桂林 · 阳朔 (3–6 nov)
 
 **Checklist:**
 - [ ] **🏨 Hotel.** Prenotare lo stesso hotel di Guilin per entrambe le notti (3 e 5 nov) se possibile, e confermare che custodiscano le valigie grandi durante la notte a Yangshuo
@@ -407,7 +407,7 @@ Il 5 nov è un unico grande arco con un solo autista per tutta la giornata: Xian
 
 **Bagagli:** le valigie grandi non hanno posto sulla barca della crociera (realisticamente solo bagaglio a mano). Visto che comunque torniamo a Guilin il 5 nov, lasciare le valigie grandi all'hotel di Guilin e portare una borsa da una notte a testa a Yangshuo — chiedere all'hotel di custodirle già in fase di prenotazione (richiesta standard, soprattutto se riprenotiamo lo stesso hotel per entrambe le notti di Guilin).
 
-### Shanghai (6–8 nov)
+### Shanghai 上海 (6–8 nov)
 
 _DA FARE — non ancora studiata. La guida ha solo un titolo segnaposto per Shanghai ("24 ore a Shanghai") senza contenuto. Mancano ancora: cosa visitare/saltare e perché, zona hotel, cibo, checklist. Arrivo la sera del 6 nov col volo da Guilin; il 7 nov è una giornata libera prima di andare a PVG per il volo notturno delle 01:45 dell'8 nov._
 
