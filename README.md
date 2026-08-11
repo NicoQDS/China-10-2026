@@ -422,3 +422,38 @@ _DA FARE — non ancora studiata. La guida ha solo un titolo segnaposto per Shan
 - [ ] **🗺️ APP.** Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato
 - [ ] **📶 eSIM.** Procurare eSIM cinese o confermare il roaming dati
 - [ ] **🛡️ Assicurazione.** 10% di sconto con Columbus
+
+## Spese
+
+**Totale stimato: € 3.016,56 (€ 1.508,28 a persona)**
+
+| Città | Voce | Costo |
+|---|---|---|
+| Voli | Andata e ritorno, 2 persone | 🟢 € 1.493,56 |
+| Pechino | Albergo Pechino | 🟢 € 241,00 |
+| Pechino | Treno Pechino–Pingyao + bus | 🟡 € 60,00 |
+| Pingyao | Risciò e lanterne rosse | 🟡 € 32,00 |
+| Pingyao | Albergo Pingyao | 🟡 € 63,00 |
+| Pingyao | Treno Pingyao–Xi'an | 🟡 € 40,00 |
+| Xi'an | Albergo Xi'an | 🟡 € 30,00 |
+| Xi'an | Esercito di Terracotta | 🟡 € 30,00 |
+| Xi'an | Albergo Xi'an | 🟡 € 30,00 |
+| Xi'an | Treno Xi'an–Chengdu | 🟡 € 60,00 |
+| Chengdu | Albergo Chengdu | 🟡 € 66,00 |
+| Chengdu | Riserva Panda | 🟡 € 14,00 |
+| Chengdu | Treno Chengdu–Chongqing | 🟡 € 40,00 |
+| Chongqing | Albergo Chongqing | 🟡 € 56,00 |
+| Chongqing | Treno Chongqing–Zhangjiajie | 🟡 € 60,00 |
+| Zhangjiajie | Grand Canyon di Zhangjiajie (Ponte di Vetro) | 🟡 € 32,00 |
+| Zhangjiajie | Albergo Zhangjiajie | 🟡 € 38,00 |
+| Zhangjiajie | Parco Nazionale di Zhangjiajie / Ascensore Bailong | 🟡 € 100,00 |
+| Zhangjiajie | Montagna Tianzi / Ten-Mile Gallery / Furong | 🟡 € 10,00 |
+| Zhangjiajie | Treno Zhangjiajie–Guilin | 🟡 € 120,00 |
+| Guilin | Monte Tianmen e Glass Skywalk | 🟡 € 70,00 |
+| Guilin | Albergo Guilin | 🟡 € 37,00 |
+| Yangshuo | Crociera panoramica sul Fiume Li | 🟡 € 120,00 |
+| Yangshuo | Campagna di Yangshuo e Fiume Yulong | 🟡 € 40,00 |
+| Yangshuo | Albergo Yangshuo | 🟡 € 62,00 |
+| Guilin | Monte Xianggong | 🟡 € 15,00 |
+| Guilin | Terrazze di riso di Longsheng | 🟡 € 20,00 |
+| Guilin | Albergo Guilin | 🟡 € 37,00 |

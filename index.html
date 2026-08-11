@@ -624,7 +624,7 @@
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: var(--muted);
-        margin: 0 0 8px;
+        margin: 14px 0 8px;
       }
       .flight-leg {
         border: 1px solid #e5e7eb;
@@ -641,6 +641,18 @@
       }
       .flight-leg .flight-row:last-child {
         border-bottom: none;
+      }
+      .cost-certain {
+        background: #dcfce7;
+        color: #166534;
+        border-radius: 6px;
+        padding: 2px 7px;
+      }
+      .cost-expected {
+        background: #fef9c3;
+        color: #854d0e;
+        border-radius: 6px;
+        padding: 2px 7px;
       }
       .flight-leg .flight-row span {
         color: var(--muted);
@@ -724,7 +736,11 @@
       <div class="panel-body" id="panel-body"></div>
     </div>
 
-    <div class="modal-overlay" id="quote-modal" onclick="if(event.target===this) closeQuoteModal()">
+    <div
+      class="modal-overlay"
+      id="quote-modal"
+      onclick="if (event.target === this) closeQuoteModal();"
+    >
       <div class="modal-box">
         <div class="modal-head">
           <b>Richiesta preventivo</b>
@@ -732,7 +748,13 @@
         </div>
         <textarea id="quote-text" readonly></textarea>
         <div class="modal-actions">
-          <button class="mini-btn" id="quote-copy-btn" onclick="copyQuoteText()">📋 Copia testo</button>
+          <button
+            class="mini-btn"
+            id="quote-copy-btn"
+            onclick="copyQuoteText()"
+          >
+            📋 Copia testo
+          </button>
         </div>
       </div>
     </div>
@@ -940,16 +962,19 @@
         return (
           `<div class="flight-leg">` +
           rows
-            .map((r) => `<div class="flight-row"><span>${r[0]}</span>${r[1]}</div>`)
+            .map(
+              (r) =>
+                `<div class="flight-row"><span>${r[0]}</span>${r[1]}</div>`,
+            )
             .join("") +
           `</div>`
         );
       }
 
       const BEIJING_CHECKLIST = [
-        "<b>🧭 Guida.</b> Prenotare la guida turistica <button class=\"mini-btn\" onclick=\"goToBeijingGuida()\">Vedi guida →</button>",
+        '<b>🧭 Guida.</b> Prenotare la guida turistica <button class="mini-btn" onclick="goToBeijingGuida()">Vedi guida →</button>',
         "<b>🧭 Guida.</b> Verificare che i biglietti per le attrazioni siano inclusi nel tour guidato",
-        "<b>🚄 Treno.</b> Prenotare treno per Pingyao <span style=\"color:var(--train)\">(prenotabile tra il 26 set e l'11 ott 2026)</span>",
+        '<b>🚄 Treno.</b> Prenotare treno per Pingyao <span style="color:var(--train)">(prenotabile tra il 26 set e l\'11 ott 2026)</span>',
       ];
 
       const PINGYAO_CHECKLIST = [
@@ -1865,7 +1890,10 @@
           text: "<b>🛂 Visto.</b> I passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni).",
           done: true,
         },
-        { text: "<b>🪪 Passaporti.</b> Scadenza passaporti, ok per entrambi", done: true },
+        {
+          text: "<b>🪪 Passaporti.</b> Scadenza passaporti, ok per entrambi",
+          done: true,
+        },
         "<b>🔒 VPN.</b> Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì",
         "<b>💳 APP.</b> Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti",
         "<b>🗺️ APP.</b> Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato",
@@ -1891,7 +1919,92 @@
         money: {
           title: "Riepilogo spese",
           body: `
-      <div class="warn"><b>Work in progress.</b> Il riepilogo spese non è ancora stato compilato.</div>`,
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center">
+        <b>Totale stimato</b>
+        <div style="text-align:right">
+          <div style="font-size:20px;font-weight:700">€ 3.016,56</div>
+          <div style="font-size:11px;color:var(--muted)">€ 1.508,28 a persona</div>
+        </div>
+      </div>
+
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Voli</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Andata e ritorno</span><b class="cost-certain">€ 1.493,56</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Pechino</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Albergo Pechino</span><b class="cost-certain">€ 241,00</b></div>
+          <div class="flight-row"><span>Treno Pechino–Pingyao, bus</span><b class="cost-expected">€ 60,00</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Pingyao</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Risciò e lanterne rosse</span><b class="cost-expected">€ 32,00</b></div>
+          <div class="flight-row"><span>Albergo Pingyao</span><b class="cost-expected">€ 63,00</b></div>
+          <div class="flight-row"><span>Treno Pingyao–Xi'an</span><b class="cost-expected">€ 40,00</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Xi'an</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Albergo Xi'an</span><b class="cost-expected">€ 30,00</b></div>
+          <div class="flight-row"><span>Esercito di Terracotta</span><b class="cost-expected">€ 30,00</b></div>
+          <div class="flight-row"><span>Albergo Xi'an</span><b class="cost-expected">€ 30,00</b></div>
+          <div class="flight-row"><span>Treno Xi'an–Chengdu</span><b class="cost-expected">€ 60,00</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Chengdu</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Albergo Chengdu</span><b class="cost-expected">€ 66,00</b></div>
+          <div class="flight-row"><span>Riserva Panda</span><b class="cost-expected">€ 14,00</b></div>
+          <div class="flight-row"><span>Treno Chengdu–Chongqing</span><b class="cost-expected">€ 40,00</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Chongqing</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Albergo Chongqing</span><b class="cost-expected">€ 56,00</b></div>
+          <div class="flight-row"><span>Treno Chongqing–Zhangjiajie</span><b class="cost-expected">€ 60,00</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Zhangjiajie</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Grand Canyon di Zhangjiajie (Ponte di Vetro)</span><b class="cost-expected">€ 32,00</b></div>
+          <div class="flight-row"><span>Albergo Zhangjiajie</span><b class="cost-expected">€ 38,00</b></div>
+          <div class="flight-row"><span>Parco Nazionale di Zhangjiajie / Ascensore Bailong</span><b class="cost-expected">€ 100,00</b></div>
+          <div class="flight-row"><span>Montagna Tianzi / Ten-Mile Gallery / Furong</span><b class="cost-expected">€ 10,00</b></div>
+          <div class="flight-row"><span>Treno Zhangjiajie–Guilin</span><b class="cost-expected">€ 120,00</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Guilin</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Monte Tianmen e Glass Skywalk</span><b class="cost-expected">€ 70,00</b></div>
+          <div class="flight-row"><span>Albergo Guilin</span><b class="cost-expected">€ 37,00</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Yangshuo</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Crociera panoramica sul Fiume Li</span><b class="cost-expected">€ 120,00</b></div>
+          <div class="flight-row"><span>Campagna di Yangshuo e Fiume Yulong</span><b class="cost-expected">€ 40,00</b></div>
+          <div class="flight-row"><span>Albergo Yangshuo</span><b class="cost-expected">€ 62,00</b></div>
+        </div>
+      </div>
+      <div class="flight-leg-wrap">
+        <h4 class="flight-leg-title">Guilin</h4>
+        <div class="flight-leg">
+          <div class="flight-row"><span>Monte Xianggong</span><b class="cost-expected">€ 15,00</b></div>
+          <div class="flight-row"><span>Terrazze di riso di Longsheng</span><b class="cost-expected">€ 20,00</b></div>
+          <div class="flight-row"><span>Albergo Guilin</span><b class="cost-expected">€ 37,00</b></div>
+        </div>
+      </div>`,
         },
       };
 
