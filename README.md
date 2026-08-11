@@ -82,6 +82,8 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
 
 Tempistica Grande Muraglia: arrivare all'apertura (~8:00) per battere i gruppi organizzati (il picco di folla è 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.
 
+Tratto di Muraglia: scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).
+
 Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~10:30, ~14:30, ~4h ciascuno) — scelto quello delle ~10:30 rispetto a quello delle ~08:00, perché preserva un'ultima mattina rilassata a Pechino (subito dopo la partenza già all'alba per la Muraglia due giorni prima) e combacia col piano del giorno 1 a Pingyao qui sotto, costruito attorno a un arrivo alle 14:00. Riconfermare numero/orario esatto del treno quando China Rail apre le vendite (15–30 giorni prima del viaggio).
 
 **Attività particolari** (non ancora inserite nel programma — solo un promemoria):
@@ -91,8 +93,6 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 - **Dolce curioso:** Daoxiangcun (稻香村), pasticceria centenaria — wandouhuang (dolce di farina di piselli), aiwowo (dolce di riso glutinoso), lüdagun ("l'asino che rotola" — rotolo di riso con fagioli rossi e farina di soia)
 
 **Saltati, di proposito:** Palazzo d'Estate (ridondante con la Città Proibita, richiede una mezza giornata a sé), Tempio dei Lama, distretto artistico 798 — non c'è spazio in 2,5 giorni senza sacrificare quanto sopra.
-
-**Tratto di Muraglia:** scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).
 
 **Possibile esperienza guidata alternativa (non ancora prenotata):** [Tour privato Grande Muraglia di Mutianyu con autista in inglese](https://www.getyourguide.com/pechino-l186/tour-privato-della-grande-muraglia-di-mutianyu-con-autista-inglese-t875282?ranking_uuid=8626a31c-46a3-4506-a9dc-09d94e9227df&referral_redirect=1&q=Mutianyu&date_from=2026-10-25) su GetYourGuide — pickup in hotel, biglietti d'ingresso e navetta inclusi, ~90 min (75 km) fino al parcheggio di Mutianyu, ritrovo con l'autista alle 7:30 in hotel. È un autista in inglese, non una guida con narrazione lungo il percorso — da valutare come alternativa più economica alla guida privata già in programma.
 
