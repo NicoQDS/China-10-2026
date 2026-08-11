@@ -42,6 +42,13 @@ Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiaji
 
 ### Beijing (23–26 ott)
 
+**Checklist:**
+- [ ] **Guida.** Prenotare la guida turistica ([vedi guida](#beijing-guida))
+- [ ] **Guida.** Verificare che i biglietti per le attrazioni siano inclusi nel tour guidato
+- [ ] **Treno.** Prenotare treno per Pingyao — <span style="color:#e63946">prenotabile tra il 26 set e l'11 ott 2026</span>
+
+---
+
 **Hotel:** [JianGuo Hidden Hotel](hotels/Beijing.pdf) (Beijing Tian An Men Wangfujing store) — No. 19 Jinyu Hutong, distretto di Dongcheng. [Sito web](https://us.trip.com/hotels/beijing-hotel-detail-80943188/jianguo-hidden-hotel-beijing-wangfujing-store/). Check-in 23 ott dopo le 14:00, check-out 26 ott entro le 12:00 (3 notti).
 
 *Costo:* €241,41 prepagati.
@@ -64,6 +71,7 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
 - Lu Zhu Huo Shao (卤煮火烧) — stufato di frattaglie e intestino di maiale con pane, da 门框胡同卤煮 vicino a Dashilar/Qianmen
 - Dolci Daoxiangcun (稻香村) — wandouhuang (dolce di farina di piselli), aiwowo (dolce di riso glutinoso), lüdagun ("l'asino che rotola")
 
+<a name="beijing-guida"></a>
 **Guida:** da discutere con il compagno/a di viaggio — trovate via [Reddit r/travelchina](https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/)
 
 **Nota:** richieste di preventivo:
@@ -72,14 +80,30 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
   - [2-Days Beijing World Heritage Tour](https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html) — tour di 2 giorni
   - [1-Day Beijing Tour](https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html) — tour di 1 giorno
 
-**✈️ Arrivo:** volo internazionale (Air China CA750) da Milano MXP — arrivo 12:10, aeroporto di Pechino Daxing (PKX)
+**Arrivo**
+
+| | |
+|---|---|
+| Mezzo | ✈️ Volo, Air China CA750 |
+| Partenza | Milano MXP, 20:00 |
+| Durata | 10h10m |
+| Arrivo | Pechino Daxing (PKX), 12:10 (+1 giorno) |
 
 | Programma | Data |
 |---|---|
-| **Arrivo** — Wangfujing / via Qianmen, piazza Tienanmen (esterno) | 23 ott (ven) |
+| **Wangfujing / via Qianmen, piazza Tienanmen** — esterno | 23 ott (ven) |
 | **Città Proibita** (mattina) + Tempio del Cielo (pomeriggio) | 24 ott (sab) |
 | **Grande Muraglia** — Mutianyu, partenza dall'hotel ~6:30 | 25 ott (dom) |
-| **Check-out**, breve giro negli hutong se c'è tempo, treno per Pingyao partenza ~10:30 (~4h, arrivo ~14:00–14:30) | 26 ott (lun) |
+| **Giro negli hutong** — se c'è tempo | 26 ott (lun) |
+
+**Partenza**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Pechino Ovest |
+| Durata | ~4h |
+| Arrivo | Pingyao Gucheng, ~14:00–14:30 |
 
 Tempistica Grande Muraglia: arrivare all'apertura (~8:00) per battere i gruppi organizzati (il picco di folla è 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.
 
@@ -97,13 +121,15 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 
 **Possibile esperienza guidata alternativa (non ancora prenotata):** [Tour privato Grande Muraglia di Mutianyu con autista in inglese](https://www.getyourguide.com/pechino-l186/tour-privato-della-grande-muraglia-di-mutianyu-con-autista-inglese-t875282?ranking_uuid=8626a31c-46a3-4506-a9dc-09d94e9227df&referral_redirect=1&q=Mutianyu&date_from=2026-10-25) su GetYourGuide — pickup in hotel, biglietti d'ingresso e navetta inclusi, ~90 min (75 km) fino al parcheggio di Mutianyu, ritrovo con l'autista alle 7:30 in hotel. È un autista in inglese, non una guida con narrazione lungo il percorso — da valutare come alternativa più economica alla guida privata già in programma.
 
-**Checklist:**
-- [ ] Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo — trovate via [Reddit r/travelchina](https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/)
-  - [2-Days Beijing World Heritage Tour](https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html) — tour di 2 giorni
-  - [1-Day Beijing Tour](https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html) — tour di 1 giorno
-- [ ] Prenotare città proibita (suggerito da Claude con largo anticipo) — biglietti con quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida
-
 ### Pingyao (26–27 ott)
+
+**Checklist:**
+- [ ] Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
+- [ ] Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)
+- [ ] Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)
+- [ ] Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano
+
+---
 
 **Zona hotel:** Dentro le mura della città vecchia — un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina.
 
@@ -113,22 +139,39 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 
 **Guida:** non serve — fai-da-te; un biglietto cumulativo di 3 giorni (~125 CNY / 16€) copre le Mura, lo Yamen, la banca Rishengchang, il Tempio del Dio della Città e gli altri siti principali dentro le mura.
 
-**🚄 Arrivo:** treno alta velocità da Pechino Ovest — ~4h, arrivo ~14:00–14:30 alla stazione di Pingyao Gucheng
+**Arrivo**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Pechino Ovest |
+| Durata | ~4h |
+| Arrivo | Pingyao Gucheng, ~14:00–14:30 |
 
 | Programma | Data |
 |---|---|
-| **Arrivo** — la stazione di Pingyao Gucheng (città antica) è a 8,5 km dal centro storico; taxi ~20min/30 CNY, oppure bus 108 ~30min/¥1 come alternativa economica. Check-in, prima passeggiata su via Ming-Qing e al Tempio del Dio della Città (Chenghuangmiao); le lanterne si accendono dopo il tramonto | 26 ott (lun) |
-| **Mura + Yamen** (inizio ~8:30 per battere i gruppi), poi banca Rishengchang (la prima banca cinese) + Torre della Città, opzionale Tempio di Confucio o shopping di scarpe/artigianato se c'è tempo, treno per Xi'an ~17:00 (arrivo ~19:55–20:40) | 27 ott (mar) |
+| **Trasferimento in centro** — stazione a 8,5 km dal centro storico; taxi ~20min/30 CNY, oppure bus 108 ~30min/¥1 come alternativa economica. Check-in, prima passeggiata su via Ming-Qing e al Tempio del Dio della Città (Chenghuangmiao); le lanterne si accendono dopo il tramonto | 26 ott (lun) |
+| **Mura + Yamen** (inizio ~8:30 per battere i gruppi), poi banca Rishengchang (la prima banca cinese) + Torre della Città, opzionale Tempio di Confucio o shopping di scarpe/artigianato se c'è tempo | 27 ott (mar) |
+
+**Partenza**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Pingyao, ~17:00 |
+| Durata | ~3h |
+| Arrivo | Xi'an Nord, ~19:55–20:40 |
 
 La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.
 
-**Checklist:**
-- [ ] Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
-- [ ] Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)
-- [ ] Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)
-- [ ] Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano
-
 ### Xi'an (27–28 ott)
+
+**Checklist:**
+- [ ] Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi
+- [ ] Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi
+- [ ] Mettere a budget il Didi per Lintong (Esercito di Terracotta) — circa 75–110 CNY a tratta
+
+---
 
 **Zona hotel:** Vicino alla Torre della Campana o alla fermata metro South Gate (Yongningmen) — entrambe direttamente sulla Linea 2, corsa senza cambi dalla stazione di Xi'an Nord dove arriva il treno da Pingyao, e a pochi passi dal Quartiere Musulmano, dalle Torri della Campana/del Tamburo e dall'ingresso Sud delle Mura.
 
@@ -138,25 +181,41 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 
 **Guida:** non serve — fai-da-te con Didi/metro; il sito dell'Esercito di Terracotta ha abbastanza pannelli informativi da rendere non essenziale una guida privata.
 
-**🚄 Arrivo:** treno alta velocità da Pingyao — arrivo ~19:55–20:40 alla stazione di Xi'an Nord
+**Arrivo**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Pingyao |
+| Durata | |
+| Arrivo | Xi'an Nord, ~19:55–20:40 |
 
 | Programma | Data |
 |---|---|
-| **Arrivo** — metro Linea 2 da Xi'an Nord a Torre della Campana/South Gate (~25–28min, 4 CNY), check-in | 27 ott (mar) |
+| **Metro Linea 2** — verso Torre della Campana/South Gate (~25–28min, 4 CNY), check-in | 27 ott (mar) |
 | **Esercito di Terracotta** (Didi dall'hotel, partenza ~7:30 per battere i pullman turistici, il sito apre alle 8:30) → pranzo nel Quartiere Musulmano → giro in bici sulle Mura dal South Gate → Torri della Campana/del Tamburo (esterni, sul percorso tra i due) → *se restano tempo ed energie:* Grande Pagoda dell'Oca Selvatica + spettacolo di fontane/luci la sera | 28 ott (mer) |
 
-La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per battere i grandi gruppi che arrivano a metà mattina. È la giornata più carica del viaggio, quindi le attività sono in ordine di priorità — niente è stato tolto, ma la coda è esplicitamente sacrificabile: Esercito di Terracotta e Quartiere Musulmano sono non negoziabili, il giro in bici sulle Mura è la terza scelta, le Torri sono esterni che si incontrano naturalmente tra il Quartiere e le mura (costo extra quasi zero), e la Grande Pagoda + spettacolo delle fontane è la prima cosa da tagliare se la giornata si allunga — è una corsa di metro verso sud e la mattina dopo c'è un treno alle 8:07.
+**Partenza**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Xi'an, 8:07 |
+| Durata | ~3,5h |
+| Arrivo | Chengdu Est, ~11:40 stimato |
+
+La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per battere i grandi gruppi che arrivano a metà mattina. È la giornata più carica del viaggio, quindi le attività sono in ordine di priorità — niente è stato tolto, ma la coda è esplicitamente sacrificabile: Esercito di Terracotta e Quartiere Musulmano sono non negoziabili, il giro in bici sulle Mura è la terza scelta, le Torri sono esterni che si incontrano naturalmente tra il Quartiere e le mura (costo extra quasi zero), e la Grande Pagoda + spettacolo delle fontane è la prima cosa da tagliare se la giornata si allunga — è una corsa di metro verso sud.
 
 **Attività particolari** (non ancora inserite nel programma — solo un promemoria):
 - **Tappa alternativa:** Grande Moschea (Huajue Xiang) — architettura sino-islamica, più tranquilla delle vie del cibo del Quartiere Musulmano che la circondano
 - **Serata alternativa:** cena con spettacolo di danze della dinastia Tang — alternativa teatrale al solo spettacolo delle fontane
 
-**Checklist:**
-- [ ] Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi
-- [ ] Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi
-- [ ] Mettere a budget il Didi per Lintong (Esercito di Terracotta) — circa 75–110 CNY a tratta
-
 ### Chengdu (29–30 ott)
+
+**Checklist:**
+- [ ] Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)
+
+---
 
 **Zona hotel:** Vicino a piazza Tianfu o Chunxi Road — all'incrocio delle linee metro 1 e 2, e la stazione di Chengdu Est (dove arriva il treno da Xi'an) è collegata direttamente con la Linea 2 in ~15 minuti senza cambi.
 
@@ -168,12 +227,28 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 
 **Guida:** non serve — fai-da-te con metro/Didi; l'ingresso alla Base dei Panda si prenota online in anticipo.
 
-**🚄 Arrivo:** treno alta velocità da Xi'an — partenza 8:07, ~3,5h, arrivo ~11:40 stimato alla stazione di Chengdu Est
+**Arrivo**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Xi'an, 8:07 |
+| Durata | ~3,5h |
+| Arrivo | Chengdu Est, ~11:40 stimato |
 
 | Programma | Data |
 |---|---|
-| **Arrivo** — alta velocità da Xi'an (~3,5h) fino a Chengdu Est, Linea 2 fino all'hotel, vicoli antichi di Kuanzhai Xiangzi nel pomeriggio, cultura del tè al Parco del Popolo (casa da tè Heming) | 29 ott (gio) |
+| **Linea 2 fino all'hotel** — vicoli antichi di Kuanzhai Xiangzi nel pomeriggio, cultura del tè al Parco del Popolo (casa da tè Heming) | 29 ott (gio) |
 | **Base dei Panda Giganti** (partenza ~7:00 — i panda sono più attivi all'ora del pasto), Tempio Wuhou + via antica Jinli (opzionali, da saltare se stanchi), scultura del panda arrampicato su Chunxi Road/IFS, SKP + spettacolo di luci delle torri di bambù la sera | 30 ott (ven) |
+
+**Partenza**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Chengdu, ~8:37 |
+| Durata | ~1,5–2h |
+| Arrivo | ~10:10–10:40 stimato |
 
 La Base dei Panda è la prima cosa in programma perché i panda sono più attivi nella finestra del pasto mattutino, e la fascia d'ingresso del mattino è anche la prima a esaurirsi.
 
@@ -182,10 +257,12 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 
 **Saltati, di proposito:** Tempio Wuhou — segnalato come opzionale/bassa priorità; prima cosa da tagliare se il giorno 2 si allunga o il gruppo è stanco, dato che la via Jinli lì fuori copre un terreno simile.
 
-**Checklist:**
-- [ ] Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)
-
 ### Chongqing (31 ott)
+
+**Checklist:**
+- [ ] Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva
+
+---
 
 **Zona hotel:** Vicino a Jiefangbei o Xiaoshizi — sulle linee metro 1/2; essendo una tappa di una sola notte, stare a 5 minuti dalla metro permette di mollare i bagagli e ripartire subito senza perdere ritmo.
 
@@ -196,11 +273,27 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 
 **Guida:** non serve — completamente fai-da-te con metro/Didi.
 
-**🚄 Arrivo:** treno alta velocità da Chengdu — partenza ~8:37, ~1,5–2h, arrivo ~10:10–10:40 stimato
+**Arrivo**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Chengdu, ~8:37 |
+| Durata | ~1,5–2h |
+| Arrivo | ~10:10–10:40 stimato |
 
 | Programma | Data |
 |---|---|
-| **Arrivo** — alta velocità da Chengdu (~1,5–2h), bagagli in hotel, stazione di Liziba (il treno che attraversa il palazzo) con la Linea 2, città vecchia di Ciqikou, passerella di vetro The Crystal a Raffles City, cena hotpot a Jiefangbei, spettacolo di droni alla terrazza Nanbin Rd/Changjiahui con la Linea 6 (~20:30, il sabato), Hongyadong illuminata di notte per chiudere la serata | 31 ott (sab) |
+| **Bagagli in hotel** — stazione di Liziba (il treno che attraversa il palazzo) con la Linea 2, città vecchia di Ciqikou, passerella di vetro The Crystal a Raffles City, cena hotpot a Jiefangbei, spettacolo di droni alla terrazza Nanbin Rd/Changjiahui con la Linea 6 (~20:30, il sabato), Hongyadong illuminata di notte per chiudere la serata | 31 ott (sab) |
+
+**Partenza**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Chongqing, 08:50 |
+| Durata | ~2,5h |
+| Arrivo | Zhangjiajie Ovest, ~11:20 stimato |
 
 L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.
 
@@ -209,10 +302,15 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 
 **Avviso fatica:** questo tratto accumula tre sveglie all'alba di fila — Base dei Panda ~7:00 (30 ott), il treno delle ~8:37 da Chengdu (31 ott) e il treno delle 08:50 per Zhangjiajie (1 nov) — e la serata di Chongqing arriva alle ~22:30 a Hongyadong. La stazione di Chongqing Est è a 30–40 min da Jiefangbei, quindi l'1 nov significa uscire dall'hotel alle ~7:15 dopo poco sonno. Dosare la serata di Chongqing di conseguenza (Hongyadong è la cosa naturale da accorciare).
 
-**Checklist:**
-- [ ] Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva
-
 ### Zhangjiajie (1–2 nov, partenza la mattina del 3 nov)
+
+**Checklist:**
+- [ ] Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong
+- [ ] Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie
+- [ ] Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta
+- [ ] Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud
+
+---
 
 **Zona hotel:** Wulingyuan — la cittadina base proprio ai piedi del parco, evita il pendolarismo quotidiano verso l'area panoramica.
 
@@ -224,25 +322,44 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 
 **Guida:** non serve — fai-da-te con le navette interne del parco + Didi per i trasferimenti.
 
-**🚄 Arrivo:** treno alta velocità da Chongqing — partenza 08:50, ~2,5h, arrivo ~11:20 stimato a Zhangjiajie Ovest
+**Arrivo**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità |
+| Partenza | Chongqing, 08:50 |
+| Durata | ~2,5h |
+| Arrivo | Zhangjiajie Ovest, ~11:20 stimato |
 
 | Programma | Data |
 |---|---|
-| **Arrivo** — alta velocità da Chongqing (~2,5h) fino a Zhangjiajie Ovest, Didi per Wulingyuan e check-in, Ponte di Vetro del Grand Canyon di Zhangjiajie nel pomeriggio | 1 nov (dom) |
+| **Didi per Wulingyuan e check-in** — Ponte di Vetro del Grand Canyon di Zhangjiajie nel pomeriggio | 1 nov (dom) |
 | **Parco nazionale, giornata intera** — al cancello presto per battere le code, ascensore Bailong fino a Yuanjiajie (pilastri di Avatar + Primo Ponte Sotto il Cielo), Tianzi Mountain + Galleria delle Dieci Miglia nel pomeriggio, puntata serale in alta velocità a Furong Zhen (20–25min) per la città-cascata illuminata, rientro con uno degli ultimi treni | 2 nov (lun) |
-| **Tianmen Mountain** — check-out ~6:45, bagagli nel deposito della stazione della funivia, in coda per la funivia entro le ~7:30 (apertura); Glass Skywalk + passerelle a strapiombo, scale mobili giù fino alla Grotta di Tianmen, 999 gradini; **stop tassativo: giù dalla montagna entro le 11:30**, recupero bagagli, Didi per Zhangjiajie Ovest (~30min), alta velocità per Guilin 13:07 (~6h, cambio a Changsha Sud, si mangia in treno) | 3 nov (mar) |
+| **Tianmen Mountain** — check-out ~6:45, bagagli nel deposito della stazione della funivia, in coda per la funivia entro le ~7:30 (apertura); Glass Skywalk + passerelle a strapiombo, scale mobili giù fino alla Grotta di Tianmen, 999 gradini; **stop tassativo: giù dalla montagna entro le 11:30**, recupero bagagli, Didi per Zhangjiajie Ovest (~30min) | 3 nov (mar) |
+
+**Partenza**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità (cambio a Changsha Sud) |
+| Partenza | Zhangjiajie, 13:07 |
+| Durata | ~6h |
+| Arrivo | ~19:00–19:30 stimato |
 
 Il giorno del parco (2 nov) inizia al cancello per battere la coda dell'ascensore Bailong. Furong Zhen è aggiunta come extra serale leggero con un breve salto in alta velocità, dato che è a soli 20–25 minuti ed è illuminata di notte — i bagagli restano all'hotel di Wulingyuan quindi è un'andata e ritorno veloce.
 
 Tempistica Tianmen (3 nov): il giro completo ci sta nella finestra 7:30–11:30 — ma per un pelo, e solo partendo all'apertura. Inizio novembre in un giorno feriale è bassa stagione, quindi le code dovrebbero essere gestibili; comunque questo si incastra direttamente col treno collo-di-bottiglia del viaggio, quindi trattare le 11:30 come non negoziabili. Se la mattina va lunga (coda in funivia, ritardo per meteo), l'ordine dei sacrifici è: saltare la discesa dei 999 gradini (usare scale mobili + navetta), poi accorciare le passerelle a strapiombo — il Glass Skywalk e la Grotta di Tianmen sono i due da tenere.
 
-**Checklist:**
-- [ ] Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong
-- [ ] Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie
-- [ ] Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta
-- [ ] Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud
-
 ### Guilin e Yangshuo (3–6 nov)
+
+**Checklist:**
+- [ ] Prenotare lo stesso hotel di Guilin per entrambe le notti (3 e 5 nov) se possibile, e confermare che custodiscano le valigie grandi durante la notte a Yangshuo
+- [ ] Prenotare in anticipo il biglietto della crociera sul fiume Li — ricontrollare i livelli dell'acqua sotto data; la zattera da Xingping è il piano B
+- [ ] Prenotare l'autista privato per l'intera giornata del 5 nov (pickup a Yangshuo ~5:45 → Xianggong → Longsheng → Guilin) — concordare in anticipo tutto il percorso e il prezzo
+- [ ] Verificare che il punto panoramico di Xianggong Mountain apra per l'alba (di norma sì — piccolo biglietto d'ingresso, ~60 CNY)
+- [ ] Prenotare il volo serale Guilin → Shanghai (~18:30–19:30 su PVG) appena aprono gli orari di nov 2026
+
+---
 
 **Zona hotel:** Guilin centrale per entrambe le notti a Guilin (vicino a Due Fiumi e Quattro Laghi/Pagode del Sole e della Luna va bene sia per l'arrivo che per il ritorno); centro di Yangshuo o campagna lungo il fiume per la notte lì.
 
@@ -255,14 +372,30 @@ Tempistica Tianmen (3 nov): il giro completo ci sta nella finestra 7:30–11:30 
 
 **Guida:** non serve — fai-da-te con Didi/taxi e il biglietto della crociera sul fiume Li; l'unica cosa da prenotare è un autista privato per l'intera giornata del 5 nov (pickup a Yangshuo prima dell'alba → alba a Xianggong → Longsheng → rientro a Guilin).
 
-**🚄 Arrivo:** treno alta velocità da Zhangjiajie (cambio a Changsha Sud) — partenza 13:07, ~6h, arrivo ~19:00–19:30 stimato
+**Arrivo**
+
+| | |
+|---|---|
+| Mezzo | 🚄 Treno alta velocità (cambio a Changsha Sud) |
+| Partenza | Zhangjiajie, 13:07 |
+| Durata | ~6h |
+| Arrivo | ~19:00–19:30 stimato |
 
 | Programma | Data |
 |---|---|
-| **Arrivo a Guilin** — check-in dopo le 6h di treno da Zhangjiajie | 3 nov (mar) |
+| **Check-in** | 3 nov (mar) |
 | **Crociera sul fiume Li** Guilin → Yangshuo (~4h, passa davanti al paesaggio della banconota da 20 yuan), poi campagna di Yangshuo/fiume Yulong in bici o su zattera di bambù | 4 nov (mer) |
 | **Xianggong Mountain all'alba** (l'autista passa a Yangshuo ~5:45, in cima per l'alba delle ~6:55 sull'ansa del fiume Li) → si prosegue verso le risaie di Longsheng (~3–3,5h, camminata tra le terrazze fino alle ~15:00) → rientro a Guilin ~17:00–17:30, check-in, Pagode del Sole e della Luna illuminate la sera | 5 nov (gio) |
-| **Ultima mattina rilassata** — sveglia con calma, Parco delle Sette Stelle opzionale, pranzo tardi e shopping di souvenir (salsa di peperoncino, caramelle di giuggiola), aeroporto entro le ~16:30, volo serale per Shanghai ~18:30 | 6 nov (ven) |
+| **Ultima mattina rilassata** — sveglia con calma, Parco delle Sette Stelle opzionale, pranzo tardi e shopping di souvenir (salsa di peperoncino, caramelle di giuggiola), aeroporto entro le ~16:30 | 6 nov (ven) |
+
+**Partenza**
+
+| | |
+|---|---|
+| Mezzo | ✈️ Volo |
+| Partenza | Guilin, ~18:30–19:30 stimato |
+| Durata | ~2h15m |
+| Arrivo | Shanghai PVG, ~21:00–21:45 stimato |
 
 Il 5 nov è un unico grande arco con un solo autista per tutta la giornata: Xianggong (~45min da Yangshuo) e Longsheng (~2–2,5h a nord-ovest di Guilin) stanno su lati opposti di Guilin, quindi il percorso è Yangshuo → Xianggong → oltre Guilin → Longsheng → Guilin — circa 5,5–6h di guida totali, tutte da passeggeri attraverso la campagna del Guangxi. L'alba è *il* momento per Xianggong: il sole sorge alle ~6:55 a inizio novembre e lo scatto classico è la nebbia mattutina sull'ansa del fiume Li — anche se la nebbia fitta è un rischio reale senza piano B a quell'ora (se è tutto coperto, si prosegue dritti per Longsheng). A inizio novembre il riso di Longji è già raccolto, quindi aspettarsi terrazze a strati marroni/a specchio d'acqua più che dorate. Il vantaggio di concentrare tutto il 5 nov: il giorno del volo non ha nessun trasferimento lungo — un ritardo a Longsheng non può più minacciare la partenza, e la mattina del 6 nov diventa un vero cuscinetto. Nota: è un'altra sveglia alle ~5:30, incorniciata dalla giornata rilassata di crociera prima e dalla mattina libera dopo.
 
@@ -274,20 +407,13 @@ Il 5 nov è un unico grande arco con un solo autista per tutta la giornata: Xian
 
 **Bagagli:** le valigie grandi non hanno posto sulla barca della crociera (realisticamente solo bagaglio a mano). Visto che comunque torniamo a Guilin il 5 nov, lasciare le valigie grandi all'hotel di Guilin e portare una borsa da una notte a testa a Yangshuo — chiedere all'hotel di custodirle già in fase di prenotazione (richiesta standard, soprattutto se riprenotiamo lo stesso hotel per entrambe le notti di Guilin).
 
-**Checklist:**
-- [ ] Prenotare lo stesso hotel di Guilin per entrambe le notti (3 e 5 nov) se possibile, e confermare che custodiscano le valigie grandi durante la notte a Yangshuo
-- [ ] Prenotare in anticipo il biglietto della crociera sul fiume Li — ricontrollare i livelli dell'acqua sotto data; la zattera da Xingping è il piano B
-- [ ] Prenotare l'autista privato per l'intera giornata del 5 nov (pickup a Yangshuo ~5:45 → Xianggong → Longsheng → Guilin) — concordare in anticipo tutto il percorso e il prezzo
-- [ ] Verificare che il punto panoramico di Xianggong Mountain apra per l'alba (di norma sì — piccolo biglietto d'ingresso, ~60 CNY)
-- [ ] Prenotare il volo serale Guilin → Shanghai (~18:30–19:30 su PVG) appena aprono gli orari di nov 2026
-
 ### Shanghai (6–8 nov)
 
 _DA FARE — non ancora studiata. La guida ha solo un titolo segnaposto per Shanghai ("24 ore a Shanghai") senza contenuto. Mancano ancora: cosa visitare/saltare e perché, zona hotel, cibo, checklist. Arrivo la sera del 6 nov col volo da Guilin; il 7 nov è una giornata libera prima di andare a PVG per il volo notturno delle 01:45 dell'8 nov._
 
 ## Checklist di viaggio
 
-- [ ] **Visto.** I passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni). Verificare un mese prima che sia ancora così
+- [x] **Visto.** I passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni).
 - [x] **Passaporti.** Scadenza passaporti, ok per entrambi
 - [ ] **VPN.** Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì
 - [ ] **APP.** Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti
