@@ -20,12 +20,6 @@ Prenotati con Air China.
 | Aereo | — | Airbus A350-900 |
 | Bagaglio | 1 bagaglio in stiva/pax (gratis) | 1 bagaglio in stiva/pax (gratis) |
 
-**Note:**
-- L'andata atterra a **Daxing (PKX)**, non al vecchio aeroporto Capital (PEK) — verificare quale aeroporto presuppongono trasferimenti/hotel.
-- Il ritorno parte da **Pudong (PVG)** a Shanghai — dato che arriviamo a Pechino, dovremo raggiungere Shanghai entro fine viaggio (volo interno o treno ad alta velocità).
-- Il volo di ritorno parte all'01:45 — in pratica significa essere a PVG la sera del 7 novembre.
-- Il biglietto è tariffa Economy (L): riemissione consentita con penale (€0–150), **non rimborsabile**.
-
 ## Itinerario
 
 Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiajie → Guilin → Yangshuo → Guilin → Shanghai (Guilin è un soggiorno spezzato, con in mezzo una notte a Yangshuo).

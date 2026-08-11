@@ -205,6 +205,11 @@
         color: var(--muted);
         margin-top: 3px;
       }
+      .day-date-sub {
+        font-weight: normal;
+        color: var(--muted);
+        font-size: 85%;
+      }
       .panel-close {
         border: none;
         background: #f3f4f6;
@@ -522,23 +527,39 @@
         margin: 8px 0;
         -webkit-overflow-scrolling: touch;
       }
-      table.flights {
-        border-collapse: collapse;
-        width: 100%;
-        min-width: 420px;
-        font-size: 12.5px;
-        margin: 0;
+      .flight-legs {
+        display: flex;
+        gap: 10px;
+        margin: 8px 0;
+        flex-wrap: wrap;
       }
-      table.flights th,
-      table.flights td {
+      .flight-leg {
+        flex: 1 1 200px;
         border: 1px solid #e5e7eb;
-        padding: 5px 8px;
-        text-align: left;
-        vertical-align: top;
-        white-space: nowrap;
+        border-radius: 8px;
+        padding: 10px 12px;
       }
-      table.flights th {
-        background: #f9fafb;
+      .flight-leg h4 {
+        margin: 0 0 8px;
+        font-size: 12.5px;
+        color: var(--flight);
+      }
+      .flight-leg .flight-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 12.5px;
+        padding: 3px 0;
+        border-bottom: 1px solid #f1f1f1;
+      }
+      .flight-leg .flight-row:last-child {
+        border-bottom: none;
+      }
+      .flight-leg .flight-row span {
+        color: var(--muted);
+      }
+      .flight-leg .flight-row b {
+        text-align: right;
       }
 
       @media (max-width: 560px) {
@@ -817,14 +838,13 @@
       const CONTENT = {
         beijing: {
           title: "Pechino",
-          dates:
-            "23–25 ott · 3 notti · il giorno di arrivo è una mezza giornata",
+          dates: "23–25 ott · 3 notti",
           body: `
       <h3>Programma</h3>
       ${days(
         [
           {
-            date: "23 ott (ven)",
+            date: `23 ott (ven) <span class="day-date-sub">1/2 giornata</span>`,
             activities: [
               {
                 label: "Arrivo",
@@ -1612,27 +1632,28 @@
           dates: "Air China",
           body: `
       <p>Prenotati con Air China.</p>
-      <div class="table-scroll">
-      <table class="flights">
-        <tr><th></th><th>Andata</th><th>Ritorno</th></tr>
-        <tr><th>Volo</th><td>CA750</td><td>CA967</td></tr>
-        <tr><th>Tratta</th><td>Milano MXP (T1) → Pechino PKX (Daxing)</td><td>Shanghai PVG (T2) → Milano MXP (T1)</td></tr>
-        <tr><th>Data</th><td>gio 22 ott 2026</td><td>dom 8 nov 2026</td></tr>
-        <tr><th>Partenza</th><td>20:00</td><td>01:45</td></tr>
-        <tr><th>Arrivo</th><td>12:10 (+1 giorno)</td><td>07:15</td></tr>
-        <tr><th>Durata</th><td>10h10m</td><td>12h30m</td></tr>
-        <tr><th>Classe</th><td>Economy (L)</td><td>Economy (L)</td></tr>
-        <tr><th>Aereo</th><td>—</td><td>Airbus A350-900</td></tr>
-        <tr><th>Bagaglio</th><td>1 bagaglio in stiva/pax (gratis)</td><td>1 bagaglio in stiva/pax (gratis)</td></tr>
-      </table>
-      </div>
-      <h3>Note</h3>
-      <ul>
-        <li>L'andata atterra a <b>Daxing (PKX)</b>, non al vecchio aeroporto Capital (PEK) — verificare quale aeroporto presuppongono trasferimenti/hotel.</li>
-        <li>Il ritorno parte da <b>Pudong (PVG)</b> — dato che arriviamo a Pechino, dovremo raggiungere Shanghai entro fine viaggio.</li>
-        <li>Il ritorno parte all'01:45 — in pratica significa essere a PVG la sera del 7 novembre.</li>
-        <li>Il biglietto è tariffa Economy (L): riemissione consentita con penale (€0–150), <b>non rimborsabile</b>.</li>
-      </ul>`,
+      <div class="flight-legs">
+        <div class="flight-leg">
+          <h4>Andata</h4>
+          <div class="flight-row"><span>Volo</span><b>CA750</b></div>
+          <div class="flight-row"><span>Tratta</span><b>Milano MXP (T1) → Pechino PKX (Daxing)</b></div>
+          <div class="flight-row"><span>Data</span><b>gio 22 ott 2026</b></div>
+          <div class="flight-row"><span>Partenza</span><b>20:00</b></div>
+          <div class="flight-row"><span>Arrivo</span><b>12:10 (+1 giorno)</b></div>
+          <div class="flight-row"><span>Durata</span><b>10h10m</b></div>
+          <div class="flight-row"><span>Bagaglio</span><b>1 bagaglio in stiva/pax (gratis)</b></div>
+        </div>
+        <div class="flight-leg">
+          <h4>Ritorno</h4>
+          <div class="flight-row"><span>Volo</span><b>CA967</b></div>
+          <div class="flight-row"><span>Tratta</span><b>Shanghai PVG (T2) → Milano MXP (T1)</b></div>
+          <div class="flight-row"><span>Data</span><b>dom 8 nov 2026</b></div>
+          <div class="flight-row"><span>Partenza</span><b>01:45</b></div>
+          <div class="flight-row"><span>Arrivo</span><b>07:15</b></div>
+          <div class="flight-row"><span>Durata</span><b>12h30m</b></div>
+          <div class="flight-row"><span>Bagaglio</span><b>1 bagaglio in stiva/pax (gratis)</b></div>
+        </div>
+      </div>`,
         },
 
         checklist: {
