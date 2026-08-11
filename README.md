@@ -27,10 +27,10 @@ Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiaji
 |---|---|---|---|---|
 | Viaggio (MXP → PKX) | 22–23 ott | — | volo | arrivo a Pechino 12:10, 23 ott |
 | **Pechino** | 23–25 ott | 3 | — | il giorno di arrivo è una mezza giornata |
-| **Pingyao** | 26 ott | 1 | treno ~4h | piccola città antica, una notte basta |
-| **Xi'an** | 27–28 ott | 2 | treno ~2,5–3,5h | l'Esercito di Terracotta richiede una giornata intera |
-| **Chengdu** | 29–30 ott | 2 | treno ~3–4,5h (o volo ~1,5h) | panda + città vecchia |
-| **Chongqing** | 31 ott | 1 | treno ~1–1,5h | tappa veloce |
+| **Pingyao** | 26 ott | 1 | treno ~4h | — |
+| **Xi'an** | 27–28 ott | 2 | treno ~2,5–3,5h | — |
+| **Chengdu** | 29–30 ott | 2 | treno ~3–4,5h (o volo ~1,5h) | — |
+| **Chongqing** | 31 ott | 1 | treno ~1–1,5h | — |
 | **Zhangjiajie** | 1–2 nov | 2 | treno ~2,5–3h | parco nazionale giorno 1 intero, Tianmen Mountain la mattina del giorno 3 prima della partenza |
 | **Guilin** | 3 nov | 1 | treno ~6h con cambio a Changsha Sud (**collo di bottiglia**) | arrivo solo in serata, niente visite |
 | **Yangshuo** | 4 nov | 1 | battello — crociera sul fiume Li da Guilin | giornata campagna/fiume Yulong |
