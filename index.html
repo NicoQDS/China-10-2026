@@ -505,6 +505,12 @@
         list-style: none;
       }
 
+      .checklist-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 10px 12px;
+        margin: 10px 0;
+      }
       .checklist label {
         display: flex;
         gap: 9px;
@@ -533,16 +539,20 @@
         margin: 8px 0;
         flex-wrap: wrap;
       }
-      .flight-leg {
+      .flight-leg-wrap {
         flex: 1 1 200px;
+      }
+      .flight-leg-title {
+        font-size: 11.5px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+      .flight-leg {
         border: 1px solid #e5e7eb;
         border-radius: 8px;
         padding: 10px 12px;
-      }
-      .flight-leg h4 {
-        margin: 0 0 8px;
-        font-size: 12.5px;
-        color: var(--flight);
       }
       .flight-leg .flight-row {
         display: flex;
@@ -768,7 +778,7 @@
 
       function checklist(key, items) {
         return (
-          `<div class="checklist">` +
+          `<div class="checklist-card"><div class="checklist">` +
           items
             .map((t, i) => {
               const item = typeof t === "string" ? { text: t, done: false } : t;
@@ -776,7 +786,7 @@
               return `<label><input type="checkbox" data-ck="${id}"${item.done ? " checked" : ""}><span>${item.text}</span></label>`;
             })
             .join("") +
-          `</div>`
+          `</div></div>`
         );
       }
 
@@ -834,6 +844,47 @@
     </ul>
   </div>`;
       }
+
+      const BEIJING_CHECKLIST = [
+        "Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo",
+        "Prenotare città proibita (suggerito da Claude con largo anticipo) — biglietti con quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida",
+      ];
+
+      const PINGYAO_CHECKLIST = [
+        "Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico",
+        "Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)",
+        "Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)",
+        "Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano",
+      ];
+
+      const XIAN_CHECKLIST = [
+        "Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi",
+        "Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi",
+        "Mettere a budget il Didi per Lintong (Esercito di Terracotta) — circa 75–110 CNY a tratta",
+      ];
+
+      const CHENGDU_CHECKLIST = [
+        "Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)",
+      ];
+
+      const CHONGQING_CHECKLIST = [
+        "Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva",
+      ];
+
+      const ZHANGJIAJIE_CHECKLIST = [
+        "Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong",
+        "Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie",
+        "Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta",
+        "Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud",
+      ];
+
+      const GUILIN_CHECKLIST = [
+        "Prenotare lo stesso hotel di Guilin per entrambe le notti (3 e 5 nov) se possibile, e confermare che custodiscano le valigie grandi durante la notte a Yangshuo",
+        "Prenotare in anticipo il biglietto della crociera sul fiume Li — ricontrollare i livelli dell'acqua sotto data; la zattera da Xingping è il piano B",
+        "Prenotare l'autista privato per l'intera giornata del 5 nov (pickup a Yangshuo ~5:45 → Xianggong → Longsheng → Guilin) — concordare in anticipo tutto il percorso e il prezzo",
+        "Verificare che il punto panoramico di Xianggong Mountain apra per l'alba (di norma sì — piccolo biglietto d'ingresso, ~60 CNY)",
+        "Prenotare il volo serale Guilin → Shanghai (~18:30–19:30 su PVG) appena aprono gli orari di nov 2026",
+      ];
 
       const CONTENT = {
         beijing: {
@@ -1008,11 +1059,7 @@
       <p>Palazzo d'Estate (ridondante con la Città Proibita, richiede una mezza giornata a sé), Tempio dei Lama, distretto artistico 798 — non c'è spazio in 2,5 giorni senza sacrificare quanto sopra.</p>
       <p><b>Possibile esperienza guidata alternativa (non ancora prenotata):</b> <a href="https://www.getyourguide.com/pechino-l186/tour-privato-della-grande-muraglia-di-mutianyu-con-autista-inglese-t875282?ranking_uuid=8626a31c-46a3-4506-a9dc-09d94e9227df&amp;referral_redirect=1&amp;q=Mutianyu&amp;date_from=2026-10-25" target="_blank">Tour privato Grande Muraglia di Mutianyu con autista in inglese</a> su GetYourGuide — pickup in hotel, biglietti d'ingresso e navetta inclusi, ~90 min (75 km) fino al parcheggio di Mutianyu, ritrovo con l'autista alle 7:30 in hotel. È un autista in inglese, non una guida con narrazione lungo il percorso — da valutare come alternativa più economica alla guida privata già in programma.</p>
       <h3>Checklist</h3>
-      ${checklist("beijing", [
-        "Piatti che vorremmo mangiare a Pechino — anatra alla pechinese (Da Dong o Siji Minfu, prenotare la cena in anticipo per sabato sera), hot pot di montone alla pechinese (Donglaishun), spiedini/tanghulu a Wangfujing Snack Street",
-        "Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo",
-        "Prenotare città proibita (suggerito da Claude con largo anticipo) — biglietti con quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida",
-      ])}`,
+      ${checklist("beijing", BEIJING_CHECKLIST)}`,
         },
 
         pingyao: {
@@ -1091,12 +1138,7 @@
       <h3>Guida</h3>
       <p>Non serve — fai-da-te; un biglietto cumulativo di 3 giorni (~125 CNY / 16€) copre le Mura, lo Yamen, la banca Rishengchang, il Tempio del Dio della Città e gli altri siti principali dentro le mura.</p>
       <h3>Checklist</h3>
-      ${checklist("pingyao", [
-        "Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico",
-        "Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)",
-        "Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)",
-        "Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano",
-      ])}`,
+      ${checklist("pingyao", PINGYAO_CHECKLIST)}`,
         },
 
         xian: {
@@ -1179,11 +1221,7 @@
         <li><b>Serata alternativa:</b> cena con spettacolo di danze della dinastia Tang — alternativa teatrale al solo spettacolo delle fontane</li>
       </ul>
       <h3>Checklist</h3>
-      ${checklist("xian", [
-        "Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi",
-        "Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi",
-        "Mettere a budget il Didi per Lintong (Esercito di Terracotta) — circa 75–110 CNY a tratta",
-      ])}`,
+      ${checklist("xian", XIAN_CHECKLIST)}`,
         },
 
         chengdu: {
@@ -1280,9 +1318,7 @@
       <h3>Saltati, di proposito</h3>
       <p>Tempio Wuhou — segnalato come opzionale/bassa priorità; prima cosa da tagliare se il giorno 2 si allunga o il gruppo è stanco, dato che la via Jinli lì fuori copre un terreno simile.</p>
       <h3>Checklist</h3>
-      ${checklist("chengdu", [
-        "Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)",
-      ])}`,
+      ${checklist("chengdu", CHENGDU_CHECKLIST)}`,
         },
 
         chongqing: {
@@ -1359,9 +1395,7 @@
       </ul>
       <div class="warn"><b>Avviso fatica:</b> questo tratto accumula tre sveglie all'alba di fila — Base dei Panda ~7:00 (30 ott), il treno delle ~8:37 da Chengdu (31 ott) e il treno delle 08:50 per Zhangjiajie (1 nov) — e la serata di Chongqing arriva alle ~22:30 a Hongyadong. La stazione di Chongqing Est è a 30–40 min da Jiefangbei, quindi l'1 nov significa uscire dall'hotel alle ~7:15 dopo poco sonno. Dosare la serata di Chongqing di conseguenza (Hongyadong è la cosa naturale da accorciare).</div>
       <h3>Checklist</h3>
-      ${checklist("chongqing", [
-        "Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva",
-      ])}`,
+      ${checklist("chongqing", CHONGQING_CHECKLIST)}`,
         },
 
         zhangjiajie: {
@@ -1475,12 +1509,7 @@
       <h3>Guida</h3>
       <p>Non serve — fai-da-te con le navette interne del parco + Didi per i trasferimenti.</p>
       <h3>Checklist</h3>
-      ${checklist("zhangjiajie", [
-        "Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong",
-        "Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie",
-        "Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta",
-        "Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud",
-      ])}`,
+      ${checklist("zhangjiajie", ZHANGJIAJIE_CHECKLIST)}`,
         },
 
         guilin: {
@@ -1606,13 +1635,7 @@
       <p>Collina della Proboscide d'Elefante e Grotta del Flauto di Canna — le due tappe più da pullman turistico di Guilin, tolte per fare spazio all'arco Xianggong-all'alba + Longsheng del 5 nov; il Parco delle Sette Stelle resta come riempitivo opzionale della mattina libera del 6 nov.</p>
       <div class="note"><b>Bagagli:</b> le valigie grandi non hanno posto sulla barca della crociera (realisticamente solo bagaglio a mano). Visto che comunque torniamo a Guilin il 5 nov, lasciare le valigie grandi all'hotel di Guilin e portare una borsa da una notte a testa a Yangshuo — chiedere all'hotel di custodirle già in fase di prenotazione (richiesta standard, soprattutto se riprenotiamo lo stesso hotel per entrambe le notti di Guilin).</div>
       <h3>Checklist</h3>
-      ${checklist("guilin", [
-        "Prenotare lo stesso hotel di Guilin per entrambe le notti (3 e 5 nov) se possibile, e confermare che custodiscano le valigie grandi durante la notte a Yangshuo",
-        "Prenotare in anticipo il biglietto della crociera sul fiume Li — ricontrollare i livelli dell'acqua sotto data; la zattera da Xingping è il piano B",
-        "Prenotare l'autista privato per l'intera giornata del 5 nov (pickup a Yangshuo ~5:45 → Xianggong → Longsheng → Guilin) — concordare in anticipo tutto il percorso e il prezzo",
-        "Verificare che il punto panoramico di Xianggong Mountain apra per l'alba (di norma sì — piccolo biglietto d'ingresso, ~60 CNY)",
-        "Prenotare il volo serale Guilin → Shanghai (~18:30–19:30 su PVG) appena aprono gli orari di nov 2026",
-      ])}`,
+      ${checklist("guilin", GUILIN_CHECKLIST)}`,
         },
 
         shanghai: {
@@ -1628,52 +1651,64 @@
 
         flights: {
           title: "Voli internazionali",
-          dates: "Air China",
           body: `
-      <p>Prenotati con Air China.</p>
       <div class="flight-legs">
-        <div class="flight-leg">
-          <h4>Andata</h4>
-          <div class="flight-row"><span>Volo</span><b>CA750</b></div>
-          <div class="flight-row"><span>Tratta</span><b>Milano MXP (T1) → Pechino PKX (Daxing)</b></div>
-          <div class="flight-row"><span>Data</span><b>gio 22 ott 2026</b></div>
-          <div class="flight-row"><span>Partenza</span><b>20:00</b></div>
-          <div class="flight-row"><span>Arrivo</span><b>12:10 (+1 giorno)</b></div>
-          <div class="flight-row"><span>Durata</span><b>10h10m</b></div>
-          <div class="flight-row"><span>Bagaglio</span><b>1 bagaglio in stiva/pax (gratis)</b></div>
+        <div class="flight-leg-wrap">
+          <h4 class="flight-leg-title">Andata</h4>
+          <div class="flight-leg">
+            <div class="flight-row"><span>Compagnia</span><b>Air China</b></div>
+            <div class="flight-row"><span>Volo</span><b>CA750</b></div>
+            <div class="flight-row"><span>Tratta</span><b>Milano MXP (T1) → Pechino PKX (Daxing)</b></div>
+            <div class="flight-row"><span>Data</span><b>gio 22 ott 2026</b></div>
+            <div class="flight-row"><span>Partenza</span><b>20:00</b></div>
+            <div class="flight-row"><span>Arrivo</span><b>12:10 (+1 giorno)</b></div>
+            <div class="flight-row"><span>Durata</span><b>10h10m</b></div>
+            <div class="flight-row"><span>Bagaglio</span><b>1 bagaglio in stiva/pax (gratis)</b></div>
+          </div>
         </div>
-        <div class="flight-leg">
-          <h4>Ritorno</h4>
-          <div class="flight-row"><span>Volo</span><b>CA967</b></div>
-          <div class="flight-row"><span>Tratta</span><b>Shanghai PVG (T2) → Milano MXP (T1)</b></div>
-          <div class="flight-row"><span>Data</span><b>dom 8 nov 2026</b></div>
-          <div class="flight-row"><span>Partenza</span><b>01:45</b></div>
-          <div class="flight-row"><span>Arrivo</span><b>07:15</b></div>
-          <div class="flight-row"><span>Durata</span><b>12h30m</b></div>
-          <div class="flight-row"><span>Bagaglio</span><b>1 bagaglio in stiva/pax (gratis)</b></div>
+        <div class="flight-leg-wrap">
+          <h4 class="flight-leg-title">Ritorno</h4>
+          <div class="flight-leg">
+            <div class="flight-row"><span>Compagnia</span><b>Air China</b></div>
+            <div class="flight-row"><span>Volo</span><b>CA967</b></div>
+            <div class="flight-row"><span>Tratta</span><b>Shanghai PVG (T2) → Milano MXP (T1)</b></div>
+            <div class="flight-row"><span>Data</span><b>dom 8 nov 2026</b></div>
+            <div class="flight-row"><span>Partenza</span><b>01:45</b></div>
+            <div class="flight-row"><span>Arrivo</span><b>07:15</b></div>
+            <div class="flight-row"><span>Durata</span><b>12h30m</b></div>
+            <div class="flight-row"><span>Bagaglio</span><b>1 bagaglio in stiva/pax (gratis)</b></div>
+          </div>
         </div>
       </div>`,
         },
 
         checklist: {
           title: "Checklist di viaggio",
-          dates:
-            "nulla di prenotato tranne i voli internazionali e l'hotel di Pechino",
           body: `
-      <div class="warn"><b>⚠️ Finestre di apertura vendite:</b> per ora non si può prenotare nulla sui treni — China Railway apre le vendite solo <b>15–30 giorni prima di ogni partenza</b>. Impostare promemoria sul calendario per ogni tratta, e prendere Zhangjiajie → Guilin appena apre. Anche le quote delle attrazioni hanno i loro tempi: Città Proibita ~7 giorni prima, Base dei Panda pochi giorni prima (la fascia mattutina si esaurisce per prima), funivia del Tianmen Mountain pochi giorni prima.</div>
-      <div class="warn"><b>Punto critico:</b> Zhangjiajie → Guilin è il singolo punto di rottura del percorso (~6h, richiede un cambio treno a Changsha Sud, nessun volo stagionale a novembre). Prenotare questa tratta per prima.</div>
-      <h3>Checklist</h3>
+      <h3>Generale</h3>
       ${checklist("trip", [
-        "Visto per la Cina — i passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni), ma la misura ha una scadenza: confermare che copra ancora ott–nov 2026 prima di dare per scontato che il visto non serva",
-        "Trasporti interni Pechino → Shanghai (volo o treno, più le tappe intermedie)",
-        "Alloggi — Pechino prenotata (vedi cartella hotels/), tutte le altre città ancora aperte",
-        "Controllo scadenza passaporti (entrambi ok)",
-        "Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì",
-        "Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti",
-        "Procurarsi una eSIM cinese o confermare il roaming dati — serve per mappe/traduzione/app taxi fin dall'atterraggio",
-        "Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato",
-        "Prenotare tutti i biglietti dei treni ad alta velocità — China Railway apre le vendite 15 giorni prima (30 per alcune tratte); non ridursi all'ultimo per la tratta Zhangjiajie → Guilin",
-      ])}`,
+        "<b>Visto.</b> I passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni). Verificare un mese prima che sia ancora così",
+        { text: "<b>Passaporti.</b> Scadenza passaporti, ok per entrambi", done: true },
+        "<b>VPN.</b> Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì",
+        "<b>APP.</b> Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti",
+        "<b>APP.</b> Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato",
+        "<b>eSIM.</b> Procurare eSIM cinese o confermare il roaming dati",
+        "<b>Assicurazione.</b> 10% di sconto con Columbus",
+      ])}
+      <h3>Beijing</h3>
+      ${checklist("beijing", BEIJING_CHECKLIST)}
+      <h3>Pingyao</h3>
+      ${checklist("pingyao", PINGYAO_CHECKLIST)}
+      <h3>Xi'an</h3>
+      ${checklist("xian", XIAN_CHECKLIST)}
+      <h3>Chengdu</h3>
+      ${checklist("chengdu", CHENGDU_CHECKLIST)}
+      <h3>Chongqing</h3>
+      ${checklist("chongqing", CHONGQING_CHECKLIST)}
+      <h3>Zhangjiajie</h3>
+      ${checklist("zhangjiajie", ZHANGJIAJIE_CHECKLIST)}
+      <h3>Guilin</h3>
+      ${checklist("guilin", GUILIN_CHECKLIST)}`,
         },
       };
 

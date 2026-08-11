@@ -6,10 +6,9 @@
 
 ## Voli
 
-Prenotati con Air China.
-
 | | Andata | Ritorno |
 |---|---|---|
+| Compagnia | Air China | Air China |
 | Volo | CA750 | CA967 |
 | Tratta | Milano MXP (T1) → Pechino PKX (Daxing) | Shanghai PVG (T2) → Milano MXP (T1) |
 | Data | gio 22 ott 2026 | dom 8 nov 2026 |
@@ -38,10 +37,6 @@ Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiaji
 | **Guilin** | 5 nov | 1 | autista privato tutto il giorno da Yangshuo | Xianggong Mountain all'alba → risaie di Longsheng → rientro a Guilin ~17:30 |
 | **Shanghai** | 6–7 nov | 2 | volo ~2,5h da Guilin | arrivo la sera del 6 nov, giornata libera il 7 nov prima del volo notturno |
 | Viaggio (PVG → MXP) | 7–8 nov | — | volo | partenza 01:45, 8 nov |
-
-**Punto critico:** Zhangjiajie → Guilin è il singolo punto di rottura del percorso (~6h, richiede un cambio treno a Changsha Sud, nessun volo stagionale a novembre). Prenotare questa tratta per prima.
-
-**⚠️ Finestre di apertura vendite:** per ora non si può prenotare nulla sui treni — China Railway apre le vendite solo **15–30 giorni prima di ogni partenza**. Impostare promemoria sul calendario per ogni tratta, e prendere Zhangjiajie → Guilin appena apre. Anche le quote delle attrazioni hanno i loro tempi: Città Proibita ~7 giorni prima, Base dei Panda pochi giorni prima (la fascia mattutina si esaurisce per prima), funivia del Tianmen Mountain pochi giorni prima.
 
 ## Giorno per giorno
 
@@ -97,7 +92,6 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 **Possibile esperienza guidata alternativa (non ancora prenotata):** [Tour privato Grande Muraglia di Mutianyu con autista in inglese](https://www.getyourguide.com/pechino-l186/tour-privato-della-grande-muraglia-di-mutianyu-con-autista-inglese-t875282?ranking_uuid=8626a31c-46a3-4506-a9dc-09d94e9227df&referral_redirect=1&q=Mutianyu&date_from=2026-10-25) su GetYourGuide — pickup in hotel, biglietti d'ingresso e navetta inclusi, ~90 min (75 km) fino al parcheggio di Mutianyu, ritrovo con l'autista alle 7:30 in hotel. È un autista in inglese, non una guida con narrazione lungo il percorso — da valutare come alternativa più economica alla guida privata già in programma.
 
 **Checklist:**
-- [ ] Piatti che vorremmo mangiare a Pechino — anatra alla pechinese (Da Dong o Siji Minfu, prenotare la cena in anticipo per sabato sera), hot pot di montone alla pechinese (Donglaishun), spiedini/tanghulu a Wangfujing Snack Street
 - [ ] Prenotare la guida — giorno Grande Muraglia + giorno Città Proibita/Tempio del Cielo
 - [ ] Prenotare città proibita (suggerito da Claude con largo anticipo) — biglietti con quota giornaliera, servono i numeri di passaporto; verificare se se ne occupa la guida
 
@@ -273,12 +267,10 @@ _DA FARE — non ancora studiata. La guida ha solo un titolo segnaposto per Shan
 
 ## Checklist di viaggio
 
-- [ ] Visto per la Cina — i passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni), ma la misura ha una scadenza: confermare che copra ancora ott–nov 2026 prima di dare per scontato che il visto non serva
-- [ ] Trasporti interni Pechino → Shanghai (volo o treno, più le tappe intermedie)
-- [ ] Alloggi — Pechino prenotata (vedi cartella `hotels/`), tutte le altre città ancora aperte
-- [ ] Controllo scadenza passaporti (entrambi ok)
-- [ ] Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì
-- [ ] Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti
-- [ ] Procurarsi una eSIM cinese o confermare il roaming dati — serve per mappe/traduzione/app taxi fin dall'atterraggio
-- [ ] Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato
-- [ ] Prenotare tutti i biglietti dei treni ad alta velocità — China Railway apre le vendite 15 giorni prima (30 per alcune tratte); non ridursi all'ultimo per la tratta Zhangjiajie → Guilin
+- [ ] **Visto.** I passaporti italiani rientrano attualmente nella finestra di esenzione dal visto (soggiorni di 30 giorni). Verificare un mese prima che sia ancora così
+- [x] **Passaporti.** Scadenza passaporti, ok per entrambi
+- [ ] **VPN.** Configurare una VPN prima della partenza — Google, Maps, WhatsApp, Instagram sono bloccati in Cina; molto più difficile installarla una volta lì
+- [ ] **APP.** Configurare Alipay (o WeChat Pay) collegato a una carta straniera — la Cina è in gran parte cashless, molti esercenti non accettano né carte straniere né contanti
+- [ ] **APP.** Scaricare DiDi (app taxi) e Amap/Baidu Maps — Google Maps è inaffidabile/bloccato
+- [ ] **eSIM.** Procurare eSIM cinese o confermare il roaming dati
+- [ ] **Assicurazione.** 10% di sconto con Columbus
