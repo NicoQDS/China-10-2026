@@ -155,6 +155,20 @@
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
         cursor: pointer;
       }
+      .hotel-pin {
+        background: #c026d3;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+        cursor: pointer;
+      }
       .change-pin {
         background: #fff;
         border: 2.5px solid var(--train);
@@ -582,6 +596,55 @@
         padding: 10px 12px;
         margin: 10px 0;
       }
+      .quote-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .quote-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 9px 11px;
+      }
+      .quote-card-name {
+        font-weight: 700;
+        font-size: 12.5px;
+      }
+      .quote-card-date {
+        display: block;
+        font-size: 10.5px;
+        color: var(--muted);
+        margin-top: 1px;
+      }
+      .quote-card-price {
+        margin-top: 7px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .quote-card-price-sub {
+        display: block;
+        font-weight: 400;
+        font-size: 10.5px;
+        color: var(--muted);
+        margin-top: 1px;
+      }
+      .quote-card-links {
+        margin: 6px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .quote-card-links li {
+        font-size: 10.5px;
+        margin: 2px 0;
+      }
+      .quote-card-pending {
+        margin-top: 7px;
+        font-size: 11px;
+        color: var(--muted);
+        font-style: italic;
+      }
       .checklist-card {
         border: 1px solid #e5e7eb;
         border-radius: 10px;
@@ -978,9 +1041,9 @@
       ];
 
       const PINGYAO_CHECKLIST = [
-        "<b>🏨 Hotel.</b> Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico",
+        { text: "<b>🏨 Hotel.</b> Prenotare Hotel", done: true },
         "<b>🎫 Biglietto.</b> Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)",
-        "<b>🚄 Treno.</b> Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)",
+        "<b>🚄 Treno.</b> Prenotare treno Pingyao–Xi'an (partenza 17:00)",
         "<b>💵 Contanti.</b> Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano",
       ];
 
@@ -1025,9 +1088,9 @@
       <h3>Arrivo</h3>
       ${arrivalCard([
         ["Mezzo", "✈️ Volo, Air China CA750"],
-        ["Partenza", "Milano MXP, 20:00"],
+        ["Partenza", "Milano MXP, 22 ott, 20:00"],
         ["Durata", "10h10m"],
-        ["Arrivo", "Pechino Daxing (PKX), 12:10 (+1 giorno)"],
+        ["Arrivo", "Pechino Daxing (PKX), 23 ott, 12:10"],
       ])}
       <h3>Programma</h3>
       ${days(
@@ -1082,9 +1145,9 @@
       <h3>Partenza</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Pechino Ovest"],
+        ["Partenza", "Pechino Ovest, 26 ott, ~10:30"],
         ["Durata", "~4h"],
-        ["Arrivo", "Pingyao Gucheng, ~14:00–14:30"],
+        ["Arrivo", "Pingyao Gucheng, 26 ott, ~14:00–14:30"],
       ])}
       <h3>Hotel</h3>
       ${hotelCard({
@@ -1177,18 +1240,32 @@
         <button class="mini-btn quote-btn" onclick="openQuoteModal()" title="Richiedi preventivo" aria-label="Richiedi preventivo">✉️</button>
         <p>Da discutere con il compagno/a di viaggio — trovate via <a href="https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/" target="_blank">Reddit r/travelchina</a></p>
         <p><b>Nota:</b> richieste di preventivo:</p>
-        <ul>
-          <li><a href="https://www.chinadiscovery.com/forms/thankyou.html" target="_blank">chinadiscovery.com</a> — 11 ago 2026</li>
-          <li>
-            <a href="https://www.asiaodysseytravel.com/" target="_blank">asiaodysseytravel.com</a> — 11 ago 2026
-            <ul>
-              <li><a href="https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html" target="_blank">2-Days Beijing World Heritage Tour</a> — tour di 2 giorni</li>
-              <li><a href="https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html" target="_blank">1-Day Beijing Tour</a> — tour di 1 giorno</li>
+        <div class="quote-cards">
+          <div class="quote-card">
+            <a href="https://www.chinadiscovery.com/forms/thankyou.html" target="_blank">chinadiscovery.com</a>
+            <span class="quote-card-date">11 ago 2026</span>
+            <div class="quote-card-price">$346 <span class="quote-card-price-sub">a persona · $692 totale (2 pax)</span></div>
+          </div>
+          <div class="quote-card">
+            <a href="https://www.asiaodysseytravel.com/" target="_blank">asiaodysseytravel.com</a>
+            <span class="quote-card-date">11 ago 2026</span>
+            <div class="quote-card-price">$282 <span class="quote-card-price-sub">a persona · $564 totale (2 pax)</span></div>
+            <ul class="quote-card-links">
+              <li><a href="https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html" target="_blank">2-Days Beijing World Heritage Tour</a></li>
+              <li><a href="https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html" target="_blank">1-Day Beijing Tour</a></li>
             </ul>
-          </li>
-          <li><a href="https://www.chinaculturetour.com/" target="_blank">chinaculturetour.com</a> — 11 ago 2026</li>
-          <li><a href="https://www.dgvtravel.com/" target="_blank">dgvtravel.com</a> — 11 ago 2026 (via mail)</li>
-        </ul>
+          </div>
+          <div class="quote-card">
+            <a href="https://www.chinaculturetour.com/" target="_blank">chinaculturetour.com</a>
+            <span class="quote-card-date">11 ago 2026</span>
+            <div class="quote-card-price">$324 <span class="quote-card-price-sub">a persona · $648 totale (2 pax)</span></div>
+          </div>
+          <div class="quote-card">
+            <a href="https://www.dgvtravel.com/" target="_blank">dgvtravel.com</a>
+            <span class="quote-card-date">11 ago 2026 (via mail)</span>
+            <div class="quote-card-pending">In attesa di risposta</div>
+          </div>
+        </div>
       </div>
       <h3>Attività particolari (promemoria)</h3>
       <div class="card">
@@ -1217,9 +1294,9 @@
       <h3>Arrivo</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Pechino Ovest"],
+        ["Partenza", "Pechino Ovest, 26 ott, ~10:30"],
         ["Durata", "~4h"],
-        ["Arrivo", "Pingyao Gucheng, ~14:00–14:30"],
+        ["Arrivo", "Pingyao Gucheng, 26 ott, ~14:00–14:30"],
       ])}
       <h3>Programma</h3>
       ${days(
@@ -1227,12 +1304,6 @@
           {
             date: "26 ott (lun)",
             activities: [
-              {
-                label: "Trasferimento in centro",
-                detail:
-                  "stazione a 8,5 km; taxi ~20min/30 CNY o bus 108 ~30min/¥1",
-              },
-              { label: "Check-in" },
               {
                 label: "Via Ming-Qing e Tempio del Dio della Città",
                 detail: "Chenghuangmiao",
@@ -1252,13 +1323,12 @@
               {
                 label: "Tempio di Confucio o shopping",
                 detail: "opzionale, se c'è tempo",
-                bookBy:
-                  "Prenotare tra il 27 set e il 12 ott 2026 (finestra 15–30 gg prima della partenza)",
               },
             ],
             imgs: [
               ["rishengchang", "Banca Rishengchang — la prima banca cinese"],
             ],
+            note: `<div class="note">La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.</div>`,
           },
         ],
         "pingyao",
@@ -1266,16 +1336,23 @@
       <h3>Partenza</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Pingyao, ~17:00"],
+        ["Partenza", "Pingyao, 27 ott, ~17:00"],
         ["Durata", "~3h"],
-        ["Arrivo", "Xi'an Nord, ~19:55–20:40"],
+        ["Arrivo", "Xi'an Nord, 27 ott, ~19:55–20:40"],
       ])}
-      <div class="note">La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.</div>
       <h3>Hotel</h3>
       ${hotelCard({
-        name: "Dentro le mura della città vecchia",
+        name: "Qigongguan Inn",
+        sub: "Camera Jiwenzhai Changongzhegui, letto king-size",
+        address: "No. 13 Zhuanquanmen Lane, 031100 Pingyao, Shanxi, Cina",
+        website:
+          "https://it.trip.com/hotels/detail/?hotelId=2992785&checkIn=2026-10-26&checkOut=2026-10-27&locale=it-IT",
+        checkIn: "26 ott, dopo le 14:00",
+        checkOut: "27 ott, entro le 12:00 (1 notte)",
         paras: [
-          "Un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina.",
+          "<i>Costo:</i> €44,26 prepagati.",
+          '<span class="hotel-sub">Cancellazione gratuita fino alle 20:00 del 26 ott, poi penale di €13,28; non rimborsabile dopo le 21:00 del 26 ott.</span>',
+          "Un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza — colazione per 2 inclusa il 27 ott. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina. Incluso: esperienza di stampa su pietra e transfer da per stazione (da prnotare con un giorno di anticipo)",
         ],
       })}
       <h3>Cibo</h3>
@@ -1285,9 +1362,7 @@
           detail: "piatto locale tipico, su via Ming-Qing",
         },
         { name: "Noodles tirati a mano", detail: "su via Ming-Qing" },
-      ])}
-      <h3>Guida</h3>
-      <p>Non serve — fai-da-te; un biglietto cumulativo di 3 giorni (~125 CNY / 16€) copre le Mura, lo Yamen, la banca Rishengchang, il Tempio del Dio della Città e gli altri siti principali dentro le mura.</p>`,
+      ])}`,
         },
 
         xian: {
@@ -1301,9 +1376,9 @@
       <h3>Arrivo</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Pingyao"],
-        ["Durata", ""],
-        ["Arrivo", "Xi'an Nord, ~19:55–20:40"],
+        ["Partenza", "Pingyao, 27 ott, ~17:00"],
+        ["Durata", "~3h"],
+        ["Arrivo", "Xi'an Nord, 27 ott, ~19:55–20:40"],
       ])}
       <h3>Programma</h3>
       ${days(
@@ -1352,9 +1427,9 @@
       <h3>Partenza</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Xi'an, 8:07"],
+        ["Partenza", "Xi'an, 29 ott, 8:07"],
         ["Durata", "~3,5h"],
-        ["Arrivo", "Chengdu Est, ~11:40 stimato"],
+        ["Arrivo", "Chengdu Est, 29 ott, ~11:40 stimato"],
       ])}
       <div class="note">La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per battere i grandi gruppi che arrivano a metà mattina. È la giornata più carica del viaggio, quindi le attività sono in ordine di priorità — niente è stato tolto, ma la coda è esplicitamente sacrificabile: Esercito di Terracotta e Quartiere Musulmano sono non negoziabili, il giro in bici sulle Mura è la terza scelta, le Torri sono esterni che si incontrano naturalmente tra il Quartiere e le mura (costo extra quasi zero), e la Grande Pagoda + spettacolo delle fontane è la prima cosa da tagliare se la giornata si allunga — è una corsa di metro verso sud.</div>
       <h3>Hotel</h3>
@@ -1394,9 +1469,9 @@
       <h3>Arrivo</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Xi'an, 8:07"],
+        ["Partenza", "Xi'an, 29 ott, 8:07"],
         ["Durata", "~3,5h"],
-        ["Arrivo", "Chengdu Est, ~11:40 stimato"],
+        ["Arrivo", "Chengdu Est, 29 ott, ~11:40 stimato"],
       ])}
       <h3>Programma</h3>
       ${days(
@@ -1454,9 +1529,9 @@
       <h3>Partenza</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Chengdu, ~8:37"],
+        ["Partenza", "Chengdu, 31 ott, ~8:37"],
         ["Durata", "~1,5–2h"],
-        ["Arrivo", "~10:10–10:40 stimato"],
+        ["Arrivo", "31 ott, ~10:10–10:40 stimato"],
       ])}
       <div class="note">La Base dei Panda è la prima cosa in programma perché i panda sono più attivi nella finestra del pasto mattutino, e la fascia d'ingresso del mattino è anche la prima a esaurirsi.</div>
       <h3>Hotel</h3>
@@ -1505,9 +1580,9 @@
       <h3>Arrivo</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Chengdu, ~8:37"],
+        ["Partenza", "Chengdu, 31 ott, ~8:37"],
         ["Durata", "~1,5–2h"],
-        ["Arrivo", "~10:10–10:40 stimato"],
+        ["Arrivo", "31 ott, ~10:10–10:40 stimato"],
       ])}
       <h3>Programma</h3>
       ${days(
@@ -1552,9 +1627,9 @@
       <h3>Partenza</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Chongqing, 08:50"],
+        ["Partenza", "Chongqing, 1 nov, 08:50"],
         ["Durata", "~2,5h"],
-        ["Arrivo", "Zhangjiajie Ovest, ~11:20 stimato"],
+        ["Arrivo", "Zhangjiajie Ovest, 1 nov, ~11:20 stimato"],
       ])}
       <div class="note">L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.</div>
       <h3>Hotel</h3>
@@ -1596,9 +1671,9 @@
       <h3>Arrivo</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità"],
-        ["Partenza", "Chongqing, 08:50"],
+        ["Partenza", "Chongqing, 1 nov, 08:50"],
         ["Durata", "~2,5h"],
-        ["Arrivo", "Zhangjiajie Ovest, ~11:20 stimato"],
+        ["Arrivo", "Zhangjiajie Ovest, 1 nov, ~11:20 stimato"],
       ])}
       <h3>Programma</h3>
       ${days(
@@ -1683,9 +1758,9 @@
       <h3>Partenza</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità (cambio a Changsha Sud)"],
-        ["Partenza", "Zhangjiajie, 13:07"],
+        ["Partenza", "Zhangjiajie, 3 nov, 13:07"],
         ["Durata", "~6h"],
-        ["Arrivo", "~19:00–19:30 stimato"],
+        ["Arrivo", "3 nov, ~19:00–19:30 stimato"],
       ])}
       <div class="note">Il giorno del parco (2 nov) inizia al cancello per battere la coda dell'ascensore Bailong. Furong Zhen è aggiunta come extra serale leggero con un breve salto in alta velocità, dato che è a soli 20–25 minuti ed è illuminata di notte — i bagagli restano all'hotel di Wulingyuan quindi è un'andata e ritorno veloce.</div>
       <div class="warn"><b>Tempistica Tianmen (3 nov):</b> il giro completo ci sta nella finestra 7:30–11:30 — ma per un pelo, e solo partendo all'apertura. Inizio novembre in un giorno feriale è bassa stagione, quindi le code dovrebbero essere gestibili; comunque questo si incastra direttamente col treno collo-di-bottiglia del viaggio, quindi trattare le 11:30 come non negoziabili. Se la mattina va lunga (coda in funivia, ritardo per meteo), l'ordine dei sacrifici è: saltare la discesa dei 999 gradini (usare scale mobili + navetta), poi accorciare le passerelle a strapiombo — il Glass Skywalk e la Grotta di Tianmen sono i due da tenere.</div>
@@ -1718,9 +1793,9 @@
       <h3>Arrivo</h3>
       ${arrivalCard([
         ["Mezzo", "🚄 Treno alta velocità (cambio a Changsha Sud)"],
-        ["Partenza", "Zhangjiajie, 13:07"],
+        ["Partenza", "Zhangjiajie, 3 nov, 13:07"],
         ["Durata", "~6h"],
-        ["Arrivo", "~19:00–19:30 stimato"],
+        ["Arrivo", "3 nov, ~19:00–19:30 stimato"],
       ])}
       <h3>Programma</h3>
       ${days(
@@ -1793,9 +1868,9 @@
       <h3>Partenza</h3>
       ${arrivalCard([
         ["Mezzo", "✈️ Volo"],
-        ["Partenza", "Guilin, ~18:30–19:30 stimato"],
+        ["Partenza", "Guilin, 6 nov, ~18:30–19:30 stimato"],
         ["Durata", "~2h15m"],
-        ["Arrivo", "Shanghai PVG, ~21:00–21:45 stimato"],
+        ["Arrivo", "Shanghai PVG, 6 nov, ~21:00–21:45 stimato"],
       ])}
       <div class="note">Il 5 nov è un unico grande arco con un solo autista per tutta la giornata: Xianggong (~45min da Yangshuo) e Longsheng (~2–2,5h a nord-ovest di Guilin) stanno su lati opposti di Guilin, quindi il percorso è Yangshuo → Xianggong → oltre Guilin → Longsheng → Guilin — circa 5,5–6h di guida totali. L'alba è <i>il</i> momento per Xianggong: il sole sorge alle ~6:55 a inizio novembre e lo scatto classico è la nebbia mattutina sull'ansa del fiume Li — anche se la nebbia fitta è un rischio reale senza piano B a quell'ora (se è tutto coperto, si prosegue dritti per Longsheng). A inizio novembre il riso di Longji è già raccolto, quindi aspettarsi terrazze a strati marroni/a specchio d'acqua più che dorate. Il vantaggio: il giorno del volo non ha nessun trasferimento lungo — la mattina del 6 nov diventa un vero cuscinetto. Nota: è un'altra sveglia alle ~5:30, incorniciata dalla giornata rilassata di crociera prima e dalla mattina libera dopo.</div>
       <div class="note"><b>Volo Guilin → Shanghai (6 nov):</b> verificato — KWL→PVG ha ~6 partenze dirette al giorno (China Eastern, Juneyao, Spring, Air China, Shanghai Airlines) distribuite dalle ~07:00 alle ~22:35, ~2h15m di volo. <b>Puntare a una partenza serale attorno alle 18:30–19:30 su PVG</b> (arrivo ~21:00–21:45, hotel entro le ~23:00): abbastanza presto per andare a dormire a un'ora decente a Shanghai, e con Longsheng spostato al 5 nov il giorno della partenza è del tutto senza fretta — nessun rischio di lunghi trasferimenti tra la sveglia e il gate. Gli orari di nov 2026 non sono ancora caricati — prenotare appena disponibili.</div>
@@ -1922,8 +1997,8 @@
       <div class="card" style="display:flex;justify-content:space-between;align-items:center">
         <b>Totale stimato</b>
         <div style="text-align:right">
-          <div style="font-size:20px;font-weight:700">€ 3.016,56</div>
-          <div style="font-size:11px;color:var(--muted)">€ 1.508,28 a persona</div>
+          <div style="font-size:20px;font-weight:700">€ 3.581,82</div>
+          <div style="font-size:11px;color:var(--muted)">€ 1.790,91 a persona</div>
         </div>
       </div>
 
@@ -1937,14 +2012,15 @@
         <h4 class="flight-leg-title">Pechino</h4>
         <div class="flight-leg">
           <div class="flight-row"><span>Albergo Pechino</span><b class="cost-certain">€ 241,00</b></div>
-          <div class="flight-row"><span>Treno Pechino–Pingyao, bus</span><b class="cost-expected">€ 60,00</b></div>
+          <div class="flight-row"><span>Guida turistica</span><b class="cost-expected">€ 584,00</b></div>
+          <div class="flight-row"><span>Treno Pechino–Pingyao</span><b class="cost-expected">€ 60,00</b></div>
         </div>
       </div>
       <div class="flight-leg-wrap">
         <h4 class="flight-leg-title">Pingyao</h4>
         <div class="flight-leg">
           <div class="flight-row"><span>Risciò e lanterne rosse</span><b class="cost-expected">€ 32,00</b></div>
-          <div class="flight-row"><span>Albergo Pingyao</span><b class="cost-expected">€ 63,00</b></div>
+          <div class="flight-row"><span>Albergo Pingyao</span><b class="cost-certain">€ 44,26</b></div>
           <div class="flight-row"><span>Treno Pingyao–Xi'an</span><b class="cost-expected">€ 40,00</b></div>
         </div>
       </div>
@@ -2218,6 +2294,18 @@
           txt: "Via pedonale dello shopping, snack di strada (anche i più esotici).",
         },
         {
+          name: "Via Ming-Qing",
+          ll: [37.2013, 112.1743],
+          img: "pingyao",
+          txt: "L'asse storico di Pingyao dentro le mura — negozi tradizionali, lanterne rosse accese la sera.",
+        },
+        {
+          name: "Banca Rishengchang",
+          ll: [37.2018, 112.1734],
+          img: "rishengchang",
+          txt: "La prima banca cinese (istituto di cambio), nata qui nell'Ottocento.",
+        },
+        {
           name: "Torre della Campana",
           ll: [34.2583, 108.9426],
           img: "xian_bell",
@@ -2299,6 +2387,36 @@
           )
           .addTo(inCityLayer);
       });
+
+      // confirmed-hotel pins (booked & paid) — same layer/zoom as in-city attractions
+      const HOTEL_PINS = [
+        {
+          name: "Hotel Beijing — JianGuo Hidden Hotel",
+          ll: [39.9146, 116.4148],
+          txt: "No. 19 Jinyu Hutong, Dongcheng District — check-in 23 ott, check-out 26 ott.",
+        },
+        {
+          name: "Hotel Pingyao — Qigongguan Inn",
+          ll: [37.2015, 112.1738],
+          txt: "No. 13 Zhuanquanmen Lane — check-in 26 ott, check-out 27 ott.",
+        },
+      ];
+      HOTEL_PINS.forEach((h) => {
+        const icon = L.divIcon({
+          className: "",
+          iconSize: [16, 16],
+          iconAnchor: [8, 8],
+          html: `<div class="hotel-pin"></div>`,
+        });
+        L.marker(h.ll, { icon })
+          .bindTooltip(`<b>${h.name}</b>`, {
+            direction: "top",
+            offset: [0, -8],
+          })
+          .bindPopup(`<b>🏨 ${h.name}</b><br>${h.txt}`, { maxWidth: 250 })
+          .addTo(inCityLayer);
+      });
+
       function syncInCityLayer() {
         const show = map.getZoom() >= IN_CITY_MIN_ZOOM;
         if (show && !map.hasLayer(inCityLayer)) inCityLayer.addTo(map);

@@ -75,21 +75,21 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
 **Guida:** da discutere con il compagno/a di viaggio — trovate via [Reddit r/travelchina](https://www.reddit.com/r/travelchina/comments/1dkj0nz/reputable_tour_groups_for_custom_tour_packages/)
 
 **Nota:** richieste di preventivo:
-- [chinadiscovery.com](https://www.chinadiscovery.com/forms/thankyou.html) — 11 ago 2026
-- [asiaodysseytravel.com](https://www.asiaodysseytravel.com/) — 11 ago 2026
+- [chinadiscovery.com](https://www.chinadiscovery.com/forms/thankyou.html) — 11 ago 2026 — **$346 a persona · $692 totale (2 pax)**
+- [asiaodysseytravel.com](https://www.asiaodysseytravel.com/) — 11 ago 2026 — **$282 a persona · $564 totale (2 pax)**
   - [2-Days Beijing World Heritage Tour](https://www.asiaodysseytravel.com/beijing-tours/2-days-beijing-world-heritage-tour.html) — tour di 2 giorni
   - [1-Day Beijing Tour](https://www.asiaodysseytravel.com/beijing-tours/1-day-beijing-tour.html) — tour di 1 giorno
-- [chinaculturetour.com](https://www.chinaculturetour.com/) — 11 ago 2026
-- [dgvtravel.com](https://www.dgvtravel.com/) — 11 ago 2026 (via mail)
+- [chinaculturetour.com](https://www.chinaculturetour.com/) — 11 ago 2026 — **$324 a persona · $648 totale (2 pax)**
+- [dgvtravel.com](https://www.dgvtravel.com/) — 11 ago 2026 (via mail) — in attesa di risposta
 
 **Arrivo**
 
 | | |
 |---|---|
 | Mezzo | ✈️ Volo, Air China CA750 |
-| Partenza | Milano MXP, 20:00 |
+| Partenza | Milano MXP, 22 ott, 20:00 |
 | Durata | 10h10m |
-| Arrivo | Pechino Daxing (PKX), 12:10 (+1 giorno) |
+| Arrivo | Pechino Daxing (PKX), 23 ott, 12:10 |
 
 | Programma | Data |
 |---|---|
@@ -103,9 +103,9 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Pechino Ovest |
+| Partenza | Pechino Ovest, 26 ott, ~10:30 |
 | Durata | ~4h |
-| Arrivo | Pingyao Gucheng, ~14:00–14:30 |
+| Arrivo | Pingyao Gucheng, 26 ott, ~14:00–14:30 |
 
 Tempistica Grande Muraglia: arrivare all'apertura (~8:00) per battere i gruppi organizzati (il picco di folla è 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.
 
@@ -126,45 +126,43 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 ### Pingyao 平遥 (26–27 ott)
 
 **Checklist:**
-- [ ] **🏨 Hotel.** Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
+- [x] **🏨 Hotel.** Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
 - [ ] **🎫 Biglietto.** Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)
 - [ ] **🚄 Treno.** Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)
 - [ ] **💵 Contanti.** Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano
 
 ---
 
-**Zona hotel:** Dentro le mura della città vecchia — un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina.
+**Hotel:** Qigongguan Inn — No. 13 Zhuanquanmen Lane, 031100 Pingyao, Shanxi, Cina. [Sito web](https://it.trip.com/hotels/detail/?hotelId=2992785&checkIn=2026-10-26&checkOut=2026-10-27&locale=it-IT). Check-in 26 ott dopo le 14:00, check-out 27 ott entro le 12:00 (1 notte). Camera Jiwenzhai Changongzhegui, letto king-size. Costo: €44,26 prepagati (conferma hotel n. 1688900388538232); cancellazione gratuita fino alle 20:00 del 26 ott, poi penale di €13,28, non rimborsabile dopo le 21:00 del 26 ott. Un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza — colazione per 2 inclusa il 27 ott. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina.
 
 **Cibo da provare:**
 - Manzo di Pingyao — piatto locale tipico, su via Ming-Qing
 - Noodles tirati a mano — su via Ming-Qing
-
-**Guida:** non serve — fai-da-te; un biglietto cumulativo di 3 giorni (~125 CNY / 16€) copre le Mura, lo Yamen, la banca Rishengchang, il Tempio del Dio della Città e gli altri siti principali dentro le mura.
 
 **Arrivo**
 
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Pechino Ovest |
+| Partenza | Pechino Ovest, 26 ott, ~10:30 |
 | Durata | ~4h |
-| Arrivo | Pingyao Gucheng, ~14:00–14:30 |
+| Arrivo | Pingyao Gucheng, 26 ott, ~14:00–14:30 |
 
 | Programma | Data |
 |---|---|
-| **Trasferimento in centro** — stazione a 8,5 km dal centro storico; taxi ~20min/30 CNY, oppure bus 108 ~30min/¥1 come alternativa economica. Check-in, prima passeggiata su via Ming-Qing e al Tempio del Dio della Città (Chenghuangmiao); le lanterne si accendono dopo il tramonto | 26 ott (lun) |
+| Prima passeggiata su via Ming-Qing e al Tempio del Dio della Città (Chenghuangmiao); le lanterne si accendono dopo il tramonto | 26 ott (lun) |
 | **Mura + Yamen** (inizio ~8:30 per battere i gruppi), poi banca Rishengchang (la prima banca cinese) + Torre della Città, opzionale Tempio di Confucio o shopping di scarpe/artigianato se c'è tempo | 27 ott (mar) |
+
+La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.
 
 **Partenza**
 
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Pingyao, ~17:00 |
+| Partenza | Pingyao, 27 ott, ~17:00 |
 | Durata | ~3h |
-| Arrivo | Xi'an Nord, ~19:55–20:40 |
-
-La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.
+| Arrivo | Xi'an Nord, 27 ott, ~19:55–20:40 |
 
 ### Xi'an 西安 (27–28 ott)
 
@@ -188,9 +186,9 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Pingyao |
-| Durata | |
-| Arrivo | Xi'an Nord, ~19:55–20:40 |
+| Partenza | Pingyao, 27 ott, ~17:00 |
+| Durata | ~3h |
+| Arrivo | Xi'an Nord, 27 ott, ~19:55–20:40 |
 
 | Programma | Data |
 |---|---|
@@ -202,9 +200,9 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Xi'an, 8:07 |
+| Partenza | Xi'an, 29 ott, 8:07 |
 | Durata | ~3,5h |
-| Arrivo | Chengdu Est, ~11:40 stimato |
+| Arrivo | Chengdu Est, 29 ott, ~11:40 stimato |
 
 La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per battere i grandi gruppi che arrivano a metà mattina. È la giornata più carica del viaggio, quindi le attività sono in ordine di priorità — niente è stato tolto, ma la coda è esplicitamente sacrificabile: Esercito di Terracotta e Quartiere Musulmano sono non negoziabili, il giro in bici sulle Mura è la terza scelta, le Torri sono esterni che si incontrano naturalmente tra il Quartiere e le mura (costo extra quasi zero), e la Grande Pagoda + spettacolo delle fontane è la prima cosa da tagliare se la giornata si allunga — è una corsa di metro verso sud.
 
@@ -234,9 +232,9 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Xi'an, 8:07 |
+| Partenza | Xi'an, 29 ott, 8:07 |
 | Durata | ~3,5h |
-| Arrivo | Chengdu Est, ~11:40 stimato |
+| Arrivo | Chengdu Est, 29 ott, ~11:40 stimato |
 
 | Programma | Data |
 |---|---|
@@ -248,9 +246,9 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Chengdu, ~8:37 |
+| Partenza | Chengdu, 31 ott, ~8:37 |
 | Durata | ~1,5–2h |
-| Arrivo | ~10:10–10:40 stimato |
+| Arrivo | 31 ott, ~10:10–10:40 stimato |
 
 La Base dei Panda è la prima cosa in programma perché i panda sono più attivi nella finestra del pasto mattutino, e la fascia d'ingresso del mattino è anche la prima a esaurirsi.
 
@@ -280,9 +278,9 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Chengdu, ~8:37 |
+| Partenza | Chengdu, 31 ott, ~8:37 |
 | Durata | ~1,5–2h |
-| Arrivo | ~10:10–10:40 stimato |
+| Arrivo | 31 ott, ~10:10–10:40 stimato |
 
 | Programma | Data |
 |---|---|
@@ -293,9 +291,9 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Chongqing, 08:50 |
+| Partenza | Chongqing, 1 nov, 08:50 |
 | Durata | ~2,5h |
-| Arrivo | Zhangjiajie Ovest, ~11:20 stimato |
+| Arrivo | Zhangjiajie Ovest, 1 nov, ~11:20 stimato |
 
 L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.
 
@@ -329,9 +327,9 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità |
-| Partenza | Chongqing, 08:50 |
+| Partenza | Chongqing, 1 nov, 08:50 |
 | Durata | ~2,5h |
-| Arrivo | Zhangjiajie Ovest, ~11:20 stimato |
+| Arrivo | Zhangjiajie Ovest, 1 nov, ~11:20 stimato |
 
 | Programma | Data |
 |---|---|
@@ -344,9 +342,9 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità (cambio a Changsha Sud) |
-| Partenza | Zhangjiajie, 13:07 |
+| Partenza | Zhangjiajie, 3 nov, 13:07 |
 | Durata | ~6h |
-| Arrivo | ~19:00–19:30 stimato |
+| Arrivo | 3 nov, ~19:00–19:30 stimato |
 
 Il giorno del parco (2 nov) inizia al cancello per battere la coda dell'ascensore Bailong. Furong Zhen è aggiunta come extra serale leggero con un breve salto in alta velocità, dato che è a soli 20–25 minuti ed è illuminata di notte — i bagagli restano all'hotel di Wulingyuan quindi è un'andata e ritorno veloce.
 
@@ -379,9 +377,9 @@ Tempistica Tianmen (3 nov): il giro completo ci sta nella finestra 7:30–11:30 
 | | |
 |---|---|
 | Mezzo | 🚄 Treno alta velocità (cambio a Changsha Sud) |
-| Partenza | Zhangjiajie, 13:07 |
+| Partenza | Zhangjiajie, 3 nov, 13:07 |
 | Durata | ~6h |
-| Arrivo | ~19:00–19:30 stimato |
+| Arrivo | 3 nov, ~19:00–19:30 stimato |
 
 | Programma | Data |
 |---|---|
@@ -395,9 +393,9 @@ Tempistica Tianmen (3 nov): il giro completo ci sta nella finestra 7:30–11:30 
 | | |
 |---|---|
 | Mezzo | ✈️ Volo |
-| Partenza | Guilin, ~18:30–19:30 stimato |
+| Partenza | Guilin, 6 nov, ~18:30–19:30 stimato |
 | Durata | ~2h15m |
-| Arrivo | Shanghai PVG, ~21:00–21:45 stimato |
+| Arrivo | Shanghai PVG, 6 nov, ~21:00–21:45 stimato |
 
 Il 5 nov è un unico grande arco con un solo autista per tutta la giornata: Xianggong (~45min da Yangshuo) e Longsheng (~2–2,5h a nord-ovest di Guilin) stanno su lati opposti di Guilin, quindi il percorso è Yangshuo → Xianggong → oltre Guilin → Longsheng → Guilin — circa 5,5–6h di guida totali, tutte da passeggeri attraverso la campagna del Guangxi. L'alba è *il* momento per Xianggong: il sole sorge alle ~6:55 a inizio novembre e lo scatto classico è la nebbia mattutina sull'ansa del fiume Li — anche se la nebbia fitta è un rischio reale senza piano B a quell'ora (se è tutto coperto, si prosegue dritti per Longsheng). A inizio novembre il riso di Longji è già raccolto, quindi aspettarsi terrazze a strati marroni/a specchio d'acqua più che dorate. Il vantaggio di concentrare tutto il 5 nov: il giorno del volo non ha nessun trasferimento lungo — un ritardo a Longsheng non può più minacciare la partenza, e la mattina del 6 nov diventa un vero cuscinetto. Nota: è un'altra sveglia alle ~5:30, incorniciata dalla giornata rilassata di crociera prima e dalla mattina libera dopo.
 
@@ -425,15 +423,16 @@ _DA FARE — non ancora studiata. La guida ha solo un titolo segnaposto per Shan
 
 ## Spese
 
-**Totale stimato: € 3.016,56 (€ 1.508,28 a persona)**
+**Totale stimato: € 3.581,82 (€ 1.790,91 a persona)**
 
 | Città | Voce | Costo |
 |---|---|---|
 | Voli | Andata e ritorno, 2 persone | 🟢 € 1.493,56 |
 | Pechino | Albergo Pechino | 🟢 € 241,00 |
+| Pechino | Guida turistica (media 3 preventivi) | 🟡 € 584,00 |
 | Pechino | Treno Pechino–Pingyao + bus | 🟡 € 60,00 |
 | Pingyao | Risciò e lanterne rosse | 🟡 € 32,00 |
-| Pingyao | Albergo Pingyao | 🟡 € 63,00 |
+| Pingyao | Albergo Pingyao | 🟢 € 44,26 |
 | Pingyao | Treno Pingyao–Xi'an | 🟡 € 40,00 |
 | Xi'an | Albergo Xi'an | 🟡 € 30,00 |
 | Xi'an | Esercito di Terracotta | 🟡 € 30,00 |
