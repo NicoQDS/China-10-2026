@@ -215,7 +215,7 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 
 **Checklist:**
 - [ ] **🏨 Hotel.** Prenotare Hotel
-- [ ] **🐼 Panda.** Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)
+- [ ] **🐼 Panda.** Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere) — <span style="color:#e63946">apre 14 giorni prima, dal 16 ott 2026</span>
 - [ ] **🚄 Treno.** Prenotare treno Chengdu–Chongqing (partenza ~8:37) — <span style="color:#e63946">prenotabile tra l'1 e il 16 ott 2026</span>
 
 ---

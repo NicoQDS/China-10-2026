@@ -346,7 +346,7 @@ const XIAN_CHECKLIST = [
 
 const CHENGDU_CHECKLIST = [
   "<b>🏨 Hotel.</b> Prenotare Hotel",
-  "<b>🐼 Panda.</b> Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)",
+  '<b>🐼 Panda.</b> Biglietti della Base dei Panda <span style="color:var(--train)">(apre 14 giorni prima, dal 16 ott 2026)</span>',
   '<b>🚄 Treno.</b> Prenotare treno Chengdu–Chongqing (partenza ~8:37) <span style="color:var(--train)">(prenotabile tra l\'1 e il 16 ott 2026)</span>',
 ];
 
