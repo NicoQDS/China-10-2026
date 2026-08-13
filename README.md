@@ -127,7 +127,7 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 
 **Checklist:**
 - [x] **🏨 Hotel.** Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
-- [ ] **🎫 Biglietto.** Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)
+- [ ] **🎫 Pingyao Ancient City Pass.** Comprare biglietto cumulativo di 3 giorni (~125 CNY / 16€), serve a visitare le 22 attrazioni di Pingyao
 - [ ] **🚄 Treno.** Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)
 - [ ] **💵 Contanti.** Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano
 
@@ -162,7 +162,7 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 | Mezzo | 🚄 Treno alta velocità |
 | Partenza | Pingyao, 27 ott, ~17:00 |
 | Durata | ~3h |
-| Arrivo | Xi'an Nord, 27 ott, ~19:55–20:40 |
+| Arrivo | Xi'an Nord, 27 ott, ~19:55 |
 
 ### Xi'an 西安 (27–28 ott)
 
@@ -188,7 +188,7 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 | Mezzo | 🚄 Treno alta velocità |
 | Partenza | Pingyao, 27 ott, ~17:00 |
 | Durata | ~3h |
-| Arrivo | Xi'an Nord, 27 ott, ~19:55–20:40 |
+| Arrivo | Xi'an Nord, 27 ott, ~19:55 |
 
 | Programma | Data |
 |---|---|

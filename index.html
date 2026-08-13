@@ -1042,7 +1042,7 @@
 
       const PINGYAO_CHECKLIST = [
         { text: "<b>🏨 Hotel.</b> Prenotare Hotel", done: true },
-        "<b>🎫 Biglietto.</b> Comprare all'arrivo il biglietto cumulativo di 3 giorni (~125 CNY / 16€)",
+        "<b>🎫 Pingyao Ancient City Pass.</b> Comprare biglietto cumulativo di 3 giorni (~125 CNY / 16€), serve a visitare le 22 attrazioni di Pingyao",
         "<b>🚄 Treno.</b> Prenotare treno Pingyao–Xi'an (partenza 17:00)",
         "<b>💵 Contanti.</b> Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano",
       ];
@@ -1338,7 +1338,7 @@
         ["Mezzo", "🚄 Treno alta velocità"],
         ["Partenza", "Pingyao, 27 ott, ~17:00"],
         ["Durata", "~3h"],
-        ["Arrivo", "Xi'an Nord, 27 ott, ~19:55–20:40"],
+        ["Arrivo", "Xi'an Nord, 27 ott, ~19:55"],
       ])}
       <h3>Hotel</h3>
       ${hotelCard({
@@ -1378,22 +1378,14 @@
         ["Mezzo", "🚄 Treno alta velocità"],
         ["Partenza", "Pingyao, 27 ott, ~17:00"],
         ["Durata", "~3h"],
-        ["Arrivo", "Xi'an Nord, 27 ott, ~19:55–20:40"],
+        ["Arrivo", "Xi'an Nord, 27 ott, ~19:55"],
       ])}
       <h3>Programma</h3>
       ${days(
         [
           {
             date: "27 ott (mar)",
-            activities: [
-              {
-                label: "Metro Linea 2",
-                detail:
-                  "verso Torre della Campana/South Gate, ~25–28min, 4 CNY",
-              },
-              { label: "Check-in" },
-            ],
-            imgs: [["xian_bell", "Torre della Campana di Xi'an"]],
+            activities: [{ label: "Check-in" }],
           },
           {
             date: "28 ott (mer)",
@@ -1418,6 +1410,7 @@
               ["terracotta", "Esercito di Terracotta"],
               ["muslim_quarter", "Quartiere Musulmano"],
               ["xian_wall", "Giro in bici sulle Mura"],
+              ["xian_bell", "Torre della Campana di Xi'an"],
               ["goose_pagoda", "Grande Pagoda dell'Oca Selvatica"],
             ],
           },
@@ -2634,7 +2627,8 @@
         const state = loadCk();
         body.querySelectorAll("input[data-ck]").forEach((cb) => {
           const id = cb.dataset.ck;
-          if (id in state) cb.checked = !!state[id];
+          const sourceDone = cb.checked;
+          if (id in state && !sourceDone) cb.checked = !!state[id];
           cb.addEventListener("change", () => {
             const s = loadCk();
             s[cb.dataset.ck] = cb.checked;
