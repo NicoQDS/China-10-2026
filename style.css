@@ -1,0 +1,787 @@
+/* =========================================================
+   STYLE.CSS — visual styling for the China 2026 trip map/planner
+   =========================================================
+   This file only handles LOOK (colors, spacing, layout). All the
+   page's DATA (city info, checklists, hotel details...) and BEHAVIOR
+   (click handlers, map setup) live in script.js — this file never
+   changes based on user interaction, it just defines how things look
+   once the JS puts them on the page.
+
+   Organized top-to-bottom roughly in the order things appear on
+   screen: page basics → floating header → legend → map markers →
+   the slide-out side panel → all the "card" components used inside
+   the panel (day cards, hotel cards, food cards, etc.) → the quote
+   request popup → responsive tweaks for small screens.
+   ========================================================= */
+
+:root {
+  /* Shared color palette, reused via var(--name) everywhere below.
+     Keeping them here means changing a color once updates the whole page. */
+  --train: #e63946;
+  --boat: #2a9d8f;
+  --road: #f4a261;
+  --flight: #6a4c93;
+  --ink: #22223b;
+  --paper: #ffffff;
+  --muted: #6b7280;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family:
+    -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  color: var(--ink);
+}
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+/* ---------- header ---------- */
+.topbar {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: var(--paper);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  padding: 10px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100% - 24px);
+  box-sizing: border-box;
+}
+.topbar-title {
+  min-width: 0;
+  text-align: center;
+  margin: 5px;
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.topbar-title h3 {
+  margin: 0;
+}
+.topbar h1 {
+  font-size: 16px;
+  margin: 0;
+}
+.topbar .sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+.topbar button {
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12.5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.topbar button:hover {
+  background: #eef2f7;
+}
+
+/* ---------- legend ---------- */
+.legend {
+  position: absolute;
+  bottom: 22px;
+  left: 12px;
+  z-index: 1000;
+  background: var(--paper);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  padding: 10px 14px;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.legend .swatch {
+  display: inline-block;
+  width: 26px;
+  height: 0;
+  border-top: 3px solid;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.legend .swatch.dashed {
+  border-top-style: dashed;
+}
+.legend .dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ---------- markers ---------- */
+.stop-pin {
+  background: var(--train);
+  color: #fff;
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.side-pin {
+  background: #b08968;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+.hotel-pin {
+  background: #c026d3;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+.change-pin {
+  background: #fff;
+  border: 2.5px solid var(--train);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.stop-label {
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--train);
+  text-shadow:
+    0 0 3px #fff,
+    0 0 3px #fff,
+    0 0 5px #fff;
+  pointer-events: none;
+}
+
+/* ---------- side panel ----------
+   The panel that slides in from the right when you click a city pin
+   or a topbar button. It's always in the DOM (never removed), just
+   pushed off-screen with a CSS transform; JS toggles the ".open"
+   class to slide it in/out (see openPanel()/closePanel() in script.js). */
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 580px;
+  max-width: 100%;
+  z-index: 1100;
+  background: var(--paper);
+  box-shadow: -4px 0 18px rgba(0, 0, 0, 0.22);
+  transform: translateX(105%);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.panel.open {
+  transform: translateX(0);
+}
+.panel-head {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.panel-head h2 {
+  margin: 0;
+  font-size: 16px;
+}
+.panel-title-cn {
+  font-weight: normal;
+  font-size: 13px;
+  color: var(--muted);
+}
+.panel-head .dates {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.day-date-sub {
+  font-weight: normal;
+  color: var(--muted);
+  font-size: 85%;
+}
+.panel-close {
+  border: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  flex: none;
+}
+.panel-body {
+  overflow-y: auto;
+  padding: 14px 20px 30px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.panel-body h3 {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 20px 0 8px;
+}
+.panel-body h3:first-child {
+  margin-top: 4px;
+}
+.panel-body p {
+  margin: 6px 0;
+}
+.panel-body ul {
+  margin: 6px 0;
+  padding-left: 20px;
+}
+.panel-body li {
+  margin: 4px 0;
+}
+.note {
+  background: #fef9ec;
+  border-left: 3px solid #f0c34e;
+  padding: 8px 12px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.note-green {
+  background: #eafaf0;
+  border-left: 3px solid #34a853;
+  padding: 8px 12px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.note-grey {
+  background: #f4f4f5;
+  border-left: 3px solid #9ca3af;
+  padding: 8px 12px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.warn {
+  background: #fdeeee;
+  border-left: 3px solid var(--train);
+  padding: 8px 12px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+
+/* ---------- day-by-day itinerary cards ----------
+   One .day-card per day in a city's "Programma" section, built by
+   the days()/activitiesList() functions in script.js. */
+.day-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+}
+.day-card .day-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.day-card .day-date {
+  font-weight: 700;
+  font-size: 12.5px;
+  color: var(--train);
+}
+.day-card .day-activities {
+  margin: 2px 0 2px;
+}
+.day-card .day-activity {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+.day-card .day-activity {
+  flex-wrap: wrap;
+}
+.day-card .day-activity .bullet {
+  color: var(--train);
+  flex: none;
+}
+.day-card .day-detail {
+  font-size: 11px;
+  color: var(--muted);
+}
+.day-card .day-book-by {
+  flex-basis: 100%;
+  font-size: 10.5px;
+  color: var(--train);
+  margin: 1px 0 0 15px;
+}
+.day-card .day-sep {
+  color: #c7cbd1;
+  font-size: 11px;
+  line-height: 1;
+  margin: 1px 0 1px 10px;
+}
+.day-card .day-food {
+  margin-top: 6px;
+  color: #4b5563;
+  font-size: 12.5px;
+}
+.day-card .day-food::before {
+  content: "🍜 ";
+}
+
+.day-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 9px;
+}
+.day-imgs figure {
+  margin: 0;
+}
+.day-imgs img {
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 7px;
+  display: block;
+  background: #f3f4f6;
+}
+.day-imgs figcaption {
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.day-imgs figure:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.day-imgs figure:last-child:nth-child(odd) img {
+  height: 130px;
+}
+.hero-img {
+  width: 100%;
+  max-height: 190px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 10px 0 4px;
+  display: block;
+  background: #f3f4f6;
+}
+.side-img {
+  width: 230px;
+  max-width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 6px;
+  background: #f3f4f6;
+}
+
+/* ---------- hotel card ----------
+   Built by the hotelCard() function in script.js. The "copy address"
+   button uses data-action="copy-address" + data-copy="<address>" —
+   see the ACTIONS dispatch table in script.js for how the click is handled. */
+.hotel-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+}
+.hotel-card .hotel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.hotel-card .hotel-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+}
+.hotel-card .hotel-name::before {
+  content: "🏨 ";
+}
+.hotel-card .hotel-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.hotel-card .hotel-address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+.hotel-card .hotel-address span {
+  flex: 1;
+}
+.hotel-card .copy-btn {
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 10.5px;
+  cursor: pointer;
+  flex: none;
+}
+.hotel-card .copy-btn:hover {
+  background: #eef2f7;
+}
+.hotel-card .copy-btn.copied {
+  background: #e6f4ea;
+  border-color: #b7e0c4;
+  color: #1a7f37;
+}
+.section-sep {
+  border: none;
+  border-top: 1px solid #ebecef;
+  margin: 14px 0;
+}
+.mini-btn {
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 10.5px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+.mini-btn:hover {
+  background: #eef2f7;
+}
+/* ---------- quote-request popup ----------
+   .quote-btn (✉️) sits on top of the Beijing "Guida" card and opens
+   the modal below via data-action="open-quote-modal". The modal itself
+   is a fixed overlay (.modal-overlay) that's just hidden with
+   display:none until JS adds the ".open" class — see openQuoteModal()/
+   closeQuoteModal() in script.js. */
+.card-quote-wrap {
+  position: relative;
+}
+.quote-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open {
+  display: flex;
+}
+.modal-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+#quote-text {
+  width: 100%;
+  flex: 1;
+  min-height: 320px;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  resize: vertical;
+}
+.modal-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+.hotel-card .hotel-website {
+  font-size: 11px;
+  margin: 0 0 4px;
+}
+.hotel-card .hotel-website a {
+  color: var(--train);
+}
+.hotel-card .hotel-dates {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  margin: 6px 0;
+  padding: 6px 0;
+  border-top: 1px dashed #666667;
+  border-bottom: 1px dashed #666667;
+}
+.hotel-card .hotel-date-label {
+  font-weight: 700;
+  color: var(--ink);
+  margin-right: 3px;
+}
+.hotel-card .hotel-date-sep {
+  color: var(--muted);
+}
+.hotel-card p {
+  margin: 4px 0;
+}
+.hotel-card .hotel-link {
+  margin-top: 6px;
+  display: inline-block;
+  font-size: 12.5px;
+}
+/* ---------- food card ----------
+   Built by the foodCard() function in script.js. */
+.food-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+}
+.food-card .food-head {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.food-card .food-head::before {
+  content: "🥟 ";
+}
+.food-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.food-card li {
+  font-size: 12.5px;
+  margin: 3px 0;
+}
+.food-card li.no-bullet {
+  list-style: none;
+}
+
+/* ---------- generic ".card" box + quote-request cards ----------
+   .card is the plain reusable box used for anything that doesn't
+   need its own dedicated component (tips, "skipped on purpose" notes,
+   the Terracotta ticket info, etc). .quote-card is the specific
+   per-agency box used in Beijing's "Guida" section. */
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+}
+.quote-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+.quote-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 9px 11px;
+}
+.quote-card-name {
+  font-weight: 700;
+  font-size: 12.5px;
+}
+.quote-card-date {
+  display: block;
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.quote-card-price {
+  margin-top: 7px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.quote-card-price-sub {
+  display: block;
+  font-weight: 400;
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.quote-card-links {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.quote-card-links li {
+  font-size: 10.5px;
+  margin: 2px 0;
+}
+.quote-card-pending {
+  margin-top: 7px;
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+}
+/* ---------- checklist ----------
+   Built by the checklist() function in script.js. Checked state is
+   saved to localStorage (see loadCk()/saveCk() in script.js) so it
+   survives a page reload. */
+.checklist-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+}
+.checklist label {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  margin: 7px 0;
+  cursor: pointer;
+}
+.checklist input {
+  margin-top: 2.5px;
+  flex: none;
+  accent-color: var(--train);
+}
+.checklist input:checked + span {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* ---------- flight/train "arrival card" rows ----------
+   Built by the arrivalCard() function in script.js — used for every
+   Arrivo/Partenza block, and for the international flights section.
+   .cost-certain (green) / .cost-expected (yellow) label prices in the
+   money drawer as "already paid" vs "still an estimate". */
+.table-scroll {
+  overflow-x: auto;
+  margin: 8px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.flight-legs {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+.flight-leg-wrap {
+  flex: 1 1 200px;
+}
+.flight-leg-title {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 14px 0 8px;
+}
+.flight-leg {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.flight-leg .flight-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12.5px;
+  padding: 3px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+.flight-leg .flight-row:last-child {
+  border-bottom: none;
+}
+.cost-certain {
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+.cost-expected {
+  background: #fef9c3;
+  color: #854d0e;
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+.flight-leg .flight-row span {
+  color: var(--muted);
+}
+.flight-leg .flight-row b {
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .panel {
+    width: 100%;
+  }
+  .legend {
+    font-size: 11px;
+    padding: 8px 10px;
+    bottom: 12px;
+  }
+  .topbar {
+    top: 8px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .topbar h1 {
+    font-size: 14px;
+  }
+}

@@ -49,7 +49,7 @@ Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiaji
 
 ---
 
-**Hotel:** [JianGuo Hidden Hotel](hotels/Beijing.pdf) (Beijing Tian An Men Wangfujing store) — No. 19 Jinyu Hutong, distretto di Dongcheng. [Sito web](https://us.trip.com/hotels/beijing-hotel-detail-80943188/jianguo-hidden-hotel-beijing-wangfujing-store/). Check-in 23 ott dopo le 14:00, check-out 26 ott entro le 12:00 (3 notti).
+**Hotel:** [JianGuo Hidden Hotel](hotels/Beijing.pdf) (Beijing Tian An Men Wangfujing store) — No. 19 Jinyu Hutong, Dongcheng District, Beijing, China. [Sito web](https://us.trip.com/hotels/beijing-hotel-detail-80943188/jianguo-hidden-hotel-beijing-wangfujing-store/). Check-in 23 ott dopo le 14:00, check-out 26 ott entro le 12:00 (3 notti).
 
 *Costo:* €241,41 prepagati.
 <sub>Cancellazione gratuita fino alle 18:00 del 23 ott, poi non rimborsabile.</sub>
@@ -167,13 +167,13 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 ### Xi'an 西安 (27–28 ott)
 
 **Checklist:**
-- [ ] **🏺 Terracotta.** Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi
+- [x] **🏨 Hotel.** Prenotare Hotel
+- [x] **🏺 Terracotta.** Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi
 - [ ] **🧱 Mura.** Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi
-- [ ] **💰 Budget.** Mettere a budget il Didi per Lintong (Esercito di Terracotta) — circa 75–110 CNY a tratta
 
 ---
 
-**Zona hotel:** Vicino alla Torre della Campana o alla fermata metro South Gate (Yongningmen) — entrambe direttamente sulla Linea 2, corsa senza cambi dalla stazione di Xi'an Nord dove arriva il treno da Pingyao, e a pochi passi dal Quartiere Musulmano, dalle Torri della Campana/del Tamburo e dall'ingresso Sud delle Mura.
+**Hotel:** Center Hotel (Xi'an Bell Tower) — No. 619 East Street, Beilin District, Xi'an, Shaanxi, Cina. [Sito web](https://it.trip.com/hotels/detail/?hotelId=36148464&checkIn=2026-10-27&checkOut=2026-10-29&locale=it-IT). Check-in 27 ott dopo le 14:00, check-out 29 ott entro le 13:00 (2 notti). Camera con letto matrimoniale di lusso leggero. Costo: €80,88 prepagati (conferma hotel n. 1688900388695385); cancellazione gratuita fino alle 18:00 del 27 ott, poi penale di €40,44, non rimborsabile dopo le 18:00 del 27 ott. Colazione per 2 inclusa il 28 ott. Direttamente sulla Linea 2, corsa senza cambi dalla stazione di Xi'an Nord dove arriva il treno da Pingyao, e a pochi passi dal Quartiere Musulmano, dalle Torri della Campana/del Tamburo e dall'ingresso Sud delle Mura.
 
 **Cibo da provare:**
 - Yangrou Paomo — zuppa di montone e pane, nel Quartiere Musulmano
@@ -193,7 +193,7 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 | Programma | Data |
 |---|---|
 | **Metro Linea 2** — verso Torre della Campana/South Gate (~25–28min, 4 CNY), check-in | 27 ott (mar) |
-| **Esercito di Terracotta** (Didi dall'hotel, partenza ~7:30 per battere i pullman turistici, il sito apre alle 8:30) → pranzo nel Quartiere Musulmano → giro in bici sulle Mura dal South Gate → Torri della Campana/del Tamburo (esterni, sul percorso tra i due) → *se restano tempo ed energie:* Grande Pagoda dell'Oca Selvatica + spettacolo di fontane/luci la sera | 28 ott (mer) |
+| **Esercito di Terracotta** (Didi dall'hotel, partenza ~7:30 per battere i pullman turistici, il sito apre alle 8:30) → pranzo nel Quartiere Musulmano → giro in bici sulle Mura dal South Gate → Torri della Campana/del Tamburo (esterni, sul percorso tra i due) → *se restano tempo ed energie:* Grande Pagoda dell'Oca Selvatica + spettacolo di fontane/luci la sera<br><br>🎫 **Biglietto Esercito di Terracotta** — tour con guida in inglese (ingresso incluso): Emperor Qinshihuang's Mausoleum Site Museum, tour guidato in inglese dei Pit 1/2/3, pranzo non incluso. Ingresso: 08:50–09:00 (fascia alternativa 10:20–10:30). Costo: €56,20 per 2 persone, pagato (prenotazione n. 1688900421702146, PIN 7712). Ritrovo al Parcheggio 1 dell'Esercito di Terracotta, sotto la statua di Qin Shi Huang, distretto di Lintong — la guida tiene una bandiera rossa "Silk Road Holiday"; nessuna metro diretta (trasferimento ~2h), consigliato Didi/taxi (~1h dal centro). Ingresso con verifica passaporto (real-name entry); in caso di ritardo si può entrare da soli col passaporto e riunirsi al gruppo nell'ordine Pit 2 → Pit 1 → Pit 3; nessun rimborso per ritardi o uscite anticipate dal gruppo; la guida non risponde al telefono durante il tour. | 28 ott (mer) |
 
 **Partenza**
 
@@ -423,7 +423,7 @@ _DA FARE — non ancora studiata. La guida ha solo un titolo segnaposto per Shan
 
 ## Spese
 
-**Totale stimato: € 3.581,82 (€ 1.790,91 a persona)**
+**Totale stimato: € 3.628,90 (€ 1.814,45 a persona)**
 
 | Città | Voce | Costo |
 |---|---|---|
@@ -434,9 +434,8 @@ _DA FARE — non ancora studiata. La guida ha solo un titolo segnaposto per Shan
 | Pingyao | Risciò e lanterne rosse | 🟡 € 32,00 |
 | Pingyao | Albergo Pingyao | 🟢 € 44,26 |
 | Pingyao | Treno Pingyao–Xi'an | 🟡 € 40,00 |
-| Xi'an | Albergo Xi'an | 🟡 € 30,00 |
-| Xi'an | Esercito di Terracotta | 🟡 € 30,00 |
-| Xi'an | Albergo Xi'an | 🟡 € 30,00 |
+| Xi'an | Albergo Xi'an | 🟢 € 80,88 |
+| Xi'an | Esercito di Terracotta (tour + ingresso, 2 pers.) | 🟢 € 56,20 |
 | Xi'an | Treno Xi'an–Chengdu | 🟡 € 60,00 |
 | Chengdu | Albergo Chengdu | 🟡 € 66,00 |
 | Chengdu | Riserva Panda | 🟡 € 14,00 |
