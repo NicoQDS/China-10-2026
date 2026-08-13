@@ -330,7 +330,7 @@ const BEIJING_CHECKLIST = [
 const PINGYAO_CHECKLIST = [
   { text: "<b>🏨 Hotel.</b> Prenotare Hotel", done: true },
   "<b>🎫 Pingyao Ancient City Pass.</b> Comprare biglietto cumulativo di 3 giorni (~125 CNY / 16€), serve a visitare le 22 attrazioni di Pingyao",
-  "<b>🚄 Treno.</b> Prenotare treno Pingyao–Xi'an (partenza 17:00)",
+  '<b>🚄 Treno.</b> Prenotare treno Pingyao–Xi\'an (partenza 17:00) <span style="color:var(--train)">(prenotabile tra il 27 set e il 12 ott 2026)</span>',
   "<b>💵 Contanti.</b> Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano",
 ];
 
@@ -341,21 +341,27 @@ const XIAN_CHECKLIST = [
     done: true,
   },
   "<b>🧱 Mura.</b> Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi",
+  '<b>🚄 Treno.</b> Prenotare treno Xi\'an–Chengdu (partenza 8:07) <span style="color:var(--train)">(prenotabile tra il 29 set e il 14 ott 2026)</span>',
 ];
 
 const CHENGDU_CHECKLIST = [
+  "<b>🏨 Hotel.</b> Prenotare Hotel",
   "<b>🐼 Panda.</b> Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)",
+  '<b>🚄 Treno.</b> Prenotare treno Chengdu–Chongqing (partenza ~8:37) <span style="color:var(--train)">(prenotabile tra l\'1 e il 16 ott 2026)</span>',
 ];
 
 const CHONGQING_CHECKLIST = [
+  "<b>🏨 Hotel.</b> Prenotare Hotel",
   "<b>🚁 Droni.</b> Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva",
+  '<b>🚄 Treno.</b> Prenotare treno Chongqing–Zhangjiajie (partenza 08:50) <span style="color:var(--train)">(prenotabile tra il 2 e il 17 ott 2026)</span>',
 ];
 
 const ZHANGJIAJIE_CHECKLIST = [
+  "<b>🏨 Hotel.</b> Prenotare Hotel",
   "<b>🏞️ Parco.</b> Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong",
   "<b>🌉 Ponte.</b> Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie",
   "<b>🚡 Funivia.</b> Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta",
-  "<b>🚄 Treno.</b> Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud",
+  '<b>🚄 Treno.</b> Confermare i biglietti dell\'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud <span style="color:var(--train)">(prenotabile tra il 4 e il 19 ott 2026)</span>',
 ];
 
 const GUILIN_CHECKLIST = [

@@ -128,7 +128,7 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 **Checklist:**
 - [x] **🏨 Hotel.** Prenotare l'hotel dentro le mura — confermare il pickup elettrico dalla porta se l'hotel è in fondo al centro storico
 - [ ] **🎫 Pingyao Ancient City Pass.** Comprare biglietto cumulativo di 3 giorni (~125 CNY / 16€), serve a visitare le 22 attrazioni di Pingyao
-- [ ] **🚄 Treno.** Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00)
+- [ ] **🚄 Treno.** Confermare/prenotare in anticipo il treno Pingyao–Xi'an (partenza 17:00) — <span style="color:#e63946">prenotabile tra il 27 set e il 12 ott 2026</span>
 - [ ] **💵 Contanti.** Portare un po' di contanti piccoli (banconote da 10/20 CNY) come riserva — bancarelle e taxi preferiscono Alipay/WeChat ma non tutti li accettano
 
 ---
@@ -170,6 +170,7 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 - [x] **🏨 Hotel.** Prenotare Hotel
 - [x] **🏺 Terracotta.** Prenotare in anticipo i biglietti dell'Esercito di Terracotta — importante soprattutto in weekend/festivi
 - [ ] **🧱 Mura.** Prenotare in anticipo l'ingresso alle Mura se si viaggia in weekend/festivi
+- [ ] **🚄 Treno.** Prenotare treno Xi'an–Chengdu (partenza 8:07) — <span style="color:#e63946">prenotabile tra il 29 set e il 14 ott 2026</span>
 
 ---
 
@@ -213,7 +214,9 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 ### Chengdu 成都 (29–30 ott)
 
 **Checklist:**
+- [ ] **🏨 Hotel.** Prenotare Hotel
 - [ ] **🐼 Panda.** Prenotare i biglietti della Base dei Panda con qualche giorno d'anticipo — la fascia mattutina si esaurisce in fretta; prenotare tramite il mini-program WeChat ufficiale o Trip.com/Klook/GetYourGuide (~11–14€, più facile con carte straniere)
+- [ ] **🚄 Treno.** Prenotare treno Chengdu–Chongqing (partenza ~8:37) — <span style="color:#e63946">prenotabile tra l'1 e il 16 ott 2026</span>
 
 ---
 
@@ -260,7 +263,9 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 ### Chongqing 重庆 (31 ott)
 
 **Checklist:**
+- [ ] **🏨 Hotel.** Prenotare Hotel
 - [ ] **🚁 Droni.** Confermare che lo spettacolo di droni di Nanbin Rd sia ancora in programma il sabato sotto data (dipende dal meteo, si cancella con pioggia/vento forte) — tenere la crociera Liangjiang come riserva
+- [ ] **🚄 Treno.** Prenotare treno Chongqing–Zhangjiajie (partenza 08:50) — <span style="color:#e63946">prenotabile tra il 2 e il 17 ott 2026</span>
 
 ---
 
@@ -305,10 +310,11 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 ### Zhangjiajie 张家界 (1–2 nov, partenza la mattina del 3 nov)
 
 **Checklist:**
+- [ ] **🏨 Hotel.** Prenotare Hotel
 - [ ] **🏞️ Parco.** Prenotare in anticipo ingresso al parco + biglietti dell'ascensore Bailong
 - [ ] **🌉 Ponte.** Prenotare il biglietto del Ponte di Vetro del Grand Canyon di Zhangjiajie
 - [ ] **🚡 Funivia.** Prenotare in anticipo il biglietto della funivia del Tianmen Mountain — molto richiesta
-- [ ] **🚄 Treno.** Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud
+- [ ] **🚄 Treno.** Confermare i biglietti dell'alta velocità Zhangjiajie Ovest → Guilin, incluso il cambio a Changsha Sud — <span style="color:#e63946">prenotabile tra il 4 e il 19 ott 2026</span>
 
 ---
 

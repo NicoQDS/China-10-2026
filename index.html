@@ -29,9 +29,23 @@
         <div class="sub">22 ott – 8 nov</div>
       </div>
       <div class="topbar-actions">
-        <button id="btn-open-flights" data-action="open-panel" data-panel="flights">✈️</button>
-        <button id="btn-open-checklist" data-action="open-panel" data-panel="checklist">✅</button>
-        <button id="btn-open-money" data-action="open-panel" data-panel="money">💰</button>
+        <button
+          id="btn-open-flights"
+          data-action="open-panel"
+          data-panel="flights"
+        >
+          ✈️
+        </button>
+        <button
+          id="btn-open-checklist"
+          data-action="open-panel"
+          data-panel="checklist"
+        >
+          ✅
+        </button>
+        <button id="btn-open-money" data-action="open-panel" data-panel="money">
+          💰
+        </button>
       </div>
     </div>
 
@@ -39,27 +53,20 @@
     <div class="legend" id="legend">
       <div>
         <span class="swatch" style="border-color: var(--train)"></span>Treno
-        (alta velocità)
       </div>
       <div>
-        <span class="swatch" style="border-color: var(--boat)"></span>Battello —
-        crociera fiume Li
+        <span class="swatch" style="border-color: var(--boat)"></span>Nave
       </div>
       <div>
-        <span class="swatch" style="border-color: var(--road)"></span>Strada
-        (Didi/taxi)
+        <span class="swatch" style="border-color: var(--road)"></span>Didi
       </div>
       <div>
         <span class="swatch dashed" style="border-color: var(--flight)"></span
         >Volo (interno)
       </div>
-      <div>
-        <span class="dot" style="background: var(--train)"></span>Tappa con
-        pernottamento (clic per il programma)
-      </div>
-      <div>
-        <span class="dot" style="background: #b08968"></span>Gita/escursione
-      </div>
+      <div><span class="dot" style="background: var(--train)"></span>Tappa</div>
+      <div><span class="dot" style="background: #b08968"></span>Attrazione</div>
+      <div><span class="dot" style="background: #c026d3"></span>Hotel</div>
       <div style="font-size: 10px; color: var(--muted); margin-top: 2px">
         Foto: Wikimedia Commons
       </div>
@@ -74,7 +81,13 @@
           <h2 id="panel-title"></h2>
           <div class="dates" id="panel-dates"></div>
         </div>
-        <button class="panel-close" id="panel-close-btn" data-action="close-panel">✕</button>
+        <button
+          class="panel-close"
+          id="panel-close-btn"
+          data-action="close-panel"
+        >
+          ✕
+        </button>
       </div>
       <div class="panel-body" id="panel-body"></div>
     </div>
@@ -90,11 +103,21 @@
       <div class="modal-box" id="quote-modal-box">
         <div class="modal-head">
           <b>Richiesta preventivo</b>
-          <button class="panel-close" id="quote-modal-close-btn" data-action="close-quote-modal">✕</button>
+          <button
+            class="panel-close"
+            id="quote-modal-close-btn"
+            data-action="close-quote-modal"
+          >
+            ✕
+          </button>
         </div>
         <textarea id="quote-text" readonly></textarea>
         <div class="modal-actions">
-          <button class="mini-btn" id="quote-copy-btn" data-action="copy-quote-text">
+          <button
+            class="mini-btn"
+            id="quote-copy-btn"
+            data-action="copy-quote-text"
+          >
             📋 Copia testo
           </button>
         </div>
