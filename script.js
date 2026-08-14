@@ -138,17 +138,27 @@ function slugDate(date) {
 
 /**
  * activitiesList(items, idPrefix) — renders one day's list of activities
- * (the "•  Città Proibita (mattina)  |  Tempio del Cielo (pomeriggio)" row).
+ * as stacked cards, one per activity (e.g. "Città Proibita (mattina)"
+ * card, then "Tempio del Cielo (pomeriggio)" card below it).
  *
  * Each item in `items` can have:
  *   - label (required): what the activity is
  *   - detail: short parenthetical, e.g. "(mattina)"
  *   - bookBy: a booking-deadline reminder shown on its own line
- *   - note / noteClass: an optional colored callout box rendered right
- *     under that specific activity (e.g. the Terracotta Army ticket info
- *     is a "note" on the "Esercito di Terracotta" activity). noteClass
- *     picks which color: "note" (yellow, default), "note-green",
- *     "note-grey" — see the matching classes in style.css.
+ *   - desc: an optional plain-text (no colored box) description
+ *     paragraph, rendered before the photos — background/context on the
+ *     activity rather than a logistics callout (that's what note is for)
+ *   - imgs: an optional list of [imageKey, caption] pairs (same shape
+ *     figs() takes) rendered as a small photo grid inside this specific
+ *     activity's card — so a photo always sits with the activity it
+ *     depicts instead of in one combined block for the whole day.
+ *   - note: an optional fully-formed colored callout block, rendered
+ *     as-is inside this specific activity's card (e.g. the Terracotta
+ *     Army ticket info is a note on the "Esercito di Terracotta"
+ *     activity). Wrap the content yourself in a `<div class="note">`
+ *     (yellow), `<div class="note-green">`, or `<div class="note-grey">`
+ *     — see the matching classes in style.css. A note can contain more
+ *     than one such div if it needs two different-colored callouts.
  *
  * idPrefix is used to give each activity row a unique id like
  * "day-activity-xian-28-ott-0" (city + date + position in the list).
@@ -159,11 +169,10 @@ function activitiesList(items, idPrefix) {
     items
       .map((a, i) => {
         const id = idPrefix ? ` id="${idPrefix}-${i}"` : "";
-        const row = `<div class="day-activity"${id}><span class="bullet">•</span> <b>${a.label}</b>${a.detail ? ` <span class="day-detail">(${a.detail})</span>` : ""}${a.bookBy ? `<div class="day-book-by">🎫 ${a.bookBy}</div>` : ""}</div>`;
-        const note = a.note
-          ? `<div class="${a.noteClass || "note"}">${a.note}</div>`
-          : "";
-        return (i === 0 ? row : `<div class="day-sep">|</div>${row}`) + note;
+        const desc = a.desc ? `<div class="day-desc">${a.desc}</div>` : "";
+        const imgs = a.imgs ? figs(a.imgs) : "";
+        const note = a.note || "";
+        return `<div class="day-activity"${id}><b>${a.label}</b>${a.detail ? ` <span class="day-detail">(${a.detail})</span>` : ""}${a.bookBy ? `<div class="day-book-by">🎫 ${a.bookBy}</div>` : ""}${desc}${imgs}${note}</div>`;
       })
       .join("") +
     `</div>`
@@ -173,11 +182,13 @@ function activitiesList(items, idPrefix) {
 /**
  * days(items, cityKey) — renders a whole city's "Programma" section:
  * one .day-card per day, each with its date header, activity list
- * (via activitiesList above), optional food note, optional photo grid
- * (via figs above), and an optional day-level note.
+ * (via activitiesList above — each activity carries its own photos),
+ * optional food note, and an optional day-level note.
  *
  * `items` is an array of day objects like:
- *   { date: "28 ott (mer)", activities: [...], imgs: [...], note: "..." }
+ *   { date: "28 ott (mer)", activities: [...], note: "..." }
+ * (photos live on the individual activity objects as `imgs`, not here —
+ * see activitiesList()'s doc comment).
  * `cityKey` (e.g. "xian") is only used to build unique element ids —
  * pass null/undefined if you don't need ids for that day list.
  */
@@ -194,7 +205,6 @@ function days(items, cityKey) {
 </div>
 ${activitiesList(d.activities, idPrefix)}
 ${d.food ? `<div class="day-food">${d.food}</div>` : ""}
-${d.imgs ? figs(d.imgs) : ""}
 ${d.note || ""}
     </div>`;
     })
@@ -241,7 +251,9 @@ function escapeAttr(s) {
  * hotelCard(h) — renders the hotel info box shown in each city panel.
  *
  * `h` fields (all optional except name):
- *   name, sub          — hotel name + a small subtitle line
+ *   name, nameCn, sub  — hotel name, an optional Chinese-script name
+ *                         shown next to it (not bold, so it doesn't
+ *                         compete with the name), + a small subtitle line
  *   address            — shows an address line with a "copy" button
  *                         (data-action="copy-address", handled by the
  *                         ACTIONS dispatch table near the bottom of this file)
@@ -274,7 +286,7 @@ ${h.checkOut ? `<div><span class="hotel-date-label">Check-out:</span>${h.checkOu
   return `<div class="hotel-card">
     <div class="hotel-head">
 <div>
-  <div class="hotel-name">${h.name}</div>
+  <div class="hotel-name">${h.name}${h.nameCn ? ` <span class="hotel-name-cn">${h.nameCn}</span>` : ""}</div>
   ${h.sub ? `<div class="hotel-sub">${h.sub}</div>` : ""}
 </div>
     </div>
@@ -409,24 +421,33 @@ ${days(
       date: `23 ott (ven) <span class="day-date-sub">1/2 giornata</span>`,
       activities: [
         {
-          label: "Wangfujing / via Qianmen, piazza Tienanmen",
-          detail: "esterno",
+          label: "Wangfujing, via Qianmen, piazza Tienanmen",
+          detail: "",
+          desc:
+            "Wangfujing è la via pedonale più famosa della città, piena di negozi e street food (compresi gli spiedini di scorpione)." +
+            "<br><br>Via Qianmen (845m, a sud della piazza) è una strada pedonale ricostruita in stile tardo Qing con negozi e ristoranti d'epoca." +
+            "<br><br>Piazza Tienanmen, una delle piazze più grandi al mondo, ospita il Museo Nazionale, la Sala Commemorativa di Mao e la porta Zhengyangmen." +
+            "<br><br>",
+          imgs: [
+            ["wangfujing", "Wangfujing"],
+            ["tiananmen", "Piazza Tienanmen"],
+          ],
         },
-      ],
-      imgs: [
-        ["wangfujing", "Wangfujing"],
-        ["tiananmen", "Piazza Tienanmen"],
       ],
     },
     {
       date: "24 ott (sab)",
       activities: [
-        { label: "Città Proibita", detail: "mattina" },
-        { label: "Tempio del Cielo", detail: "pomeriggio" },
-      ],
-      imgs: [
-        ["forbidden_city", "Città Proibita"],
-        ["temple_heaven", "Tempio del Cielo"],
+        {
+          label: "Città Proibita",
+          detail: "mattina",
+          imgs: [["forbidden_city", "Città Proibita"]],
+        },
+        {
+          label: "Tempio del Cielo",
+          detail: "pomeriggio",
+          imgs: [["temple_heaven", "Tempio del Cielo"]],
+        },
       ],
     },
     {
@@ -435,17 +456,22 @@ ${days(
         {
           label: "Grande Muraglia — Mutianyu",
           detail: "partenza dall'hotel ~6:30",
+          imgs: [["mutianyu", "Grande Muraglia a Mutianyu"]],
+          note:
+            `<div class="note"><b>Tempistica Grande Muraglia:</b> arrivare all'apertura (~8:00) per battere i gruppi organizzati (picco di folla 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.</div>` +
+            `<div class="note-grey"><b>Tratto di Muraglia:</b> scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).</div>`,
         },
       ],
-      imgs: [["mutianyu", "Grande Muraglia a Mutianyu"]],
-      note:
-        `<div class="note"><b>Tempistica Grande Muraglia:</b> arrivare all'apertura (~8:00) per battere i gruppi organizzati (picco di folla 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.</div>` +
-        `<div class="note-grey"><b>Tratto di Muraglia:</b> scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).</div>`,
     },
     {
       date: "26 ott (lun)",
-      activities: [{ label: "Giro negli hutong", detail: "se c'è tempo" }],
-      imgs: [["hutong", "Hutong di Pechino"]],
+      activities: [
+        {
+          label: "Giro negli hutong",
+          detail: "se c'è tempo",
+          imgs: [["hutong", "Hutong di Pechino"]],
+        },
+      ],
     },
   ],
   "beijing",
@@ -460,6 +486,7 @@ ${arrivalCard([
 <h3>Hotel</h3>
 ${hotelCard({
   name: "JianGuo Hidden Hotel",
+  nameCn: "建國·璞隱酒店（北京天安門王府井店)",
   sub: "Beijing Tian An Men Wangfujing store",
   address: "No. 19 Jinyu Hutong, Dongcheng District, Beijing, China",
   website:
@@ -615,9 +642,9 @@ ${days(
         {
           label: "Via Ming-Qing e Tempio del Dio della Città",
           detail: "Chenghuangmiao",
+          imgs: [["pingyao", "Centro storico di Pingyao — via Ming-Qing"]],
         },
       ],
-      imgs: [["pingyao", "Centro storico di Pingyao — via Ming-Qing"]],
     },
     {
       date: "27 ott (mar)",
@@ -625,16 +652,21 @@ ${days(
         {
           label: "Mura + Yamen",
           detail: "inizio ~8:30 per battere i gruppi",
+          note: `<div class="note">La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.</div>`,
         },
-        { label: "Banca Rishengchang", detail: "la prima banca cinese" },
+        {
+          label: "Banca Rishengchang",
+          detail: "la prima banca cinese",
+          imgs: [
+            ["rishengchang", "Banca Rishengchang — la prima banca cinese"],
+          ],
+        },
         { label: "Torre della Città" },
         {
           label: "Tempio di Confucio o shopping",
           detail: "opzionale, se c'è tempo",
         },
       ],
-      imgs: [["rishengchang", "Banca Rishengchang — la prima banca cinese"]],
-      note: `<div class="note">La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.</div>`,
     },
   ],
   "pingyao",
@@ -649,6 +681,7 @@ ${arrivalCard([
 <h3>Hotel</h3>
 ${hotelCard({
   name: "Qigongguan Inn",
+  nameCn: "祁公馆(平遥店)",
   sub: "Camera Jiwenzhai Changongzhegui, letto king-size",
   address: "No. 13 Zhuanquanmen Lane, 031100 Pingyao, Shanxi, Cina",
   website:
@@ -699,31 +732,35 @@ ${days(
         {
           label: "Esercito di Terracotta",
           detail: "Didi dall'hotel ~7:30, il sito apre alle 8:30",
-          noteClass: "note-green",
           note:
+            `<div class="note-green">` +
             `<p><b>Esercito di Terracotta — tour con guida in inglese (ingresso incluso)</b></p>` +
             `<p>28 ott, Emperor Qinshihuang's Mausoleum Site Museum — tour guidato in inglese dei Pit 1/2/3, pranzo non incluso. Ingresso: 08:50–09:00 (fascia alternativa 10:20–10:30).</p>` +
             `<p><i>Costo:</i> €56,20 per 2 persone, pagato (prenotazione n. 1688900421702146, PIN 7712).</p>` +
             `<p><b>Ritrovo:</b> Parcheggio 1 dell'Esercito di Terracotta, sotto la statua di Qin Shi Huang, distretto di Lintong — la guida tiene una bandiera rossa "Silk Road Holiday". Nessuna metro diretta (trasferimento ~2h); consigliato Didi/taxi (~1h dal centro, traffico scorrevole al mattino).</p>` +
-            `<p><b>Da sapere:</b> ingresso con verifica passaporto (real-name entry — dati del passaporto devono corrispondere); in caso di ritardo si può entrare da soli col passaporto e riunirsi al gruppo nell'ordine Pit 2 → Pit 1 → Pit 3; nessun rimborso per ritardi o uscite anticipate dal gruppo; la guida non risponde al telefono durante il tour.</p>`,
+            `<p><b>Da sapere:</b> ingresso con verifica passaporto (real-name entry — dati del passaporto devono corrispondere); in caso di ritardo si può entrare da soli col passaporto e riunirsi al gruppo nell'ordine Pit 2 → Pit 1 → Pit 3; nessun rimborso per ritardi o uscite anticipate dal gruppo; la guida non risponde al telefono durante il tour.</p>` +
+            `</div>`,
+          imgs: [["terracotta", "Esercito di Terracotta"]],
         },
-        { label: "Pranzo nel Quartiere Musulmano" },
-        { label: "Giro in bici sulle Mura", detail: "dal South Gate" },
+        {
+          label: "Pranzo nel Quartiere Musulmano",
+          imgs: [["muslim_quarter", "Quartiere Musulmano"]],
+        },
+        {
+          label: "Giro in bici sulle Mura",
+          detail: "dal South Gate",
+          imgs: [["xian_wall", "Giro in bici sulle Mura"]],
+        },
         {
           label: "Torri della Campana e del Tamburo",
           detail: "esterni, sul percorso",
+          imgs: [["xian_bell", "Torre della Campana di Xi'an"]],
         },
         {
           label: "Grande Pagoda dell'Oca Selvatica + spettacolo di fontane",
           detail: "se restano tempo ed energie",
+          imgs: [["goose_pagoda", "Grande Pagoda dell'Oca Selvatica"]],
         },
-      ],
-      imgs: [
-        ["terracotta", "Esercito di Terracotta"],
-        ["muslim_quarter", "Quartiere Musulmano"],
-        ["xian_wall", "Giro in bici sulle Mura"],
-        ["xian_bell", "Torre della Campana di Xi'an"],
-        ["goose_pagoda", "Grande Pagoda dell'Oca Selvatica"],
       ],
     },
   ],
@@ -739,6 +776,7 @@ ${arrivalCard([
 <h3>Hotel</h3>
 ${hotelCard({
   name: "Center Hotel (Xi'an Bell Tower)",
+  nameCn: "西安钟楼森德酒店",
   sub: "Camera con letto matrimoniale di lusso leggero",
   address: "No. 619 East Street, Beilin District, Xi'an, Shaanxi, Cina",
   website:
@@ -797,15 +835,13 @@ ${days(
         {
           label: "Vicoli antichi di Kuanzhai Xiangzi",
           detail: "pomeriggio",
+          imgs: [["kuanzhai", "Vicoli antichi di Kuanzhai Xiangzi"]],
         },
         {
           label: "Cultura del tè al Parco del Popolo",
           detail: "casa da tè Heming",
+          imgs: [["peoples_park", "Parco del Popolo"]],
         },
-      ],
-      imgs: [
-        ["kuanzhai", "Vicoli antichi di Kuanzhai Xiangzi"],
-        ["peoples_park", "Parco del Popolo"],
       ],
     },
     {
@@ -814,10 +850,12 @@ ${days(
         {
           label: "Base dei Panda Giganti",
           detail: "partenza ~7:00, ora del pasto",
+          imgs: [["panda_base", "Base dei Panda Giganti"]],
         },
         {
           label: "Tempio Wuhou + via antica Jinli",
           detail: "opzionali, da saltare se stanchi",
+          imgs: [["jinli", "Via antica Jinli"]],
         },
         {
           label: "Scultura del panda arrampicato",
@@ -827,10 +865,6 @@ ${days(
           label: "SKP + spettacolo di luci delle torri di bambù",
           detail: "sera",
         },
-      ],
-      imgs: [
-        ["panda_base", "Base dei Panda Giganti"],
-        ["jinli", "Via antica Jinli"],
       ],
     },
   ],
@@ -908,8 +942,12 @@ ${days(
         {
           label: "Stazione di Liziba",
           detail: "il treno che attraversa il palazzo, con la Linea 2",
+          imgs: [["liziba", "Liziba — il treno che attraversa il palazzo"]],
         },
-        { label: "Città vecchia di Ciqikou" },
+        {
+          label: "Città vecchia di Ciqikou",
+          imgs: [["ciqikou", "Città vecchia di Ciqikou"]],
+        },
         {
           label: "Passerella di vetro The Crystal",
           detail: "Raffles City",
@@ -922,12 +960,8 @@ ${days(
         {
           label: "Hongyadong illuminata",
           detail: "per chiudere la serata",
+          imgs: [["hongyadong", "Hongyadong di notte"]],
         },
-      ],
-      imgs: [
-        ["liziba", "Liziba — il treno che attraversa il palazzo"],
-        ["ciqikou", "Città vecchia di Ciqikou"],
-        ["hongyadong", "Hongyadong di notte"],
       ],
     },
   ],
@@ -998,9 +1032,9 @@ ${days(
         {
           label: "Ponte di Vetro del Grand Canyon di Zhangjiajie",
           detail: "pomeriggio",
+          imgs: [["glass_bridge", "Ponte di Vetro del Grand Canyon"]],
         },
       ],
-      imgs: [["glass_bridge", "Ponte di Vetro del Grand Canyon"]],
     },
     {
       date: "2 nov (lun)",
@@ -1013,10 +1047,12 @@ ${days(
           label: "Ascensore Bailong",
           detail:
             "fino a Yuanjiajie — pilastri di Avatar + Primo Ponte Sotto il Cielo",
+          imgs: [["zjj_park", "Yuanjiajie — i pilastri di Avatar"]],
         },
         {
           label: "Tianzi Mountain + Galleria delle Dieci Miglia",
           detail: "pomeriggio",
+          imgs: [["tianzi", "Tianzi Mountain"]],
         },
         {
           label: "Furong Zhen",
@@ -1024,12 +1060,8 @@ ${days(
             "puntata serale in alta velocità, 20–25min, città-cascata illuminata",
           bookBy:
             "Prenotare tra il 3 e il 18 ott 2026 (finestra 15–30 gg prima della partenza)",
+          imgs: [["furong_zhen", "Furong Zhen, la città-cascata"]],
         },
-      ],
-      imgs: [
-        ["zjj_park", "Yuanjiajie — i pilastri di Avatar"],
-        ["tianzi", "Tianzi Mountain"],
-        ["furong_zhen", "Furong Zhen, la città-cascata"],
       ],
     },
     {
@@ -1042,6 +1074,7 @@ ${days(
         {
           label: "Funivia Tianmen Mountain",
           detail: "in coda entro le ~7:30, apertura",
+          imgs: [["tianmen", "Tianmen Mountain"]],
         },
         { label: "Glass Skywalk + passerelle a strapiombo" },
         {
@@ -1059,7 +1092,6 @@ ${days(
             "Prenotare tra il 4 e il 19 ott 2026 (finestra 15–30 gg prima della partenza) — tratta collo di bottiglia, prenotare appena possibile",
         },
       ],
-      imgs: [["tianmen", "Tianmen Mountain"]],
     },
   ],
   "zhangjiajie",
@@ -1111,8 +1143,12 @@ ${days(
   [
     {
       date: "3 nov (mar)",
-      activities: [{ label: "Check-in" }],
-      imgs: [["sun_moon_pagodas", "Pagode del Sole e della Luna"]],
+      activities: [
+        {
+          label: "Check-in",
+          imgs: [["sun_moon_pagodas", "Pagode del Sole e della Luna"]],
+        },
+      ],
     },
     {
       date: "4 nov (mer)",
@@ -1121,15 +1157,13 @@ ${days(
           label: "Crociera sul fiume Li",
           detail:
             "Guilin → Yangshuo, ~4h, pranzo a buffet a bordo, vista sulla banconota da 20 yuan",
+          imgs: [["li_river", "Crociera sul fiume Li"]],
         },
         {
           label: "Campagna di Yangshuo / fiume Yulong",
           detail: "in bici o su zattera di bambù",
+          imgs: [["yulong_river", "Fiume Yulong"]],
         },
-      ],
-      imgs: [
-        ["li_river", "Crociera sul fiume Li"],
-        ["yulong_river", "Fiume Yulong"],
       ],
     },
     {
@@ -1138,21 +1172,21 @@ ${days(
         {
           label: "Xianggong Mountain all'alba",
           detail: "pickup a Yangshuo ~5:45, alba ~6:55 sull'ansa del fiume Li",
+          imgs: [
+            ["xianggong", "Alba sull'ansa del fiume Li — Xianggong Mountain"],
+          ],
         },
         {
           label: "Risaie di Longsheng",
           detail:
             "~3–3,5h di strada, pranzo nel villaggio, camminata fino alle ~15:00",
+          imgs: [["longsheng", "Risaie di Longsheng"]],
         },
         { label: "Rientro a Guilin", detail: "~17:00–17:30, check-in" },
         {
           label: "Pagode del Sole e della Luna",
           detail: "illuminate la sera",
         },
-      ],
-      imgs: [
-        ["xianggong", "Alba sull'ansa del fiume Li — Xianggong Mountain"],
-        ["longsheng", "Risaie di Longsheng"],
       ],
     },
     {

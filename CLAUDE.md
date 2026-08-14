@@ -26,6 +26,10 @@ Written for a junior developer. Every function gets a comment explaining what it
 
 Before a big structural change (like this file split), stop and ask rather than guessing scope. Past example: before doing this split, clarified (a) how strict the "unique id" rule should be, (b) whether to modernize `onclick` to `addEventListener`, (c) whether to persist these rules here, (d) whether to stage the rollout. Do the same for future ambiguous asks — a couple of quick multiple-choice questions beats redoing a large refactor.
 
+## Rule 5 — no browser verification unless asked
+
+User checks changes in browser themselves. Skip launching/screenshotting/driving the app after edits — costs time and tokens for no benefit here. Only verify in browser if user explicitly asks for it.
+
 ## Current status
 
 - [x] Split into index.html / style.css / script.js

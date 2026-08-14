@@ -49,7 +49,7 @@ Percorso: Pechino → Pingyao → Xi'an → Chengdu → Chongqing → Zhangjiaji
 
 ---
 
-**Hotel:** [JianGuo Hidden Hotel](hotels/Beijing.pdf) (Beijing Tian An Men Wangfujing store) — No. 19 Jinyu Hutong, Dongcheng District, Beijing, China. [Sito web](https://us.trip.com/hotels/beijing-hotel-detail-80943188/jianguo-hidden-hotel-beijing-wangfujing-store/). Check-in 23 ott dopo le 14:00, check-out 26 ott entro le 12:00 (3 notti).
+**Hotel:** [JianGuo Hidden Hotel](hotels/Beijing.pdf) 建國·璞隱酒店（北京天安門王府井店) (Beijing Tian An Men Wangfujing store) — No. 19 Jinyu Hutong, Dongcheng District, Beijing, China. [Sito web](https://us.trip.com/hotels/beijing-hotel-detail-80943188/jianguo-hidden-hotel-beijing-wangfujing-store/). Check-in 23 ott dopo le 14:00, check-out 26 ott entro le 12:00 (3 notti).
 
 *Costo:* €241,41 prepagati.
 <sub>Cancellazione gratuita fino alle 18:00 del 23 ott, poi non rimborsabile.</sub>
@@ -107,6 +107,10 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
 | Durata | ~4h |
 | Arrivo | Pingyao Gucheng, 26 ott, ~14:00–14:30 |
 
+Wangfujing, via Qianmen e piazza Tienanmen — cuore storico-commerciale di Pechino. Wangfujing è la via pedonale più famosa della città, piena di negozi e street food (compresi gli spiedini di scorpione).
+
+Via Qianmen (845m, a sud della piazza) è una strada pedonale ricostruita in stile tardo Qing con negozi e ristoranti d'epoca. Piazza Tienanmen, una delle piazze più grandi al mondo, ospita il Museo Nazionale, la Sala Commemorativa di Mao e la porta Zhengyangmen.
+
 Tempistica Grande Muraglia: arrivare all'apertura (~8:00) per battere i gruppi organizzati (il picco di folla è 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.
 
 Tratto di Muraglia: scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).
@@ -133,7 +137,7 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 
 ---
 
-**Hotel:** Qigongguan Inn — No. 13 Zhuanquanmen Lane, 031100 Pingyao, Shanxi, Cina. [Sito web](https://it.trip.com/hotels/detail/?hotelId=2992785&checkIn=2026-10-26&checkOut=2026-10-27&locale=it-IT). Check-in 26 ott dopo le 14:00, check-out 27 ott entro le 12:00 (1 notte). Camera Jiwenzhai Changongzhegui, letto king-size. Costo: €44,26 prepagati (conferma hotel n. 1688900388538232); cancellazione gratuita fino alle 20:00 del 26 ott, poi penale di €13,28, non rimborsabile dopo le 21:00 del 26 ott. Un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza — colazione per 2 inclusa il 27 ott. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina.
+**Hotel:** Qigongguan Inn 祁公馆(平遥店) — No. 13 Zhuanquanmen Lane, 031100 Pingyao, Shanxi, Cina. [Sito web](https://it.trip.com/hotels/detail/?hotelId=2992785&checkIn=2026-10-26&checkOut=2026-10-27&locale=it-IT). Check-in 26 ott dopo le 14:00, check-out 27 ott entro le 12:00 (1 notte). Camera Jiwenzhai Changongzhegui, letto king-size. Costo: €44,26 prepagati (conferma hotel n. 1688900388538232); cancellazione gratuita fino alle 20:00 del 26 ott, poi penale di €13,28, non rimborsabile dopo le 21:00 del 26 ott. Un hotel tradizionale a corte di epoca Qing con kang (letto in mattoni riscaldato) fa parte dell'esperienza — colazione per 2 inclusa il 27 ott. I taxi non possono entrare dentro le mura, quindi verificare con l'hotel se offrono il pickup con navetta elettrica dalla porta più vicina.
 
 **Cibo da provare:**
 - Manzo di Pingyao — piatto locale tipico, su via Ming-Qing
@@ -174,7 +178,7 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 
 ---
 
-**Hotel:** Center Hotel (Xi'an Bell Tower) — No. 619 East Street, Beilin District, Xi'an, Shaanxi, Cina. [Sito web](https://it.trip.com/hotels/detail/?hotelId=36148464&checkIn=2026-10-27&checkOut=2026-10-29&locale=it-IT). Check-in 27 ott dopo le 14:00, check-out 29 ott entro le 13:00 (2 notti). Camera con letto matrimoniale di lusso leggero. Costo: €80,88 prepagati (conferma hotel n. 1688900388695385); cancellazione gratuita fino alle 18:00 del 27 ott, poi penale di €40,44, non rimborsabile dopo le 18:00 del 27 ott. Colazione per 2 inclusa il 28 ott. Direttamente sulla Linea 2, corsa senza cambi dalla stazione di Xi'an Nord dove arriva il treno da Pingyao, e a pochi passi dal Quartiere Musulmano, dalle Torri della Campana/del Tamburo e dall'ingresso Sud delle Mura.
+**Hotel:** Center Hotel (Xi'an Bell Tower) 西安钟楼森德酒店 — No. 619 East Street, Beilin District, Xi'an, Shaanxi, Cina. [Sito web](https://it.trip.com/hotels/detail/?hotelId=36148464&checkIn=2026-10-27&checkOut=2026-10-29&locale=it-IT). Check-in 27 ott dopo le 14:00, check-out 29 ott entro le 13:00 (2 notti). Camera con letto matrimoniale di lusso leggero. Costo: €80,88 prepagati (conferma hotel n. 1688900388695385); cancellazione gratuita fino alle 18:00 del 27 ott, poi penale di €40,44, non rimborsabile dopo le 18:00 del 27 ott. Colazione per 2 inclusa il 28 ott. Direttamente sulla Linea 2, corsa senza cambi dalla stazione di Xi'an Nord dove arriva il treno da Pingyao, e a pochi passi dal Quartiere Musulmano, dalle Torri della Campana/del Tamburo e dall'ingresso Sud delle Mura.
 
 **Cibo da provare:**
 - Yangrou Paomo — zuppa di montone e pane, nel Quartiere Musulmano

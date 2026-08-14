@@ -330,19 +330,19 @@ body {
   color: var(--train);
 }
 .day-card .day-activities {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   margin: 2px 0 2px;
 }
 .day-card .day-activity {
   display: flex;
-  gap: 6px;
-  align-items: baseline;
-}
-.day-card .day-activity {
   flex-wrap: wrap;
-}
-.day-card .day-activity .bullet {
-  color: var(--train);
-  flex: none;
+  align-items: baseline;
+  gap: 6px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 6px 8px;
 }
 .day-card .day-detail {
   font-size: 11px;
@@ -352,13 +352,13 @@ body {
   flex-basis: 100%;
   font-size: 10.5px;
   color: var(--train);
-  margin: 1px 0 0 15px;
+  margin: 1px 0 0 0;
 }
-.day-card .day-sep {
-  color: #c7cbd1;
-  font-size: 11px;
-  line-height: 1;
-  margin: 1px 0 1px 10px;
+.day-card .day-desc {
+  flex-basis: 100%;
+  font-size: 11.5px;
+  color: var(--muted);
+  margin: 4px 0 0;
 }
 .day-card .day-food {
   margin-top: 6px;
@@ -377,6 +377,16 @@ body {
 }
 .day-imgs figure {
   margin: 0;
+}
+.day-activity .day-imgs {
+  flex-basis: 100%;
+  margin-top: 6px;
+}
+.day-activity .note,
+.day-activity .note-green,
+.day-activity .note-grey {
+  flex-basis: 100%;
+  margin: 6px 0 0;
 }
 .day-imgs img {
   width: 100%;
@@ -442,6 +452,11 @@ body {
 }
 .hotel-card .hotel-name::before {
   content: "🏨 ";
+}
+.hotel-card .hotel-name-cn {
+  font-weight: normal;
+  font-size: 13px;
+  color: var(--muted);
 }
 .hotel-card .hotel-sub {
   font-size: 11px;
