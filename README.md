@@ -287,6 +287,14 @@ Kuanzhai Xiangzi — tre vicoli storici e 45 cortili, tra i complessi meglio con
 
 Casa da tè Heming — nel cuore del Parco del Popolo, aperta nel 1923, tra le teahouse più iconiche di Chengdu. Rito locale: sedie di bambù, tè al gelsomino nel gaiwan, versato con teiere dal lungo becco (arte tramandata da generazioni) — modo tradizionale di vivere la città al rallentatore.
 
+Base dei Panda Giganti — fondata nel 1987 dal comune di Chengdu, partita con 6 panda salvati dalla fame dopo la fioritura del bambù nelle montagne Qionglai. Nel 2020 ha raggiunto 215 panda, la più grande popolazione in cattività al mondo. Centro leader per conservazione, ricerca e riproduzione.
+
+Tempio Wuhou — unico tempio cinese dove un sovrano e il suo ministro (Liu Bei e Zhuge Liang) sono venerati insieme. Via Jinli, adiacente, "prima via" del regno di Shu (221-263), restaurata nel 2004.
+
+"I Am Here" — panda gigante di 15 m/13 tonnellate creato dall'artista Lawrence Argent, installato nel 2014 sul palazzo Chengdu IFS a Chunxi Road. Fatto di migliaia di sfaccettature triangolari, è diventato uno dei simboli più fotografati della città.
+
+Torre della Vita (生机之塔) — presso SKP Chengdu, sei pilastri a forma di bambù alti 26-39 m con 5.328 ugelli d'acqua e quasi 6.000 luci LED. Spettacolo serale (19:30-22:00) con cascate d'acqua e sequenze luminose che cambiano ogni 4-5 minuti; ingresso gratuito.
+
 La Base dei Panda è la prima cosa in programma perché i panda sono più attivi nella finestra del pasto mattutino, e la fascia d'ingresso del mattino è anche la prima a esaurirsi.
 
 **Attività particolari** (non ancora inserite nel programma — solo un promemoria):
@@ -310,8 +318,6 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 - Bingfen (dolce gelatinoso) — a Ciqikou
 - Hotpot di Chongqing (pentola divisa Yuanyang) — a Jiefangbei
 
-**Guida:** non serve — completamente fai-da-te con metro/Didi.
-
 **Arrivo**
 
 | | |
@@ -321,9 +327,11 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 | Durata | ~1,5–2h |
 | Arrivo | 31 ott, ~10:10–10:40 stimato |
 
+L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.
+
 | Programma | Data |
 |---|---|
-| **Bagagli in hotel** — stazione di Liziba (il treno che attraversa il palazzo) con la Linea 2, città vecchia di Ciqikou, passerella di vetro The Crystal a Raffles City, cena hotpot a Jiefangbei, spettacolo di droni alla terrazza Nanbin Rd/Changjiahui con la Linea 6 (~20:30, il sabato), Hongyadong illuminata di notte per chiudere la serata | 31 ott (sab) |
+| **Stazione di Liziba** (il treno che attraversa il palazzo) con la Linea 2, città vecchia di Ciqikou, passerella di vetro The Crystal a Raffles City, spettacolo di droni alla terrazza Nanbin Rd/Changjiahui con la Linea 6 (~20:30, il sabato), Hongyadong illuminata di notte per chiudere la serata | 31 ott (sab) |
 
 **Partenza**
 
@@ -334,7 +342,15 @@ La Base dei Panda è la prima cosa in programma perché i panda sono più attivi
 | Durata | ~2,5h |
 | Arrivo | Zhangjiajie Ovest, 1 nov, ~11:20 stimato |
 
-L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.
+Stazione di Liziba — monorotaia che attraversa un edificio residenziale di 19 piani (piani 6-8), completata nel 2004 e in funzione dal 2005. Costruita insieme al palazzo per non demolirlo, con materiali speciali per isolare gli abitanti da rumore e vibrazioni: prima stazione al mondo del genere.
+
+Ciqikou — città millenaria fondata nel 998-1003, sulla riva del fiume Jialing. Chiamata "Porto della Porcellana" per il commercio ceramico Ming-Qing; protetta come sito culturale dal 1998.
+
+The Crystal — sky bridge di 300 m disegnato da Moshe Safdie, aperto nel 2020 a 250 m d'altezza collega 4 delle 8 torri di Raffles City Chongqing. Il più alto e più lungo skybridge del mondo a collegare più torri, ispirato alle vele delle giunche sul fiume. Ospita giardini, ristoranti e una piscina a sfioro di 50 m.
+
+Spettacolo di droni "Charm Chongqing" — inaugurato il 19 aprile 2025 su Nanbin Road, spettacolo fisso ogni sabato sera con formazioni luminose sullo skyline. Nel giugno 2025 ha battuto il record Guinness con 11.787 droni in doppia formazione, davanti a oltre 100.000 spettatori.
+
+Hongyadong — complesso a palafitta di 11 piani sul fiume, riprende lo stile diaojiaolou tipico della Cina sud-occidentale (case su pilastri di legno per adattarsi alle scogliere). L'area ha oltre 2.300 anni di storia come porto fluviale/fortezza, documentata dalla Porta Hongyang (Ming, XIV secolo). Il complesso moderno è del 2006.
 
 **Attività particolari** (non ancora inserite nel programma — solo un promemoria):
 - **Alternativa:** crociera sul fiume Liangjiang (~20€/150 CNY) — guardare lo spettacolo di droni dall'acqua invece che dalla piattaforma affollata
@@ -373,7 +389,7 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 
 | Programma | Data |
 |---|---|
-| **Didi per Wulingyuan e check-in** — Ponte di Vetro del Grand Canyon di Zhangjiajie nel pomeriggio | 1 nov (dom) |
+| **Ponte di Vetro del Grand Canyon di Zhangjiajie** — pomeriggio | 1 nov (dom) |
 | **Parco nazionale, giornata intera** — al cancello presto per battere le code, ascensore Bailong fino a Yuanjiajie (pilastri di Avatar + Primo Ponte Sotto il Cielo), Tianzi Mountain + Galleria delle Dieci Miglia nel pomeriggio, puntata serale in alta velocità a Furong Zhen (20–25min) per la città-cascata illuminata, rientro con uno degli ultimi treni | 2 nov (lun) |
 | **Tianmen Mountain** — check-out ~6:45, bagagli nel deposito della stazione della funivia, in coda per la funivia entro le ~7:30 (apertura); Glass Skywalk + passerelle a strapiombo, scale mobili giù fino alla Grotta di Tianmen, 999 gradini; **stop tassativo: giù dalla montagna entro le 11:30**, recupero bagagli, Didi per Zhangjiajie Ovest (~30min) | 3 nov (mar) |
 
@@ -385,6 +401,10 @@ L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in c
 | Partenza | Zhangjiajie, 3 nov, 13:07 |
 | Durata | ~6h |
 | Arrivo | 3 nov, ~19:00–19:30 stimato |
+
+Il ponte sospeso sul Grand Canyon di Zhangjiajie, aperto nel 2016, è lungo 430 metri e sospeso a circa 300 metri d'altezza — al momento dell'apertura era il ponte panoramico in vetro più lungo e alto al mondo. Progettato dall'architetto israeliano Haim Dotan, ha il piano in oltre 120 pannelli di vetro temperato a tre strati. A metà percorso si trova anche la piattaforma di bungee jumping più alta al mondo (260 metri).
+
+Il Parco Nazionale di Zhangjiajie, primo parco nazionale della Cina (1982), fa parte dell'area di Wulingyuan, patrimonio UNESCO dal 1992. Le sue oltre 3.000 colonne di arenaria quarzifera, alte anche centinaia di metri, si sono formate per erosione in milioni di anni. Uno dei pilastri più noti è stato ribattezzato "Avatar Hallelujah Mountain" nel 2010, dopo aver ispirato le montagne fluttuanti del film di James Cameron.
 
 Il giorno del parco (2 nov) inizia al cancello per battere la coda dell'ascensore Bailong. Furong Zhen è aggiunta come extra serale leggero con un breve salto in alta velocità, dato che è a soli 20–25 minuti ed è illuminata di notte — i bagagli restano all'hotel di Wulingyuan quindi è un'andata e ritorno veloce.
 

@@ -190,6 +190,7 @@ body {
     0 0 3px #fff,
     0 0 5px #fff;
   pointer-events: none;
+  transform: translate(-100%, -100%);
 }
 
 /* ---------- side panel ----------

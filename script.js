@@ -79,6 +79,8 @@ const IMG = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/ZhangjiajieGlassByHighestBridges.jpg/960px-ZhangjiajieGlassByHighestBridges.jpg",
   zjj_park:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/1_tianzishan_wulingyuan_zhangjiajie_2012.jpg/960px-1_tianzishan_wulingyuan_zhangjiajie_2012.jpg",
+  zjj_pillars:
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Zhangjiajie%20National%20Forest%20Park.jpg",
   tianzi:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/China_Tianzi_Gebirge.JPG/960px-China_Tianzi_Gebirge.JPG",
   furong_zhen:
@@ -102,6 +104,14 @@ const IMG = {
     "https://commons.wikimedia.org/wiki/Special:FilePath/Gateway_-_Wuhou_Shrine_-_Chengdu,_China_-_DSC05423.jpg",
   west_street:
     "https://commons.wikimedia.org/wiki/Special:FilePath/West_Street_-Yangshuo-Guilin_-_China_-_panoramio.jpg",
+  ifs_panda:
+    "https://commons.wikimedia.org/wiki/Special:FilePath/IFS_chengdu_park-02.jpg",
+  skp_tower:
+    "https://thirdeyetraveller.com/wp-content/uploads/Bamboo-Tower-of-Life-SKP-Chengdu.jpg",
+  crystal:
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Raffles_City_Chongqing_2019-2.jpg",
+  drone_show:
+    "https://upload.wikimedia.org/wikipedia/commons/4/46/2025_Drone_show_in_Chongqing_08.jpg",
 };
 
 /**
@@ -181,9 +191,11 @@ function activitiesList(items, idPrefix) {
 
 /**
  * days(items, cityKey) — renders a whole city's "Programma" section:
- * one .day-card per day, each with its date header, activity list
- * (via activitiesList above — each activity carries its own photos),
- * optional food note, and an optional day-level note.
+ * one .day-card per day, each with its date header, an optional
+ * day-level note (shown first — e.g. explaining the reasoning behind
+ * that day's activity order), the activity list (via activitiesList
+ * above — each activity carries its own photos), and an optional
+ * food note.
  *
  * `items` is an array of day objects like:
  *   { date: "28 ott (mer)", activities: [...], note: "..." }
@@ -203,9 +215,9 @@ function days(items, cityKey) {
 <div class="day-card-head">
   <div class="day-date">${d.date}</div>
 </div>
+${d.note || ""}
 ${activitiesList(d.activities, idPrefix)}
 ${d.food ? `<div class="day-food">${d.food}</div>` : ""}
-${d.note || ""}
     </div>`;
     })
     .join("");
@@ -472,7 +484,7 @@ ${days(
         {
           label: "Giro negli hutong",
           detail: "se c'è tempo",
-          desc: "Hutong — vicoli storici con case a corte (siheyuan), risalenti alla dinastia Yuan (1271–1368); il nome viene dal mongolo \"hottog\" (pozzo d'acqua). Nel 1949 Pechino ne contava oltre 6.000, oggi ridotti a circa 1.000 grazie a 25 zone di tutela storica istituite nel 2005.",
+          desc: 'Hutong — vicoli storici con case a corte (siheyuan), risalenti alla dinastia Yuan (1271–1368); il nome viene dal mongolo "hottog" (pozzo d\'acqua). Nel 1949 Pechino ne contava oltre 6.000, oggi ridotti a circa 1.000 grazie a 25 zone di tutela storica istituite nel 2005.',
           imgs: [["hutong", "Hutong di Pechino"]],
         },
       ],
@@ -663,7 +675,7 @@ ${days(
         {
           label: "Banca Rishengchang",
           detail: "la prima banca cinese",
-          desc: "Banca Rishengchang (\"Alba Prosperosa\") — fondata nel 1823, prima banca cinese, nata da una piccola tintoria e diventata leader nei trasferimenti di denaro con filiali in 35 città e succursali fino in Europa e Stati Uniti. Oggi è un museo del sistema finanziario storico cinese.",
+          desc: 'Banca Rishengchang ("Alba Prosperosa") — fondata nel 1823, prima banca cinese, nata da una piccola tintoria e diventata leader nei trasferimenti di denaro con filiali in 35 città e succursali fino in Europa e Stati Uniti. Oggi è un museo del sistema finanziario storico cinese.',
           imgs: [
             ["rishengchang", "Banca Rishengchang — la prima banca cinese"],
           ],
@@ -868,20 +880,26 @@ ${days(
         {
           label: "Base dei Panda Giganti",
           detail: "partenza ~7:00, ora del pasto",
+          desc: "Base dei Panda Giganti — fondata nel 1987 dal comune di Chengdu, partita con 6 panda salvati dalla fame dopo la fioritura del bambù nelle montagne Qionglai. Nel 2020 ha raggiunto 215 panda, la più grande popolazione in cattività al mondo. Centro leader per conservazione, ricerca e riproduzione.",
           imgs: [["panda_base", "Base dei Panda Giganti"]],
         },
         {
           label: "Tempio Wuhou + via antica Jinli",
           detail: "opzionali, da saltare se stanchi",
+          desc: 'Tempio Wuhou — unico tempio cinese dove un sovrano e il suo ministro (Liu Bei e Zhuge Liang) sono venerati insieme. Via Jinli, adiacente, "prima via" del regno di Shu (221-263), restaurata nel 2004.',
           imgs: [["jinli", "Via antica Jinli"]],
         },
         {
           label: "Scultura del panda arrampicato",
           detail: "Chunxi Road/IFS",
+          desc: '"I Am Here" — panda gigante di 15 m/13 tonnellate creato dall\'artista Lawrence Argent, installato nel 2014 sul palazzo Chengdu IFS a Chunxi Road. Fatto di migliaia di sfaccettature triangolari, è diventato uno dei simboli più fotografati della città.',
+          imgs: [["ifs_panda", "Panda arrampicato — Chengdu IFS"]],
         },
         {
           label: "SKP + spettacolo di luci delle torri di bambù",
           detail: "sera",
+          desc: "Torre della Vita (生机之塔) — presso SKP Chengdu, sei pilastri a forma di bambù alti 26-39 m con 5.328 ugelli d'acqua e quasi 6.000 luci LED. Spettacolo serale (19:30-22:00) con cascate d'acqua e sequenze luminose che cambiano ogni 4-5 minuti; ingresso gratuito.",
+          imgs: [["skp_tower", "SKP Chengdu — Torre della Vita"]],
         },
       ],
     },
@@ -951,33 +969,35 @@ ${days(
   [
     {
       date: "31 ott (sab)",
+      note: `<div class="note" id="chongqing-31-ott-order-note">L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.</div><div class="warn" id="chongqing-31-ott-fatigue-warning"><b>Avviso fatica:</b> questo tratto accumula tre sveglie all'alba di fila — Base dei Panda ~7:00 (30 ott), il treno delle ~8:37 da Chengdu (31 ott) e il treno delle 08:50 per Zhangjiajie (1 nov) — e la serata di Chongqing arriva alle ~22:30 a Hongyadong. La stazione di Chongqing Est è a 30–40 min da Jiefangbei, quindi l'1 nov significa uscire dall'hotel alle ~7:15 dopo poco sonno. Dosare la serata di Chongqing di conseguenza (Hongyadong è la cosa naturale da accorciare).</div>`,
       activities: [
-        {
-          label: "Bagagli in hotel",
-          bookBy:
-            "Prenotare tra l'1 e il 16 ott 2026 (finestra 15–30 gg prima della partenza)",
-        },
         {
           label: "Stazione di Liziba",
           detail: "il treno che attraversa il palazzo, con la Linea 2",
+          desc: "Stazione di Liziba — monorotaia che attraversa un edificio residenziale di 19 piani (piani 6-8), completata nel 2004 e in funzione dal 2005. Costruita insieme al palazzo per non demolirlo, con materiali speciali per isolare gli abitanti da rumore e vibrazioni: prima stazione al mondo del genere.",
           imgs: [["liziba", "Liziba — il treno che attraversa il palazzo"]],
         },
         {
           label: "Città vecchia di Ciqikou",
+          desc: "Ciqikou — città millenaria fondata nel 998-1003, sulla riva del fiume Jialing. Chiamata \"Porto della Porcellana\" per il commercio ceramico Ming-Qing; protetta come sito culturale dal 1998.",
           imgs: [["ciqikou", "Città vecchia di Ciqikou"]],
         },
         {
           label: "Passerella di vetro The Crystal",
           detail: "Raffles City",
+          desc: "The Crystal — sky bridge di 300 m disegnato da Moshe Safdie, aperto nel 2020 a 250 m d'altezza collega 4 delle 8 torri di Raffles City Chongqing. Il più alto e più lungo skybridge del mondo a collegare più torri, ispirato alle vele delle giunche sul fiume. Ospita giardini, ristoranti e una piscina a sfioro di 50 m.",
+          imgs: [["crystal", "The Crystal — Raffles City Chongqing"]],
         },
-        { label: "Cena hotpot", detail: "Jiefangbei" },
         {
           label: "Spettacolo di droni",
           detail: "terrazza Nanbin Rd/Changjiahui, Linea 6, ~20:30 il sabato",
+          desc: "Spettacolo di droni \"Charm Chongqing\" — inaugurato il 19 aprile 2025 su Nanbin Road, spettacolo fisso ogni sabato sera con formazioni luminose sullo skyline. Nel giugno 2025 ha battuto il record Guinness con 11.787 droni in doppia formazione, davanti a oltre 100.000 spettatori.",
+          imgs: [["drone_show", "Spettacolo di droni — Chongqing"]],
         },
         {
           label: "Hongyadong illuminata",
           detail: "per chiudere la serata",
+          desc: "Hongyadong — complesso a palafitta di 11 piani sul fiume, riprende lo stile diaojiaolou tipico della Cina sud-occidentale (case su pilastri di legno per adattarsi alle scogliere). L'area ha oltre 2.300 anni di storia come porto fluviale/fortezza, documentata dalla Porta Hongyang (Ming, XIV secolo). Il complesso moderno è del 2006.",
           imgs: [["hongyadong", "Hongyadong di notte"]],
         },
       ],
@@ -992,7 +1012,6 @@ ${arrivalCard([
   ["Durata", "~2,5h"],
   ["Arrivo", "Zhangjiajie Ovest, 1 nov, ~11:20 stimato"],
 ])}
-<div class="note">L'ordine è: prima Liziba (serve la luce del giorno per la foto) → pranzo in città vecchia → passerella di vetro → cena hotpot → spettacolo di droni (inizio fisso ~20:30, dipende dal meteo) → Hongyadong per ultima perché è illuminata a qualsiasi ora e chiude la serata sulla riva opposta rispetto a dove finisce lo spettacolo dei droni. Il viaggio capita di sabato (31 ott), che è quando lo spettacolo di droni va normalmente in scena — da riconfermare sotto data.</div>
 <h3>Hotel</h3>
 ${hotelCard({
   name: "Vicino a Jiefangbei / Xiaoshizi",
@@ -1009,15 +1028,12 @@ ${foodCard([
     detail: "pentola divisa Yuanyang, a Jiefangbei",
   },
 ])}
-<h3>Guida</h3>
-<p>Non serve — completamente fai-da-te con metro/Didi.</p>
 <h3>Attività particolari (promemoria)</h3>
 <div class="card">
   <ul>
     <li><b>Alternativa:</b> crociera sul fiume Liangjiang (~20€/150 CNY) — guardare lo spettacolo di droni dall'acqua invece che dalla piattaforma affollata</li>
   </ul>
 </div>
-<div class="warn"><b>Avviso fatica:</b> questo tratto accumula tre sveglie all'alba di fila — Base dei Panda ~7:00 (30 ott), il treno delle ~8:37 da Chengdu (31 ott) e il treno delle 08:50 per Zhangjiajie (1 nov) — e la serata di Chongqing arriva alle ~22:30 a Hongyadong. La stazione di Chongqing Est è a 30–40 min da Jiefangbei, quindi l'1 nov significa uscire dall'hotel alle ~7:15 dopo poco sonno. Dosare la serata di Chongqing di conseguenza (Hongyadong è la cosa naturale da accorciare).</div>
 `,
   },
 
@@ -1043,13 +1059,9 @@ ${days(
       date: "1 nov (dom)",
       activities: [
         {
-          label: "Didi per Wulingyuan e check-in",
-          bookBy:
-            "Prenotare tra il 2 e il 17 ott 2026 (finestra 15–30 gg prima della partenza)",
-        },
-        {
           label: "Ponte di Vetro del Grand Canyon di Zhangjiajie",
           detail: "pomeriggio",
+          desc: "Il ponte sospeso sul Grand Canyon di Zhangjiajie, aperto nel 2016, è lungo 430 metri e sospeso a circa 300 metri d'altezza — al momento dell'apertura era il ponte panoramico in vetro più lungo e alto al mondo. Progettato dall'architetto israeliano Haim Dotan, ha il piano in oltre 120 pannelli di vetro temperato a tre strati. A metà percorso si trova anche la piattaforma di bungee jumping più alta al mondo (260 metri).",
           imgs: [["glass_bridge", "Ponte di Vetro del Grand Canyon"]],
         },
       ],
@@ -1060,6 +1072,8 @@ ${days(
         {
           label: "Parco nazionale, giornata intera",
           detail: "al cancello presto per battere le code",
+          desc: 'Il Parco Nazionale di Zhangjiajie, primo parco nazionale della Cina (1982), fa parte dell\'area di Wulingyuan, patrimonio UNESCO dal 1992. Le sue oltre 3.000 colonne di arenaria quarzifera, alte anche centinaia di metri, si sono formate per erosione in milioni di anni. Uno dei pilastri più noti è stato ribattezzato "Avatar Hallelujah Mountain" nel 2010, dopo aver ispirato le montagne fluttuanti del film di James Cameron.',
+          imgs: [["zjj_pillars", "Colonne di arenaria del parco"]],
         },
         {
           label: "Ascensore Bailong",
@@ -1612,7 +1626,7 @@ STOPS.forEach((s) => {
   const labelIcon = L.divIcon({
     className: "",
     iconSize: [0, 0],
-    iconAnchor: [-12, -6],
+    iconAnchor: [50, 15],
     html: `<div class="stop-label">${s.name}</div>`,
   });
   L.marker(s.ll, {
@@ -1726,8 +1740,14 @@ const IN_CITY_TRIPS = [
     txt: "Antico villaggio fluviale sul fiume Jialing.",
   },
   {
+    name: "The Crystal (Raffles City)",
+    ll: [29.5682, 106.5838],
+    img: "crystal",
+    txt: "Sky bridge di Moshe Safdie a 250m d'altezza, tra le torri di Raffles City a Chaotianmen.",
+  },
+  {
     name: "Hongya Cave",
-    ll: [29.5602, 106.5716],
+    ll: [29.5651, 106.5753],
     img: "hongyadong",
     txt: "Complesso a terrazze incastonato nella collina, spettacolare di sera.",
   },
