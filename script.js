@@ -425,9 +425,9 @@ ${days(
           detail: "",
           desc:
             "Wangfujing è la via pedonale più famosa della città, piena di negozi e street food (compresi gli spiedini di scorpione)." +
-            "<br><br>Via Qianmen (845m, a sud della piazza) è una strada pedonale ricostruita in stile tardo Qing con negozi e ristoranti d'epoca." +
-            "<br><br>Piazza Tienanmen, una delle piazze più grandi al mondo, ospita il Museo Nazionale, la Sala Commemorativa di Mao e la porta Zhengyangmen." +
-            "<br><br>",
+            "<br>Via Qianmen (845m, a sud della piazza) è una strada pedonale ricostruita in stile tardo Qing con negozi e ristoranti d'epoca." +
+            "<br>Piazza Tienanmen, una delle piazze più grandi al mondo, ospita il Museo Nazionale, la Sala Commemorativa di Mao e la porta Zhengyangmen." +
+            "<br>",
           imgs: [
             ["wangfujing", "Wangfujing"],
             ["tiananmen", "Piazza Tienanmen"],
@@ -441,11 +441,13 @@ ${days(
         {
           label: "Città Proibita",
           detail: "mattina",
+          desc: "Città Proibita — palazzo imperiale costruito tra il 1406 e il 1420 dall'imperatore Yongle, cuore del potere cinese per quasi 500 anni sotto le dinastie Ming e Qing (14 imperatori Ming, 10 Qing). Con 720.000 m² è il più grande complesso di palazzi imperiali al mondo, patrimonio UNESCO; dal 1925 è il Palace Museum. Il nome deriva dal divieto d'accesso imposto ai comuni sudditi.",
           imgs: [["forbidden_city", "Città Proibita"]],
         },
         {
           label: "Tempio del Cielo",
           detail: "pomeriggio",
+          desc: "Tempio del Cielo — complesso di culto costruito nel 1420 dall'imperatore Yongle (stesso della Città Proibita), dove gli imperatori Ming e Qing celebravano riti per il buon raccolto e chiedevano favori al Cielo. Copre 2.730.000 m², quattro volte la Città Proibita; patrimonio UNESCO dal 1998 come capolavoro di architettura e paesaggio, simbolo del rapporto Terra-Cielo nella cosmogonia cinese.",
           imgs: [["temple_heaven", "Tempio del Cielo"]],
         },
       ],
@@ -456,6 +458,7 @@ ${days(
         {
           label: "Grande Muraglia — Mutianyu",
           detail: "partenza dall'hotel ~6:30",
+          desc: "Grande Muraglia — sezione Mutianyu, tra le meglio conservate, costruita nel VI secolo (dinastia Qi settentrionale) e ricostruita nel 1569 sotto i Ming come barriera difensiva nord per la capitale. A differenza di altre sezioni, ha merlature su entrambi i lati del cammino. Aperta al pubblico dal 1988.",
           imgs: [["mutianyu", "Grande Muraglia a Mutianyu"]],
           note:
             `<div class="note"><b>Tempistica Grande Muraglia:</b> arrivare all'apertura (~8:00) per battere i gruppi organizzati (picco di folla 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.</div>` +
@@ -469,6 +472,7 @@ ${days(
         {
           label: "Giro negli hutong",
           detail: "se c'è tempo",
+          desc: "Hutong — vicoli storici con case a corte (siheyuan), risalenti alla dinastia Yuan (1271–1368); il nome viene dal mongolo \"hottog\" (pozzo d'acqua). Nel 1949 Pechino ne contava oltre 6.000, oggi ridotti a circa 1.000 grazie a 25 zone di tutela storica istituite nel 2005.",
           imgs: [["hutong", "Hutong di Pechino"]],
         },
       ],
@@ -642,6 +646,7 @@ ${days(
         {
           label: "Via Ming-Qing e Tempio del Dio della Città",
           detail: "Chenghuangmiao",
+          desc: "Via Ming-Qing — strada principale della città vecchia di Pingyao (patrimonio UNESCO), con edifici e negozi in stile Ming-Qing. Il Tempio del Dio della Città (Chenghuangmiao) è un tempio taoista con tre cortili e decorazioni intagliate risalenti a Ming e Qing.",
           imgs: [["pingyao", "Centro storico di Pingyao — via Ming-Qing"]],
         },
       ],
@@ -652,19 +657,25 @@ ${days(
         {
           label: "Mura + Yamen",
           detail: "inizio ~8:30 per battere i gruppi",
+          desc: "Mura di Pingyao — cinta muraria di 6 km ricostruita nel 1370, con 72 torrette. Lo Yamen è il più grande e meglio conservato ufficio di governo distrettuale antico della Cina, sede-tribunale-prigione del magistrato locale.",
           note: `<div class="note">La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.</div>`,
         },
         {
           label: "Banca Rishengchang",
           detail: "la prima banca cinese",
+          desc: "Banca Rishengchang (\"Alba Prosperosa\") — fondata nel 1823, prima banca cinese, nata da una piccola tintoria e diventata leader nei trasferimenti di denaro con filiali in 35 città e succursali fino in Europa e Stati Uniti. Oggi è un museo del sistema finanziario storico cinese.",
           imgs: [
             ["rishengchang", "Banca Rishengchang — la prima banca cinese"],
           ],
         },
-        { label: "Torre della Città" },
+        {
+          label: "Torre della Città",
+          desc: "Torre della Città — probabilmente del XIV secolo, unico edificio a più piani della città vecchia, alta 18,5 m. Fulcro del commercio in epoca Ming-Qing, con murales raffiguranti il Romanzo dei Tre Regni.",
+        },
         {
           label: "Tempio di Confucio o shopping",
           detail: "opzionale, se c'è tempo",
+          desc: "Tempio di Confucio — fondato nel 627-649 (dinastia Tang), tra i meglio conservati in Cina. La Sala Dacheng, ricostruita nel 1163, è la più antica sala confuciana esistente al mondo. Fino al 1370 ospitava gli esami imperiali; ha formato 12 primi ministri Ming-Qing.",
         },
       ],
     },
@@ -732,6 +743,7 @@ ${days(
         {
           label: "Esercito di Terracotta",
           detail: "Didi dall'hotel ~7:30, il sito apre alle 8:30",
+          desc: "Esercito di Terracotta — circa 8.000 guerrieri, 130 carri, 520 cavalli e 150 cavalli da guerra in argilla, sepolti in tre fosse vicino al mausoleo di Qin Shi Huang, primo imperatore della Cina unificata (221 a.C.), morto nel 210 a.C. Furono creati intorno al 210-209 a.C. per accompagnare e proteggere l'imperatore nell'aldilà; ogni statua ha volto, armi e posa individuali, probabilmente ispirati a soldati reali. Dimenticato per oltre 2.000 anni, fu scoperto per caso nel marzo 1974 da alcuni contadini che scavavano un pozzo nel villaggio di Xiyang; gli scavi ufficiali iniziarono a luglio dello stesso anno, seguiti dal ritrovamento delle Fosse 2 e 3 nel 1976. È considerato una delle maggiori scoperte archeologiche del XX secolo.",
           note:
             `<div class="note-green">` +
             `<p><b>Esercito di Terracotta — tour con guida in inglese (ingresso incluso)</b></p>` +
@@ -744,21 +756,25 @@ ${days(
         },
         {
           label: "Pranzo nel Quartiere Musulmano",
+          desc: "Quartiere Musulmano — nato lungo la Via della Seta con l'insediamento di mercanti arabi e persiani in epoca Tang, poi diventati la comunità Hui (musulmana cinese). Oggi conta circa 60.000 abitanti, oltre metà Hui, cuore della cultura islamica cinese e famoso per il food street con specialità come Yangrou Paomo e noodles Biangbiang.",
           imgs: [["muslim_quarter", "Quartiere Musulmano"]],
         },
         {
           label: "Giro in bici sulle Mura",
           detail: "dal South Gate",
+          desc: "Mura di Xi'an — costruite tra il 1370 e il 1378 sotto i Ming. Lunghe 13,74 km con 18 porte, tra le cinte murarie meglio conservate della Cina, percorribili in bici.",
           imgs: [["xian_wall", "Giro in bici sulle Mura"]],
         },
         {
           label: "Torri della Campana e del Tamburo",
           detail: "esterni, sul percorso",
+          desc: "Torre della Campana e del Tamburo — costruite nel 1384 e 1380 sotto i primi Ming, senza chiodi di ferro. Segnalavano il tempo alla città: la campana l'alba, il tamburo il tramonto. Tra le meglio conservate della Cina, sono simboli del centro storico di Xi'an.",
           imgs: [["xian_bell", "Torre della Campana di Xi'an"]],
         },
         {
           label: "Grande Pagoda dell'Oca Selvatica + spettacolo di fontane",
           detail: "se restano tempo ed energie",
+          desc: "Grande Pagoda dell'Oca Selvatica — costruita nel 652 dal monaco Xuanzang per custodire le scritture buddhiste portate dall'India dopo un viaggio di 19 anni lungo la Via della Seta. Ricostruita nel 704, alta 64,5 m su 7 piani in mattoni. Patrimonio UNESCO; lo spettacolo di fontane si tiene nella piazza antistante la sera.",
           imgs: [["goose_pagoda", "Grande Pagoda dell'Oca Selvatica"]],
         },
       ],
@@ -835,11 +851,13 @@ ${days(
         {
           label: "Vicoli antichi di Kuanzhai Xiangzi",
           detail: "pomeriggio",
+          desc: "Kuanzhai Xiangzi — tre vicoli storici e 45 cortili, tra i complessi meglio conservati della Chengdu di epoca Qing. Nato nel 1718 come guarnigione manciù, oggi zona di cibo e cultura.",
           imgs: [["kuanzhai", "Vicoli antichi di Kuanzhai Xiangzi"]],
         },
         {
           label: "Cultura del tè al Parco del Popolo",
           detail: "casa da tè Heming",
+          desc: "Casa da tè Heming — nel cuore del Parco del Popolo, aperta nel 1923, tra le teahouse più iconiche di Chengdu. Rito locale: sedie di bambù, tè al gelsomino nel gaiwan, versato con teiere dal lungo becco (arte tramandata da generazioni) — modo tradizionale di vivere la città al rallentatore.",
           imgs: [["peoples_park", "Parco del Popolo"]],
         },
       ],

@@ -107,13 +107,19 @@ In pieno Wangfujing/Dongcheng centrale — 10–15 min a piedi da Città Proibit
 | Durata | ~4h |
 | Arrivo | Pingyao Gucheng, 26 ott, ~14:00–14:30 |
 
-Wangfujing, via Qianmen e piazza Tienanmen — cuore storico-commerciale di Pechino. Wangfujing è la via pedonale più famosa della città, piena di negozi e street food (compresi gli spiedini di scorpione).
+Wangfujing è la via pedonale più famosa della città, piena di negozi e street food (compresi gli spiedini di scorpione).<br>Via Qianmen (845m, a sud della piazza) è una strada pedonale ricostruita in stile tardo Qing con negozi e ristoranti d'epoca.<br>Piazza Tienanmen, una delle piazze più grandi al mondo, ospita il Museo Nazionale, la Sala Commemorativa di Mao e la porta Zhengyangmen.
 
-Via Qianmen (845m, a sud della piazza) è una strada pedonale ricostruita in stile tardo Qing con negozi e ristoranti d'epoca. Piazza Tienanmen, una delle piazze più grandi al mondo, ospita il Museo Nazionale, la Sala Commemorativa di Mao e la porta Zhengyangmen.
+Città Proibita — palazzo imperiale costruito tra il 1406 e il 1420 dall'imperatore Yongle, cuore del potere cinese per quasi 500 anni sotto le dinastie Ming e Qing (14 imperatori Ming, 10 Qing). Con 720.000 m² è il più grande complesso di palazzi imperiali al mondo, patrimonio UNESCO; dal 1925 è il Palace Museum. Il nome deriva dal divieto d'accesso imposto ai comuni sudditi.
+
+Tempio del Cielo — complesso di culto costruito nel 1420 dall'imperatore Yongle (stesso della Città Proibita), dove gli imperatori Ming e Qing celebravano riti per il buon raccolto e chiedevano favori al Cielo. Copre 2.730.000 m², quattro volte la Città Proibita; patrimonio UNESCO dal 1998 come capolavoro di architettura e paesaggio, simbolo del rapporto Terra-Cielo nella cosmogonia cinese.
+
+Grande Muraglia — sezione Mutianyu, tra le meglio conservate, costruita nel VI secolo (dinastia Qi settentrionale) e ricostruita nel 1569 sotto i Ming come barriera difensiva nord per la capitale. A differenza di altre sezioni, ha merlature su entrambi i lati del cammino. Aperta al pubblico dal 1988.
 
 Tempistica Grande Muraglia: arrivare all'apertura (~8:00) per battere i gruppi organizzati (il picco di folla è 10–14); messa dopo 2 notti di sonno per ammorbidire il jet lag sulla sveglia presto.
 
 Tratto di Muraglia: scelta Mutianyu rispetto a Badaling (meno affollata, meglio conservata, ha comunque funivia/slittino) e a Jinshanling (troppo lontana — ~2,5h a tratta).
+
+Hutong — vicoli storici con case a corte (siheyuan), risalenti alla dinastia Yuan (1271–1368); il nome viene dal mongolo "hottog" (pozzo d'acqua). Nel 1949 Pechino ne contava oltre 6.000, oggi ridotti a circa 1.000 grazie a 25 zone di tutela storica istituite nel 2005.
 
 Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~10:30, ~14:30, ~4h ciascuno) — scelto quello delle ~10:30 rispetto a quello delle ~08:00, perché preserva un'ultima mattina rilassata a Pechino (subito dopo la partenza già all'alba per la Muraglia due giorni prima) e combacia col piano del giorno 1 a Pingyao qui sotto, costruito attorno a un arrivo alle 14:00. Riconfermare numero/orario esatto del treno quando China Rail apre le vendite (15–30 giorni prima del viaggio).
 
@@ -157,7 +163,17 @@ Treno Pechino–Pingyao: ci sono 3 treni G al giorno da Pechino Ovest (~08:00, ~
 | Prima passeggiata su via Ming-Qing e al Tempio del Dio della Città (Chenghuangmiao); le lanterne si accendono dopo il tramonto | 26 ott (lun) |
 | **Mura + Yamen** (inizio ~8:30 per battere i gruppi), poi banca Rishengchang (la prima banca cinese) + Torre della Città, opzionale Tempio di Confucio o shopping di scarpe/artigianato se c'è tempo | 27 ott (mar) |
 
+Via Ming-Qing — strada principale della città vecchia di Pingyao (patrimonio UNESCO), con edifici e negozi in stile Ming-Qing. Il Tempio del Dio della Città (Chenghuangmiao) è un tempio taoista con tre cortili e decorazioni intagliate risalenti a Ming e Qing.
+
+Mura di Pingyao — cinta muraria di 6 km ricostruita nel 1370, con 72 torrette. Lo Yamen è il più grande e meglio conservato ufficio di governo distrettuale antico della Cina, sede-tribunale-prigione del magistrato locale.
+
 La camminata sulle Mura è messa come prima cosa al mattino apposta per battere i gruppi organizzati, dato che l'accesso è incluso nel biglietto cumulativo e si affolla in fretta appena arrivano i pullman.
+
+Banca Rishengchang ("Alba Prosperosa") — fondata nel 1823, prima banca cinese, nata da una piccola tintoria e diventata leader nei trasferimenti di denaro con filiali in 35 città e succursali fino in Europa e Stati Uniti. Oggi è un museo del sistema finanziario storico cinese.
+
+Torre della Città — probabilmente del XIV secolo, unico edificio a più piani della città vecchia, alta 18,5 m. Fulcro del commercio in epoca Ming-Qing, con murales raffiguranti il Romanzo dei Tre Regni.
+
+Tempio di Confucio — fondato nel 627-649 (dinastia Tang), tra i meglio conservati in Cina. La Sala Dacheng, ricostruita nel 1163, è la più antica sala confuciana esistente al mondo. Fino al 1370 ospitava gli esami imperiali; ha formato 12 primi ministri Ming-Qing.
 
 **Partenza**
 
@@ -209,6 +225,16 @@ La camminata sulle Mura è messa come prima cosa al mattino apposta per battere 
 | Durata | ~3,5h |
 | Arrivo | Chengdu Est, 29 ott, ~11:40 stimato |
 
+Esercito di Terracotta — circa 8.000 guerrieri, 130 carri, 520 cavalli e 150 cavalli da guerra in argilla, sepolti in tre fosse vicino al mausoleo di Qin Shi Huang, primo imperatore della Cina unificata (221 a.C.), morto nel 210 a.C. Furono creati intorno al 210-209 a.C. per accompagnare e proteggere l'imperatore nell'aldilà; ogni statua ha volto, armi e posa individuali, probabilmente ispirati a soldati reali. Dimenticato per oltre 2.000 anni, fu scoperto per caso nel marzo 1974 da alcuni contadini che scavavano un pozzo nel villaggio di Xiyang; gli scavi ufficiali iniziarono a luglio dello stesso anno, seguiti dal ritrovamento delle Fosse 2 e 3 nel 1976. È considerato una delle maggiori scoperte archeologiche del XX secolo.
+
+Quartiere Musulmano — nato lungo la Via della Seta con l'insediamento di mercanti arabi e persiani in epoca Tang, poi diventati la comunità Hui (musulmana cinese). Oggi conta circa 60.000 abitanti, oltre metà Hui, cuore della cultura islamica cinese e famoso per il food street con specialità come Yangrou Paomo e noodles Biangbiang.
+
+Mura di Xi'an — costruite tra il 1370 e il 1378 sotto i Ming. Lunghe 13,74 km con 18 porte, tra le cinte murarie meglio conservate della Cina, percorribili in bici.
+
+Torre della Campana e del Tamburo — costruite nel 1384 e 1380 sotto i primi Ming, senza chiodi di ferro. Segnalavano il tempo alla città: la campana l'alba, il tamburo il tramonto. Tra le meglio conservate della Cina, sono simboli del centro storico di Xi'an.
+
+Grande Pagoda dell'Oca Selvatica — costruita nel 652 dal monaco Xuanzang per custodire le scritture buddhiste portate dall'India dopo un viaggio di 19 anni lungo la Via della Seta. Ricostruita nel 704, alta 64,5 m su 7 piani in mattoni. Patrimonio UNESCO; lo spettacolo di fontane si tiene nella piazza antistante la sera.
+
 La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per battere i grandi gruppi che arrivano a metà mattina. È la giornata più carica del viaggio, quindi le attività sono in ordine di priorità — niente è stato tolto, ma la coda è esplicitamente sacrificabile: Esercito di Terracotta e Quartiere Musulmano sono non negoziabili, il giro in bici sulle Mura è la terza scelta, le Torri sono esterni che si incontrano naturalmente tra il Quartiere e le mura (costo extra quasi zero), e la Grande Pagoda + spettacolo delle fontane è la prima cosa da tagliare se la giornata si allunga — è una corsa di metro verso sud.
 
 **Attività particolari** (non ancora inserite nel programma — solo un promemoria):
@@ -256,6 +282,10 @@ La partenza per l'Esercito di Terracotta è fissata alle 7:30 apposta per batter
 | Partenza | Chengdu, 31 ott, ~8:37 |
 | Durata | ~1,5–2h |
 | Arrivo | 31 ott, ~10:10–10:40 stimato |
+
+Kuanzhai Xiangzi — tre vicoli storici e 45 cortili, tra i complessi meglio conservati della Chengdu di epoca Qing. Nato nel 1718 come guarnigione manciù, oggi zona di cibo e cultura.
+
+Casa da tè Heming — nel cuore del Parco del Popolo, aperta nel 1923, tra le teahouse più iconiche di Chengdu. Rito locale: sedie di bambù, tè al gelsomino nel gaiwan, versato con teiere dal lungo becco (arte tramandata da generazioni) — modo tradizionale di vivere la città al rallentatore.
 
 La Base dei Panda è la prima cosa in programma perché i panda sono più attivi nella finestra del pasto mattutino, e la fascia d'ingresso del mattino è anche la prima a esaurirsi.
 
